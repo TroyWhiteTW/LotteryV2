@@ -25,8 +25,9 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/et_act"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="text" />
 
             <TextView
@@ -37,34 +38,46 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/et_pw"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="textPassword" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:orientation="horizontal">
 
                 <CheckBox
+                    android:id="@+id/cb_agree"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="同意会员协议" />
 
                 <Button
+                    android:id="@+id/btn_agree"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="查看会员协议内容"
                     android:textColor="#0000ff"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
-            <Button
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
                 android:text="登入"
                 android:textStyle="bold" />
 

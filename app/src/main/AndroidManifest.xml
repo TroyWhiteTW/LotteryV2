@@ -40,10 +40,18 @@
         <activity
             android:name=".HistoryActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".AgreementActivity" />
-        <activity android:name=".MoreListActivity" />
-        <activity android:name=".BTPActivity" />
-        <activity android:name=".QSRActivity"></activity>
+        <activity
+            android:name=".AgreementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MoreListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BTPActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QSRActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
