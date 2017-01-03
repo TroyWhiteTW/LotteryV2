@@ -35,7 +35,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void initial() {
-        app_net = getResources().getString(R.string.app_net);
+        app_net = "http://" + getResources().getString(R.string.app_net) + "/ajax_login.php?action=";
         et_act = (EditText) findViewById(R.id.et_act);
         et_pw = (EditText) findViewById(R.id.et_pw);
         cb_agree = (CheckBox) findViewById(R.id.cb_agree);
@@ -77,7 +77,7 @@ public class LogInActivity extends AppCompatActivity {
 
     public void login() {
         try {
-            MultipartUtility_tw mu = new MultipartUtility_tw("http://" + app_net + "/ajax_login.php?action=LogApp");
+            MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "LogApp");
             mu.postKeyValue("username", String.valueOf(et_act.getText()));
             mu.postKeyValue("password", String.valueOf(et_pw.getText()));
 //            List<String> html = mu.getHtml();

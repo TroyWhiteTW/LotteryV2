@@ -2,18 +2,88 @@ package com.lotteryv2;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class QGActivity extends AppCompatActivity {
+    private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
+    private String cookie, app_net;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qg);
+
+        Intent it = getIntent();
+        cookie = it.getStringExtra("cookie");
+        Log(cookie);
+
+        initial();
+    }
+
+    public void initial() {
+        app_net = "http://" + getResources().getString(R.string.app_net) + "/ajax_login.php?action=";
+        btn_List = (Button) findViewById(R.id.btn_qgList);
+        btn_QG = (Button) findViewById(R.id.btn_qgQG);
+        btn_QS = (Button) findViewById(R.id.btn_qgQS);
+        btn_Member = (Button) findViewById(R.id.btn_qgMember);
+        btn_History = (Button) findViewById(R.id.btn_qgHistory);
+
+        btnClick();
+    }
+
+    public void btnClick() {
+        btn_List.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(QGActivity.this, ListActivity.class);
+                it.putExtra("cookie", cookie);
+                startActivity(it);
+                finish();
+            }
+        });
+        btn_QG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent it = new Intent(QGActivity.this, QGActivity.class);
+//                it.putExtra("cookie", cookie);
+//                startActivity(it);
+//                finish();
+            }
+        });
+        btn_QS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(QGActivity.this, QSActivity.class);
+                it.putExtra("cookie", cookie);
+                startActivity(it);
+                finish();
+            }
+        });
+        btn_Member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(QGActivity.this, MemberActivity.class);
+                it.putExtra("cookie", cookie);
+                startActivity(it);
+                finish();
+            }
+        });
+        btn_History.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(QGActivity.this, HistoryActivity.class);
+                it.putExtra("cookie", cookie);
+                startActivity(it);
+                finish();
+            }
+        });
     }
 
     public void Toast(String s) {

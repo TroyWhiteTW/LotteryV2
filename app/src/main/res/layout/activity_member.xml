@@ -10,6 +10,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_memList"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -18,6 +19,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_memQG"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -26,6 +28,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_memQS"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,6 +37,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_memMember"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -42,6 +46,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_memHistory"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

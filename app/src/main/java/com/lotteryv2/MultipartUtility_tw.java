@@ -55,9 +55,8 @@ public class MultipartUtility_tw {
         List<String> response = new ArrayList<String>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(httpConn.getInputStream()));
         String line = null;
-        while ((line = reader.readLine()) != null) {
-            response.add(line);
-        }
+        while ((line = reader.readLine()) != null) response.add(line);
+        reader.close();
         return response;
     }
 
