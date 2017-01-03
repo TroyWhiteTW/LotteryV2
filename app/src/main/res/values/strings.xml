@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">LotteryV2</string>
+    <string name="app_name">7mb</string>
+    <string name="app_net">mb.sm2.xyz</string>
+
+    <string name="btnList">本期\n明细</string>
+    <string name="btnQuickGame">快打</string>
+    <string name="btnQuickSelect">快选</string>
+    <string name="btnMember">会员\n资料</string>
+    <string name="btnHistory">历史\n帐单</string>
 </resources>
