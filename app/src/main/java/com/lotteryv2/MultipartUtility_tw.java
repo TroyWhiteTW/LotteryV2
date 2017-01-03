@@ -18,7 +18,6 @@ import java.util.List;
  */
 
 public class MultipartUtility_tw {
-    private BufferedReader reader;
     private HttpURLConnection httpConn;
     private OutputStream outputStream;
 
@@ -54,7 +53,7 @@ public class MultipartUtility_tw {
 
     public List<String> getHtml() throws IOException {
         List<String> response = new ArrayList<String>();
-        reader = new BufferedReader(new InputStreamReader(httpConn.getInputStream()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(httpConn.getInputStream()));
         String line = null;
         while ((line = reader.readLine()) != null) {
             response.add(line);
@@ -76,7 +75,6 @@ public class MultipartUtility_tw {
 
     public void disconnect() throws IOException {
         outputStream.close();
-        reader.close();
         httpConn.disconnect();
     }
 

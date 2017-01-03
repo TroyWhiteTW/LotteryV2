@@ -27,9 +27,7 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        確定按下退出鍵and防止重複按下退出鍵
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            exitDialog();
-        }
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) exitDialog();
         return false;
     }
 
