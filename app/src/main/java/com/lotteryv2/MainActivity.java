@@ -3,6 +3,7 @@ package com.lotteryv2;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
@@ -25,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
         Log(cookie);
 
         initial();
+        getDataThread();
     }
 
     public void initial() {
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/ajax_login.php?action=";
+        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_mainList);
         btn_QG = (Button) findViewById(R.id.btn_mainQG);
         btn_QS = (Button) findViewById(R.id.btn_mainQS);
@@ -84,6 +88,37 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void getDataThread() {
+        new Thread() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                getData();
+                Looper.loop();
+            }
+        }.start();
+    }
+
+    public void getData() {
+        try {
+            MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "app_head_data");
+            mu.sendCookie(cookie);
+            int i = mu.getResponseCode();
+            Log("ResponseCod: " + i);
+            List<String> ret = mu.getHtml();
+            for (String line : ret) {
+                Log(line);
+            }
+//            String a = mu.getJSONObjectData().getString("list");
+//            Log.i("troy", a);
+//            String rec = new JSONArray(a).getJSONObject(0).getString("ticket");
+//            Log.i("troy", rec);
+        } catch (Exception e) {
+            Toast("无法与伺服器取得连线");
+            Log(e.toString());
+        }
     }
 
     public void Toast(String s) {
