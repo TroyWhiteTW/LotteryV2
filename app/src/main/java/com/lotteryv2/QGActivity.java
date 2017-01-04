@@ -28,7 +28,7 @@ public class QGActivity extends AppCompatActivity {
     }
 
     public void initial() {
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/ajax_login.php?action=";
+        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_qgList);
         btn_QG = (Button) findViewById(R.id.btn_qgQG);
         btn_QS = (Button) findViewById(R.id.btn_qgQS);

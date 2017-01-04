@@ -47,7 +47,7 @@ public class MemberActivity extends AppCompatActivity {
         Log(cookie);
 
         initial();
-        getDataThread();
+        connectThread(0);
     }
 
     public void initial() {
@@ -55,7 +55,7 @@ public class MemberActivity extends AppCompatActivity {
         list = new ArrayList();
 
         pDialog = new ProgressDialog(this);
-        pDialog.setTitle("资料下载中");
+        pDialog.setTitle("资料传输中");
         pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
         app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
@@ -123,18 +123,27 @@ public class MemberActivity extends AppCompatActivity {
         btn_commit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendDataThread();
+                connectThread(1);
             }
         });
     }
 
-    public void getDataThread() {
+    public void connectThread(final int connectThreadType) {
         pDialog.show();
         new Thread() {
             @Override
             public void run() {
                 Looper.prepare();
-                getData();
+                switch (connectThreadType) {
+                    case 0:
+                        getData();
+                        break;
+                    case 1:
+                        sendData();
+                        break;
+                    default:
+                        break;
+                }
                 Looper.loop();
             }
         }.start();
@@ -185,17 +194,6 @@ public class MemberActivity extends AppCompatActivity {
         handler.sendEmptyMessage(1);
     }
 
-    public void sendDataThread() {
-        new Thread() {
-            @Override
-            public void run() {
-                Looper.prepare();
-                sendData();
-                Looper.loop();
-            }
-        }.start();
-    }
-
     public void sendData() {
         try {
             MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "app_mem_data_act");
@@ -221,6 +219,7 @@ public class MemberActivity extends AppCompatActivity {
             Toast("无法与伺服器取得连线");
             Log(e.toString());
         }
+        handler.sendEmptyMessage(1);
     }
 
     private class UIHandler extends Handler {
