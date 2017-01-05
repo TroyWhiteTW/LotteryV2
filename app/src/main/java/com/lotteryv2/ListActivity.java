@@ -1,7 +1,6 @@
 package com.lotteryv2;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -32,7 +31,7 @@ public class ListActivity extends AppCompatActivity {
     private int totalPage;
     private int s_issueno;
     private LinearLayout ll_orderList;
-    private ProgressDialog pDialog;
+    private pDialog pDialog;
     private String cookie, app_net, ListID;
     private StringBuffer sb;
     private UIHandler handler;
@@ -54,10 +53,7 @@ public class ListActivity extends AppCompatActivity {
         handler = new UIHandler();
         cancelList = new ArrayList();
         sb = new StringBuffer();
-
-        pDialog = new ProgressDialog(this);
-        pDialog.setTitle("资料传输中");
-        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDialog = new pDialog(this);
 
         app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_listList);

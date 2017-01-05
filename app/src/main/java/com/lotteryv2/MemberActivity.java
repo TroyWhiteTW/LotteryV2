@@ -1,7 +1,6 @@
 package com.lotteryv2;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
@@ -29,7 +28,7 @@ public class MemberActivity extends AppCompatActivity {
     private Button btn_commit;
     private int odd_sw;
     private int left_show;
-    private ProgressDialog pDialog;
+    private pDialog pDialog;
     private RadioButton rb_ac, rb_tr;
     private String enter_btn;
     private String cookie, app_net;
@@ -53,10 +52,7 @@ public class MemberActivity extends AppCompatActivity {
     public void initial() {
         handler = new UIHandler();
         list = new ArrayList();
-
-        pDialog = new ProgressDialog(this);
-        pDialog.setTitle("资料传输中");
-        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDialog = new pDialog(this);
 
         app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_memList);
