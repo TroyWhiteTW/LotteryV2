@@ -56,4 +56,86 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#da8c8c"
+        android:gravity="center"
+        android:text="历史账单"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffe6ca"
+            android:gravity="center"
+            android:text="期号"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffe6ca"
+            android:gravity="center"
+            android:text="金额"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffe6ca"
+            android:gravity="center"
+            android:text="回水"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffe6ca"
+            android:gravity="center"
+            android:text="中奖"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffe6ca"
+            android:gravity="center"
+            android:text="盈亏"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_historyList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
