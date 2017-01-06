@@ -497,10 +497,10 @@ public class QGActivity extends AppCompatActivity {
                     int game_open_code = msg.getData().getInt("game_open");
                     if (game_open_code == 0) {
                         game_open_toast(0);
-                        tv_gameOpen.setText("關盤中");
+                        tv_gameOpen.setText("关盘中");
                     } else if (game_open_code == 1) {
                         game_open_toast(1);
-                        tv_gameOpen.setText("開盤中");
+                        tv_gameOpen.setText("开盘中");
                         sv_gameContent.setVisibility(View.VISIBLE);
                     }
                     break;
