@@ -32,7 +32,7 @@ public class ListActivity extends AppCompatActivity {
     private int s_issueno;
     private LinearLayout ll_orderList;
     private pDialog pDialog;
-    private String cookie, app_net, ListID;
+    private String cookie, app_net, webside, ListID;
     private StringBuffer sb;
     private UIHandler handler;
 
@@ -43,7 +43,7 @@ public class ListActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         cookie = it.getStringExtra("cookie");
-        Log(cookie);
+        webside = it.getStringExtra("webside");
 
         initial();
         connectThread(0);

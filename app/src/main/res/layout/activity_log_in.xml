@@ -20,6 +20,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="网址："
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_webside"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="帐号："
                 android:textSize="20sp"
                 android:textStyle="bold" />

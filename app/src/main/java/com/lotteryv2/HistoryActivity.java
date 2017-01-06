@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class HistoryActivity extends AppCompatActivity {
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
-    private String cookie, app_net;
+    private String cookie, app_net, webside;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         cookie = it.getStringExtra("cookie");
-        Log(cookie);
+        webside = it.getStringExtra("webside");
 
         initial();
     }

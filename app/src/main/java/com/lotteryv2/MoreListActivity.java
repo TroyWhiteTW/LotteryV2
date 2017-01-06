@@ -24,7 +24,7 @@ public class MoreListActivity extends AppCompatActivity {
     private int whatpage = 1;
     private LinearLayout ll_moreList;
     private pDialog pDialog;
-    private String cookie, app_net, s_issueno;
+    private String cookie, app_net, webside, s_issueno;
     private TextView tv_totalPages;
     private UIHandler handler;
 
@@ -35,7 +35,7 @@ public class MoreListActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         cookie = it.getStringExtra("cookie");
-        Log(cookie);
+        webside = it.getStringExtra("webside");
         s_issueno = it.getStringExtra("s_issueno");
         winList = it.getBooleanExtra("winList", false);
 

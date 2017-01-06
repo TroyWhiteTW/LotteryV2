@@ -31,7 +31,7 @@ public class MemberActivity extends AppCompatActivity {
     private pDialog pDialog;
     private RadioButton rb_ac, rb_tr;
     private String enter_btn;
-    private String cookie, app_net;
+    private String cookie, app_net, webside;
     private String[] sa;
     private TextView tv_username, tv_rcedits, tv_rcedits_use;
     private UIHandler handler;
@@ -43,7 +43,7 @@ public class MemberActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         cookie = it.getStringExtra("cookie");
-        Log(cookie);
+        webside = it.getStringExtra("webside");
 
         initial();
         connectThread(0);

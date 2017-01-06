@@ -23,7 +23,7 @@ import java.util.List;
 public class LogInActivity extends AppCompatActivity {
     private Button btn_agree, btn_login;
     private CheckBox cb_agree;
-    private EditText et_act, et_pw;
+    private EditText et_webside, et_act, et_pw;
     private String cookie, app_net;
 
     @Override
@@ -36,6 +36,7 @@ public class LogInActivity extends AppCompatActivity {
 
     public void initial() {
         app_net = "http://" + getResources().getString(R.string.app_net) + "/ajax_login.php?action=";
+        et_webside = (EditText) findViewById(R.id.et_webside);
         et_act = (EditText) findViewById(R.id.et_act);
         et_pw = (EditText) findViewById(R.id.et_pw);
         cb_agree = (CheckBox) findViewById(R.id.cb_agree);
@@ -94,6 +95,7 @@ public class LogInActivity extends AppCompatActivity {
                 Toast("成功登录");
                 Intent it = new Intent(LogInActivity.this, MainActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", et_webside.getText().toString());
                 startActivity(it);
                 finish();
             } else {
