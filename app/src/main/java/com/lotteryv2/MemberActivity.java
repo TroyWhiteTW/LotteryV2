@@ -33,7 +33,7 @@ public class MemberActivity extends AppCompatActivity {
     private String enter_btn;
     private String cookie, app_net, webside;
     private String[] sa;
-    private TextView tv_username, tv_rcedits, tv_rcedits_use;
+    private TextView tv_username, tv_rcedits, tv_rcedits_use, tv_rcedits_canUse;
     private UIHandler handler;
 
     @Override
@@ -65,6 +65,7 @@ public class MemberActivity extends AppCompatActivity {
         rb_tr = (RadioButton) findViewById(R.id.rb_tr);
         tv_rcedits = (TextView) findViewById(R.id.tv_rcedits);
         tv_rcedits_use = (TextView) findViewById(R.id.tv_rcedits_use);
+        tv_rcedits_canUse = (TextView) findViewById(R.id.tv_rcedits_canUse);
         tv_username = (TextView) findViewById(R.id.tv_username);
 
         btnClick();
@@ -149,10 +150,6 @@ public class MemberActivity extends AppCompatActivity {
         try {
             MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "app_get_mem_data");
             mu.sendCookie(cookie);
-//            List<String> ret = mu.getHtml();
-//            for (String line : ret) {
-//                Log(line);
-//            }
             JSONObject jo = mu.getJSONObjectData();
             int len = jo.length();
             Log("共有" + len + "筆資料");
@@ -235,6 +232,7 @@ public class MemberActivity extends AppCompatActivity {
                     tv_username.setText("帐号：" + username);
                     tv_rcedits.setText(rcedits);
                     tv_rcedits_use.setText(rcedits_use);
+                    tv_rcedits_canUse.setText(String.valueOf(Integer.parseInt(rcedits) - Integer.parseInt(rcedits_use)));
                     switch (odd_sw) {
                         case 0:
                             rb_ac.setChecked(true);

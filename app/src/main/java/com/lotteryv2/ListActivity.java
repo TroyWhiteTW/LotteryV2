@@ -51,9 +51,9 @@ public class ListActivity extends AppCompatActivity {
 
     public void initial() {
         handler = new UIHandler();
+        pDialog = new pDialog(this);
         cancelList = new ArrayList();
         sb = new StringBuffer();
-        pDialog = new pDialog(this);
 
         app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_listList);
