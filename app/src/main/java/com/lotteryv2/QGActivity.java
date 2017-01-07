@@ -284,7 +284,7 @@ public class QGActivity extends AppCompatActivity {
     }
 
     public void switchType(String a) {
-        switch (a){
+        switch (a) {
             case "X":
                 if (rb_allfour.isChecked() && textPos == 0) {
                 } else if (textPos == 0) {
@@ -359,8 +359,10 @@ public class QGActivity extends AppCompatActivity {
             b_2.putString("frank", frank);
             msg_2.setData(b_2);
             handler.sendMessage(msg_2);
-        } catch (Exception e) {
+        } catch (IOException e) {
             Toast("无法与伺服器取得连线");
+            Log(e.toString());
+        } catch (JSONException e) {
             Log(e.toString());
         }
         handler.sendEmptyMessage(1);
@@ -465,6 +467,7 @@ public class QGActivity extends AppCompatActivity {
                         tv_numberType.setText("現");
                         break;
                     default:
+                        tv_numberType.setText("--");
                         break;
                 }
             }

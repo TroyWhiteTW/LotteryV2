@@ -66,8 +66,7 @@
         android:text="关盘中"
         android:textAlignment="center"
         android:textColor="#ffffff"
-        android:textSize="18sp"
-        android:visibility="gone" />
+        android:textSize="18sp" />
 
     <ScrollView
         android:id="@+id/sv_qs"
@@ -88,8 +87,7 @@
                 android:text="开盘中"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:visibility="gone" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,6 +100,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:onClick="btn_erDing"
                     android:text="二字定" />
 
                 <Button
@@ -110,6 +109,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:onClick="btn_sanDing"
                     android:text="三字定" />
 
                 <Button
@@ -118,6 +118,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:onClick="btn_siDing"
                     android:text="四字定" />
 
                 <Button
@@ -126,6 +127,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:onClick="btn_erXian"
                     android:text="二字现" />
 
                 <Button
@@ -134,6 +136,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:onClick="btn_sanXian"
                     android:text="三字现" />
 
                 <Button
@@ -142,11 +145,13 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:onClick="btn_siXian"
                     android:text="四字现" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_1"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
@@ -179,7 +184,7 @@
                 android:textStyle="bold" />
 
             <RadioGroup
-                android:id="@+id/rg_dingBasic"
+                android:id="@+id/rg_1"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="#da8c8c"
@@ -242,9 +247,10 @@
             </RadioGroup>
 
             <RadioGroup
-                android:id="@+id/rg_peiBasic"
+                android:id="@+id/rg_2"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:background="#da8c8c"
                 android:orientation="horizontal">
 
@@ -278,7 +284,7 @@
             </RadioGroup>
 
             <LinearLayout
-                android:id="@+id/ll_dingPos"
+                android:id="@+id/ll_2"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="#d6d4d4"
@@ -323,7 +329,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_dingEdit"
+                android:id="@+id/ll_3"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="#d6d4d4"
@@ -392,7 +398,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_peiEdit_2"
+                android:id="@+id/ll_4"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="#d6d4d4"
@@ -430,7 +436,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_peiEdit_3"
+                android:id="@+id/ll_5"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="#d6d4d4"
@@ -487,7 +493,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_peiEdit_4"
+                android:id="@+id/ll_6"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="#d6d4d4"
@@ -563,6 +569,7 @@
             </LinearLayout>
 
             <RadioGroup
+                android:id="@+id/rg_3"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -597,6 +604,7 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/ll_7"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="#d6d4d4"
@@ -623,21 +631,25 @@
                             android:textStyle="bold" />
 
                         <CheckBox
+                            android:id="@+id/cb_1"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_3"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_4"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
@@ -676,21 +688,25 @@
                             android:textStyle="bold" />
 
                         <CheckBox
+                            android:id="@+id/cb_5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_6"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_8"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
@@ -711,6 +727,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_8"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="#d6d4d4"
@@ -737,21 +754,25 @@
                             android:textStyle="bold" />
 
                         <CheckBox
+                            android:id="@+id/cb_9"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_10"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_11"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_12"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
@@ -790,21 +811,25 @@
                             android:textStyle="bold" />
 
                         <CheckBox
+                            android:id="@+id/cb_13"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_14"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_15"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
                         <CheckBox
+                            android:id="@+id/cb_16"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
@@ -825,6 +850,44 @@
             </LinearLayout>
 
             <RadioGroup
+                android:id="@+id/rg_4"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="不定位合分"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="两数合"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/et_18"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textAlignment="center" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_5"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -857,7 +920,7 @@
                     android:textAlignment="center" />
 
                 <EditText
-                    android:id="@+id/et_18"
+                    android:id="@+id/et_19"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -869,6 +932,7 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/ll_9"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -880,25 +944,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="全转"
-                    android:textAlignment="center" />
-
-                <EditText
-                    android:id="@+id/et_19"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="上奖"
+                    android:text="值范围 从"
                     android:textAlignment="center" />
 
                 <EditText
@@ -916,7 +962,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="排除"
+                    android:text="值 至"
                     android:textAlignment="center" />
 
                 <EditText
@@ -929,9 +975,82 @@
                     android:maxLength="10"
                     android:textAlignment="center" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="值"
+                    android:textAlignment="center" />
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_10"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#ffbebe"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="全转"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/et_22"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="上奖"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/et_23"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="排除"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/et_24"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_11"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="#ffbebe"
@@ -946,21 +1065,25 @@
                     android:textAlignment="center" />
 
                 <CheckBox
+                    android:id="@+id/cb_17"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_18"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_19"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_20"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -968,6 +1091,7 @@
             </LinearLayout>
 
             <RadioGroup
+                android:id="@+id/rg_6"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1000,7 +1124,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_22"
+                    android:id="@+id/et_25"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1019,7 +1143,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_23"
+                    android:id="@+id/et_26"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1031,6 +1155,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_7"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1063,7 +1188,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_24"
+                    android:id="@+id/et_27"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1082,7 +1207,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_25"
+                    android:id="@+id/et_28"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1094,6 +1219,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_8"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1126,7 +1252,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_26"
+                    android:id="@+id/et_29"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1145,7 +1271,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_27"
+                    android:id="@+id/et_30"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1157,6 +1283,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_9"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1182,6 +1309,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_10"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1207,6 +1335,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_11"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1232,6 +1361,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_12"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1257,6 +1387,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_13"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1282,6 +1413,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_14"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1307,6 +1439,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_15"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1332,6 +1465,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_16"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1355,7 +1489,7 @@
                     android:textAlignment="center" />
 
                 <EditText
-                    android:id="@+id/et_28"
+                    android:id="@+id/et_31"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1365,7 +1499,7 @@
                     android:textAlignment="center" />
 
                 <EditText
-                    android:id="@+id/et_29"
+                    android:id="@+id/et_32"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1375,7 +1509,7 @@
                     android:textAlignment="center" />
 
                 <EditText
-                    android:id="@+id/et_30"
+                    android:id="@+id/et_33"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1387,6 +1521,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_17"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1410,21 +1545,25 @@
                     android:textAlignment="center" />
 
                 <CheckBox
+                    android:id="@+id/cb_21"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_22"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_23"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_24"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -1432,6 +1571,7 @@
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/rg_18"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
@@ -1455,27 +1595,31 @@
                     android:textAlignment="center" />
 
                 <CheckBox
+                    android:id="@+id/cb_25"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_26"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_27"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <CheckBox
+                    android:id="@+id/cb_28"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
             </RadioGroup>
-            
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
