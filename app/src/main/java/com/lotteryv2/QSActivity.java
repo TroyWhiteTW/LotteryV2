@@ -25,7 +25,8 @@ public class QSActivity extends AppCompatActivity {
     private Button btn_qsr, btn_reset;
     private CheckBox cb_1, cb_2, cb_3, cb_4, cb_5, cb_6, cb_7, cb_8, cb_9, cb_10,
             cb_11, cb_12, cb_13, cb_14, cb_15, cb_16, cb_17, cb_18, cb_19, cb_20,
-            cb_21, cb_22, cb_23, cb_24, cb_25, cb_26, cb_27, cb_28;
+            cb_21, cb_22, cb_23, cb_24, cb_25, cb_26, cb_27, cb_28, cb_29, cb_30,
+            cb_31, cb_32, cb_33, cb_34, cb_35, cb_36, cb_37, cb_38;
     private EditText et_1, et_2, et_3, et_4, et_5, et_6, et_7, et_8, et_9, et_10,
             et_11, et_12, et_13, et_14, et_15, et_16, et_17, et_18, et_19, et_20,
             et_21, et_22, et_23, et_24, et_25, et_26, et_27, et_28, et_29, et_30,
@@ -34,7 +35,8 @@ public class QSActivity extends AppCompatActivity {
             ll_11;
     private pDialog pDialog;
     private RadioGroup rg_1, rg_2, rg_3, rg_4, rg_5, rg_6, rg_7, rg_8, rg_9, rg_10,
-            rg_11, rg_12, rg_13, rg_14, rg_15, rg_16, rg_17, rg_18;
+            rg_11, rg_12, rg_13, rg_14, rg_15, rg_16, rg_17, rg_18, rg_19, rg_20,
+            rg_21, rg_22;
     private String cookie, app_net, webside;
     private TextView tv_gameStyle, tv_gameOpenFalse, tv_gameOpenTrue;
     private UIHandler handler;
@@ -96,6 +98,16 @@ public class QSActivity extends AppCompatActivity {
         cb_26 = (CheckBox) findViewById(R.id.cb_26);
         cb_27 = (CheckBox) findViewById(R.id.cb_27);
         cb_28 = (CheckBox) findViewById(R.id.cb_28);
+        cb_29 = (CheckBox) findViewById(R.id.cb_29);
+        cb_30 = (CheckBox) findViewById(R.id.cb_30);
+        cb_31 = (CheckBox) findViewById(R.id.cb_31);
+        cb_32 = (CheckBox) findViewById(R.id.cb_32);
+        cb_33 = (CheckBox) findViewById(R.id.cb_33);
+        cb_34 = (CheckBox) findViewById(R.id.cb_34);
+        cb_35 = (CheckBox) findViewById(R.id.cb_35);
+        cb_36 = (CheckBox) findViewById(R.id.cb_36);
+        cb_37 = (CheckBox) findViewById(R.id.cb_37);
+        cb_38 = (CheckBox) findViewById(R.id.cb_38);
         et_1 = (EditText) findViewById(R.id.et_1);
         et_2 = (EditText) findViewById(R.id.et_2);
         et_3 = (EditText) findViewById(R.id.et_3);
@@ -158,6 +170,10 @@ public class QSActivity extends AppCompatActivity {
         rg_16 = (RadioGroup) findViewById(R.id.rg_16);
         rg_17 = (RadioGroup) findViewById(R.id.rg_17);
         rg_18 = (RadioGroup) findViewById(R.id.rg_18);
+        rg_19 = (RadioGroup) findViewById(R.id.rg_19);
+        rg_20 = (RadioGroup) findViewById(R.id.rg_20);
+        rg_21 = (RadioGroup) findViewById(R.id.rg_21);
+        rg_22 = (RadioGroup) findViewById(R.id.rg_22);
         btn_qsr = (Button) findViewById(R.id.btn_qsr);
         btn_reset = (Button) findViewById(R.id.btn_reset);
         tv_gameStyle = (TextView) findViewById(R.id.tv_gameStyle);
@@ -193,6 +209,10 @@ public class QSActivity extends AppCompatActivity {
         rg_16.setVisibility(View.GONE);
         rg_17.setVisibility(View.GONE);
         rg_18.setVisibility(View.GONE);
+        rg_19.setVisibility(View.GONE);
+        rg_20.setVisibility(View.GONE);
+        rg_21.setVisibility(View.GONE);
+        rg_22.setVisibility(View.GONE);
 
         btnClick();
     }
@@ -263,76 +283,78 @@ public class QSActivity extends AppCompatActivity {
         tv_gameStyle.setText("---二字定---");
         reset();
         ll_1.setVisibility(View.VISIBLE);
-        ll_7.setVisibility(View.VISIBLE);
-        ll_8.setVisibility(View.VISIBLE);
-        ll_9.setVisibility(View.VISIBLE);
+        ll_9.setVisibility(View.GONE);
         ll_10.setVisibility(View.VISIBLE);
         ll_11.setVisibility(View.VISIBLE);
         rg_1.setVisibility(View.VISIBLE);
-        rg_2.setVisibility(View.VISIBLE);
+        rg_2.setVisibility(View.GONE);
         rg_3.setVisibility(View.VISIBLE);
         rg_4.setVisibility(View.VISIBLE);
-        rg_5.setVisibility(View.VISIBLE);
+        rg_5.setVisibility(View.GONE);
         rg_6.setVisibility(View.VISIBLE);
-        rg_7.setVisibility(View.VISIBLE);
-        rg_8.setVisibility(View.VISIBLE);
+        rg_7.setVisibility(View.GONE);
+        rg_8.setVisibility(View.GONE);
         rg_9.setVisibility(View.VISIBLE);
-        rg_10.setVisibility(View.VISIBLE);
-        rg_11.setVisibility(View.VISIBLE);
-        rg_12.setVisibility(View.VISIBLE);
+        rg_10.setVisibility(View.GONE);
+        rg_11.setVisibility(View.GONE);
+        rg_12.setVisibility(View.GONE);
         rg_13.setVisibility(View.VISIBLE);
-        rg_14.setVisibility(View.VISIBLE);
-        rg_15.setVisibility(View.VISIBLE);
+        rg_14.setVisibility(View.GONE);
+        rg_15.setVisibility(View.GONE);
         rg_16.setVisibility(View.VISIBLE);
-        rg_17.setVisibility(View.VISIBLE);
-        rg_18.setVisibility(View.VISIBLE);
+        rg_17.setVisibility(View.GONE);
+        rg_18.setVisibility(View.GONE);
+        rg_19.setVisibility(View.VISIBLE);
+        rg_20.setVisibility(View.GONE);
+        rg_21.setVisibility(View.GONE);
+        rg_22.setVisibility(View.VISIBLE);
     }
 
     public void btn_sanDing(View view) {
         tv_gameStyle.setText("---三字定---");
         reset();
         ll_1.setVisibility(View.VISIBLE);
-        ll_7.setVisibility(View.VISIBLE);
-        ll_8.setVisibility(View.VISIBLE);
-        ll_9.setVisibility(View.VISIBLE);
+        ll_9.setVisibility(View.GONE);
         ll_10.setVisibility(View.VISIBLE);
         ll_11.setVisibility(View.VISIBLE);
         rg_1.setVisibility(View.VISIBLE);
-        rg_2.setVisibility(View.VISIBLE);
+        rg_2.setVisibility(View.GONE);
         rg_3.setVisibility(View.VISIBLE);
-        rg_4.setVisibility(View.VISIBLE);
+        rg_4.setVisibility(View.GONE);
         rg_5.setVisibility(View.VISIBLE);
-        rg_6.setVisibility(View.VISIBLE);
+        rg_6.setVisibility(View.GONE);
         rg_7.setVisibility(View.VISIBLE);
-        rg_8.setVisibility(View.VISIBLE);
+        rg_8.setVisibility(View.GONE);
         rg_9.setVisibility(View.VISIBLE);
-        rg_10.setVisibility(View.VISIBLE);
+        rg_10.setVisibility(View.GONE);
         rg_11.setVisibility(View.VISIBLE);
-        rg_12.setVisibility(View.VISIBLE);
+        rg_12.setVisibility(View.GONE);
         rg_13.setVisibility(View.VISIBLE);
         rg_14.setVisibility(View.VISIBLE);
-        rg_15.setVisibility(View.VISIBLE);
+        rg_15.setVisibility(View.GONE);
         rg_16.setVisibility(View.VISIBLE);
-        rg_17.setVisibility(View.VISIBLE);
-        rg_18.setVisibility(View.VISIBLE);
+        rg_17.setVisibility(View.GONE);
+        rg_18.setVisibility(View.GONE);
+        rg_19.setVisibility(View.VISIBLE);
+        rg_20.setVisibility(View.GONE);
+        rg_21.setVisibility(View.GONE);
+        rg_22.setVisibility(View.VISIBLE);
     }
 
     public void btn_siDing(View view) {
         tv_gameStyle.setText("---四字定---");
         reset();
         ll_1.setVisibility(View.VISIBLE);
-        ll_7.setVisibility(View.VISIBLE);
-        ll_8.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.VISIBLE);
         ll_10.setVisibility(View.VISIBLE);
         ll_11.setVisibility(View.VISIBLE);
         rg_1.setVisibility(View.VISIBLE);
-        rg_2.setVisibility(View.VISIBLE);
+        rg_2.setVisibility(View.GONE);
         rg_3.setVisibility(View.VISIBLE);
-        rg_4.setVisibility(View.VISIBLE);
+        rg_4.setVisibility(View.GONE);
         rg_5.setVisibility(View.VISIBLE);
-        rg_6.setVisibility(View.VISIBLE);
-        rg_7.setVisibility(View.VISIBLE);
+        rg_6.setVisibility(View.GONE);
+        rg_7.setVisibility(View.GONE);
         rg_8.setVisibility(View.VISIBLE);
         rg_9.setVisibility(View.VISIBLE);
         rg_10.setVisibility(View.VISIBLE);
@@ -342,95 +364,105 @@ public class QSActivity extends AppCompatActivity {
         rg_14.setVisibility(View.VISIBLE);
         rg_15.setVisibility(View.VISIBLE);
         rg_16.setVisibility(View.VISIBLE);
-        rg_17.setVisibility(View.VISIBLE);
-        rg_18.setVisibility(View.VISIBLE);
+        rg_17.setVisibility(View.GONE);
+        rg_18.setVisibility(View.GONE);
+        rg_19.setVisibility(View.VISIBLE);
+        rg_20.setVisibility(View.GONE);
+        rg_21.setVisibility(View.GONE);
+        rg_22.setVisibility(View.VISIBLE);
     }
 
     public void btn_erXian(View view) {
         tv_gameStyle.setText("---二字現---");
         reset();
         ll_1.setVisibility(View.VISIBLE);
-        ll_7.setVisibility(View.VISIBLE);
-        ll_8.setVisibility(View.VISIBLE);
-        ll_9.setVisibility(View.VISIBLE);
-        ll_10.setVisibility(View.VISIBLE);
-        ll_11.setVisibility(View.VISIBLE);
-        rg_1.setVisibility(View.VISIBLE);
+        ll_9.setVisibility(View.GONE);
+        ll_10.setVisibility(View.GONE);
+        ll_11.setVisibility(View.GONE);
+        rg_1.setVisibility(View.GONE);
         rg_2.setVisibility(View.VISIBLE);
-        rg_3.setVisibility(View.VISIBLE);
+        rg_3.setVisibility(View.GONE);
         rg_4.setVisibility(View.VISIBLE);
-        rg_5.setVisibility(View.VISIBLE);
+        rg_5.setVisibility(View.GONE);
         rg_6.setVisibility(View.VISIBLE);
-        rg_7.setVisibility(View.VISIBLE);
-        rg_8.setVisibility(View.VISIBLE);
+        rg_7.setVisibility(View.GONE);
+        rg_8.setVisibility(View.GONE);
         rg_9.setVisibility(View.VISIBLE);
-        rg_10.setVisibility(View.VISIBLE);
-        rg_11.setVisibility(View.VISIBLE);
-        rg_12.setVisibility(View.VISIBLE);
+        rg_10.setVisibility(View.GONE);
+        rg_11.setVisibility(View.GONE);
+        rg_12.setVisibility(View.GONE);
         rg_13.setVisibility(View.VISIBLE);
-        rg_14.setVisibility(View.VISIBLE);
-        rg_15.setVisibility(View.VISIBLE);
+        rg_14.setVisibility(View.GONE);
+        rg_15.setVisibility(View.GONE);
         rg_16.setVisibility(View.VISIBLE);
         rg_17.setVisibility(View.VISIBLE);
-        rg_18.setVisibility(View.VISIBLE);
+        rg_18.setVisibility(View.GONE);
+        rg_19.setVisibility(View.GONE);
+        rg_20.setVisibility(View.VISIBLE);
+        rg_21.setVisibility(View.GONE);
+        rg_22.setVisibility(View.GONE);
     }
 
     public void btn_sanXian(View view) {
         tv_gameStyle.setText("---三字現---");
         reset();
         ll_1.setVisibility(View.VISIBLE);
-        ll_7.setVisibility(View.VISIBLE);
-        ll_8.setVisibility(View.VISIBLE);
-        ll_9.setVisibility(View.VISIBLE);
-        ll_10.setVisibility(View.VISIBLE);
-        ll_11.setVisibility(View.VISIBLE);
-        rg_1.setVisibility(View.VISIBLE);
+        ll_9.setVisibility(View.GONE);
+        ll_10.setVisibility(View.GONE);
+        ll_11.setVisibility(View.GONE);
+        rg_1.setVisibility(View.GONE);
         rg_2.setVisibility(View.VISIBLE);
-        rg_3.setVisibility(View.VISIBLE);
-        rg_4.setVisibility(View.VISIBLE);
+        rg_3.setVisibility(View.GONE);
+        rg_4.setVisibility(View.GONE);
         rg_5.setVisibility(View.VISIBLE);
-        rg_6.setVisibility(View.VISIBLE);
+        rg_6.setVisibility(View.GONE);
         rg_7.setVisibility(View.VISIBLE);
-        rg_8.setVisibility(View.VISIBLE);
+        rg_8.setVisibility(View.GONE);
         rg_9.setVisibility(View.VISIBLE);
-        rg_10.setVisibility(View.VISIBLE);
+        rg_10.setVisibility(View.GONE);
         rg_11.setVisibility(View.VISIBLE);
-        rg_12.setVisibility(View.VISIBLE);
+        rg_12.setVisibility(View.GONE);
         rg_13.setVisibility(View.VISIBLE);
         rg_14.setVisibility(View.VISIBLE);
-        rg_15.setVisibility(View.VISIBLE);
+        rg_15.setVisibility(View.GONE);
         rg_16.setVisibility(View.VISIBLE);
-        rg_17.setVisibility(View.VISIBLE);
+        rg_17.setVisibility(View.GONE);
         rg_18.setVisibility(View.VISIBLE);
+        rg_19.setVisibility(View.GONE);
+        rg_20.setVisibility(View.GONE);
+        rg_21.setVisibility(View.VISIBLE);
+        rg_22.setVisibility(View.GONE);
     }
 
     public void btn_siXian(View view) {
         tv_gameStyle.setText("---四字現---");
         reset();
         ll_1.setVisibility(View.VISIBLE);
-        ll_7.setVisibility(View.VISIBLE);
-        ll_8.setVisibility(View.VISIBLE);
-        ll_9.setVisibility(View.VISIBLE);
-        ll_10.setVisibility(View.VISIBLE);
-        ll_11.setVisibility(View.VISIBLE);
-        rg_1.setVisibility(View.VISIBLE);
+        ll_9.setVisibility(View.GONE);
+        ll_10.setVisibility(View.GONE);
+        ll_11.setVisibility(View.GONE);
+        rg_1.setVisibility(View.GONE);
         rg_2.setVisibility(View.VISIBLE);
-        rg_3.setVisibility(View.VISIBLE);
-        rg_4.setVisibility(View.VISIBLE);
+        rg_3.setVisibility(View.GONE);
+        rg_4.setVisibility(View.GONE);
         rg_5.setVisibility(View.VISIBLE);
-        rg_6.setVisibility(View.VISIBLE);
-        rg_7.setVisibility(View.VISIBLE);
+        rg_6.setVisibility(View.GONE);
+        rg_7.setVisibility(View.GONE);
         rg_8.setVisibility(View.VISIBLE);
         rg_9.setVisibility(View.VISIBLE);
-        rg_10.setVisibility(View.VISIBLE);
+        rg_10.setVisibility(View.GONE);
         rg_11.setVisibility(View.VISIBLE);
         rg_12.setVisibility(View.VISIBLE);
         rg_13.setVisibility(View.VISIBLE);
         rg_14.setVisibility(View.VISIBLE);
         rg_15.setVisibility(View.VISIBLE);
         rg_16.setVisibility(View.VISIBLE);
-        rg_17.setVisibility(View.VISIBLE);
-        rg_18.setVisibility(View.VISIBLE);
+        rg_17.setVisibility(View.GONE);
+        rg_18.setVisibility(View.GONE);
+        rg_19.setVisibility(View.VISIBLE);
+        rg_20.setVisibility(View.GONE);
+        rg_21.setVisibility(View.GONE);
+        rg_22.setVisibility(View.VISIBLE);
     }
 
     public void reset() {
@@ -462,6 +494,16 @@ public class QSActivity extends AppCompatActivity {
         cb_26.setChecked(false);
         cb_27.setChecked(false);
         cb_28.setChecked(false);
+        cb_29.setChecked(false);
+        cb_30.setChecked(false);
+        cb_31.setChecked(false);
+        cb_32.setChecked(false);
+        cb_33.setChecked(false);
+        cb_34.setChecked(false);
+        cb_35.setChecked(false);
+        cb_36.setChecked(false);
+        cb_37.setChecked(false);
+        cb_38.setChecked(false);
         et_1.setText("");
         et_2.setText("");
         et_3.setText("");
@@ -500,6 +542,8 @@ public class QSActivity extends AppCompatActivity {
         ll_4.setVisibility(View.GONE);
         ll_5.setVisibility(View.GONE);
         ll_6.setVisibility(View.GONE);
+        ll_7.setVisibility(View.GONE);
+        ll_8.setVisibility(View.GONE);
         rg_1.clearCheck();
         rg_2.clearCheck();
         rg_3.clearCheck();
@@ -518,6 +562,10 @@ public class QSActivity extends AppCompatActivity {
         rg_16.clearCheck();
         rg_17.clearCheck();
         rg_18.clearCheck();
+        rg_19.clearCheck();
+        rg_20.clearCheck();
+        rg_21.clearCheck();
+        rg_22.clearCheck();
     }
 
     public void connectThread(final int connectThreadType) {

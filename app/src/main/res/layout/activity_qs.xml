@@ -935,7 +935,6 @@
                 android:id="@+id/ll_9"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginTop="5dp"
                 android:background="#ffbebe"
                 android:orientation="horizontal">
 
@@ -1498,6 +1497,10 @@
                     android:maxLength="10"
                     android:textAlignment="center" />
 
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent" />
+
                 <EditText
                     android:id="@+id/et_32"
                     android:layout_width="0dp"
@@ -1507,6 +1510,10 @@
                     android:inputType="number"
                     android:maxLength="10"
                     android:textAlignment="center" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent" />
 
                 <EditText
                     android:id="@+id/et_33"
@@ -1556,18 +1563,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
-                <CheckBox
-                    android:id="@+id/cb_23"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <CheckBox
-                    android:id="@+id/cb_24"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
             </RadioGroup>
 
             <RadioGroup
@@ -1591,14 +1586,52 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="取(双)"
+                    android:text="取(单)"
                     android:textAlignment="center" />
+
+                <CheckBox
+                    android:id="@+id/cb_23"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_24"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
                 <CheckBox
                     android:id="@+id/cb_25"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_19"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="除"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取(单)"
+                    android:textAlignment="center" />
 
                 <CheckBox
                     android:id="@+id/cb_26"
@@ -1614,6 +1647,144 @@
 
                 <CheckBox
                     android:id="@+id/cb_28"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_29"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_20"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="除"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取(双)"
+                    android:textAlignment="center" />
+
+                <CheckBox
+                    android:id="@+id/cb_30"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_31"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_21"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="除"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取(双)"
+                    android:textAlignment="center" />
+
+                <CheckBox
+                    android:id="@+id/cb_32"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_33"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_34"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_22"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="除"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取(双)"
+                    android:textAlignment="center" />
+
+                <CheckBox
+                    android:id="@+id/cb_35"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_36"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_37"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_38"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
