@@ -16,8 +16,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 public class QSActivity extends AppCompatActivity {
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
@@ -38,6 +41,7 @@ public class QSActivity extends AppCompatActivity {
             rg_11, rg_12, rg_13, rg_14, rg_15, rg_16, rg_17, rg_18, rg_19, rg_20,
             rg_21, rg_22;
     private String cookie, app_net, webside;
+    private ScrollView sv_qs;
     private TextView tv_gameStyle, tv_gameOpenFalse, tv_gameOpenTrue;
     private UIHandler handler;
 
@@ -64,6 +68,8 @@ public class QSActivity extends AppCompatActivity {
         btn_QS = (Button) findViewById(R.id.btn_qsQS);
         btn_Member = (Button) findViewById(R.id.btn_qsMember);
         btn_History = (Button) findViewById(R.id.btn_qsHistory);
+        btn_qsr = (Button) findViewById(R.id.btn_qsr);
+        btn_reset = (Button) findViewById(R.id.btn_reset);
 //        btn_erDing = (Button) findViewById(R.id.btn_erDing);
 //        btn_sanDing = (Button) findViewById(R.id.btn_sanDing);
 //        btn_siDing = (Button) findViewById(R.id.btn_siDing);
@@ -174,8 +180,7 @@ public class QSActivity extends AppCompatActivity {
         rg_20 = (RadioGroup) findViewById(R.id.rg_20);
         rg_21 = (RadioGroup) findViewById(R.id.rg_21);
         rg_22 = (RadioGroup) findViewById(R.id.rg_22);
-        btn_qsr = (Button) findViewById(R.id.btn_qsr);
-        btn_reset = (Button) findViewById(R.id.btn_reset);
+        sv_qs = (ScrollView) findViewById(R.id.sv_qs);
         tv_gameStyle = (TextView) findViewById(R.id.tv_gameStyle);
         tv_gameOpenFalse = (TextView) findViewById(R.id.tv_gameOpenFalse);
         tv_gameOpenTrue = (TextView) findViewById(R.id.tv_gameOpenTrue);
@@ -591,9 +596,19 @@ public class QSActivity extends AppCompatActivity {
 
     public void getData() {
         try {
+            MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "app_head_data");
+            mu.sendCookie(cookie);
+            JSONObject jo = mu.getJSONObjectData();
 
+            Message msg = new Message();
+            Bundle b = new Bundle();
+            Log("game_open = " + jo.getInt("game_open"));
+            b.putInt("game_open", jo.getInt("game_open"));
+            msg.setData(b);
+            handler.sendMessage(msg);
         } catch (Exception e) {
-
+            Toast("无法与伺服器取得连线");
+            Log(e.toString());
         }
         handler.sendEmptyMessage(1);
     }
@@ -606,7 +621,21 @@ public class QSActivity extends AppCompatActivity {
             Log("msg.what = " + msg.what);
             switch (msg.what) {
                 case 0:
-
+                    int gameOpenCode = msg.getData().getInt("game_open");
+                    switch (gameOpenCode) {
+                        case 0:
+                            gameOpenToast(0);
+                            tv_gameOpenFalse.setVisibility(View.VISIBLE);
+                            sv_qs.setVisibility(View.GONE);
+                            break;
+                        case 1:
+                            gameOpenToast(1);
+                            tv_gameOpenTrue.setVisibility(View.VISIBLE);
+                            sv_qs.setVisibility(View.VISIBLE);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case 1:
                     if (pDialog.isShowing()) pDialog.dismiss();
@@ -614,6 +643,19 @@ public class QSActivity extends AppCompatActivity {
                 default:
                     break;
             }
+        }
+    }
+
+    public void gameOpenToast(int i) {
+        switch (i) {
+            case 0:
+                Toast("關盤中");
+                break;
+            case 1:
+                Toast("開盤中");
+                break;
+            default:
+                break;
         }
     }
 
