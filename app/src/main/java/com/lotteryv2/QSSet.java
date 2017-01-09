@@ -7,29 +7,20 @@ import java.util.TreeSet;
  */
 
 public class QSSet {
-    private int size = 0;
     private StringBuffer sb, sbRes, sbTmp;
-    private TreeSet<String> treeSet = new TreeSet<>();
+    private TreeSet<String> originSet, tmpSet, dingWeiZhiSet;
 
     QSSet(int i) {
         sb = new StringBuffer();
         sbRes = new StringBuffer();
         sbTmp = new StringBuffer();
+        originSet = new TreeSet<>();
 
         sb.setLength(4);
 
         switch (i) {
             case 1:
                 erDingAll();
-                for (String s : treeSet) {
-                    sbTmp.setLength(0);
-                    sbTmp.append(s);
-                    if (sbTmp.substring(0, 1).equals("1")) {
-                        size++;
-                        sbRes.append(s);
-                        sbRes.append("\n");
-                    }
-                }
                 break;
             case 2:
                 sanDingAll();
@@ -50,28 +41,189 @@ public class QSSet {
     }
 
     public int getSetSize() {
-        return size;
+        return originSet.size();
     }
 
     public String getSet() {
+        for (String s : originSet) {
+            sbRes.append(s);
+            sbRes.append("\n");
+        }
         return sbRes.toString();
     }
 
+    //取定位置
+    public void quDingWeiZhi(String qian, String bai, String shi, String ge) {
+        dingWeiZhiSet = originSet;
+        tmpSet = new TreeSet<>();
+        if (!qian.equals("")) QuQian(qian);
+        if (!bai.equals("")) QuBai(bai);
+        if (!shi.equals("")) QuShi(shi);
+        if (!ge.equals("")) QuGe(ge);
+        for (String s : dingWeiZhiSet) tmpSet.add(s);
+        originSet = tmpSet;
+    }
+
+    //取千
+    private void QuQian(String et) {
+        tmpSet = new TreeSet<>();
+        String a;
+        for (String s : dingWeiZhiSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            if (a.equals(et)) tmpSet.add(s);
+        }
+        dingWeiZhiSet = tmpSet;
+    }
+
+    //取百
+    private void QuBai(String et) {
+        tmpSet = new TreeSet<>();
+        String b;
+        for (String s : dingWeiZhiSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            b = sbTmp.substring(1, 2);
+            if (b.equals(et)) tmpSet.add(s);
+        }
+        dingWeiZhiSet = tmpSet;
+    }
+
+    //取十
+    private void QuShi(String et) {
+        tmpSet = new TreeSet<>();
+        String c;
+        for (String s : dingWeiZhiSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            c = sbTmp.substring(2, 3);
+            if (c.equals(et)) tmpSet.add(s);
+        }
+        dingWeiZhiSet = tmpSet;
+    }
+
+    //取個
+    private void QuGe(String et) {
+        tmpSet = new TreeSet<>();
+        String d;
+        for (String s : dingWeiZhiSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            d = sbTmp.substring(3, 4);
+            if (d.equals(et)) tmpSet.add(s);
+        }
+        dingWeiZhiSet = tmpSet;
+    }
+
+    //取雙重
+    public void quShuangChong() {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : originSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(b) && c.equals(d) ||
+                    a.equals(c) && b.equals(d) ||
+                    a.equals(d) && b.equals(c)) {
+                tmpSet.add(s);
+            }
+        }
+        originSet = tmpSet;
+    }
+
+    //取二兄弟
+    public void quErXiongDi() {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : originSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 10;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 10;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 10;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 10;
+            }
+            for (int i = 0; i <= 8; i++) {
+                if (a1 == i && b2 == i + 1 ||
+                        a1 == i && c3 == i + 1 ||
+                        a1 == i && d4 == i + 1 ||
+                        b2 == i && c3 == i + 1 ||
+                        b2 == i && d4 == i + 1 ||
+                        c3 == i && d4 == i + 1) {
+                    tmpSet.add(s);
+                }
+            }
+            for (int i = 9; i >= 1; i--) {
+                if (a1 == i && b2 == i - 1 ||
+                        a1 == i && c3 == i - 1 ||
+                        a1 == i && d4 == i - 1 ||
+                        b2 == i && c3 == i - 1 ||
+                        b2 == i && d4 == i - 1 ||
+                        c3 == i && d4 == i - 1) {
+                    tmpSet.add(s);
+                }
+            }
+            if (a1 == 0 && b2 == 9 ||
+                    a1 == 0 && c3 == 9 ||
+                    a1 == 0 && d4 == 9 ||
+                    b2 == 0 && c3 == 9 ||
+                    b2 == 0 && d4 == 9 ||
+                    c3 == 0 && d4 == 9) {
+                tmpSet.add(s);
+            }
+            if (a1 == 9 && b2 == 0 ||
+                    a1 == 9 && c3 == 0 ||
+                    a1 == 9 && d4 == 0 ||
+                    b2 == 9 && c3 == 0 ||
+                    b2 == 9 && d4 == 0 ||
+                    c3 == 9 && d4 == 0) {
+                tmpSet.add(s);
+            }
+        }
+        originSet = tmpSet;
+    }
+
     //把數組放進list結構裡面使用
+
     private void sbToList(String s1, String s2, String s3, String s4) {
         sb.replace(0, 1, s1);
         sb.replace(1, 2, s2);
         sb.replace(2, 3, s3);
         sb.replace(3, 4, s4);
 
-        treeSet.add(sb.toString());
+        originSet.add(sb.toString());
     }
 
     private void sbToList(String s1, String s2) {
         sb.replace(0, 1, s1);
         sb.replace(1, 2, s2);
 
-        treeSet.add(sb.toString());
+        originSet.add(sb.toString());
     }
 
     private void sbToList(String s1, String s2, String s3) {
@@ -79,7 +231,7 @@ public class QSSet {
         sb.replace(1, 2, s2);
         sb.replace(2, 3, s3);
 
-        treeSet.add(sb.toString());
+        originSet.add(sb.toString());
     }
 
     //把數組從list結構移除
@@ -89,14 +241,14 @@ public class QSSet {
         sb.replace(2, 3, s3);
         sb.replace(3, 4, s4);
 
-        treeSet.remove(sb.toString());
+        originSet.remove(sb.toString());
     }
 
     private void sbRemoveList(String s1, String s2) {
         sb.replace(0, 1, s1);
         sb.replace(1, 2, s2);
 
-        treeSet.remove(sb.toString());
+        originSet.remove(sb.toString());
     }
 
     private void sbRemoveList(String s1, String s2, String s3) {
@@ -104,7 +256,7 @@ public class QSSet {
         sb.replace(1, 2, s2);
         sb.replace(2, 3, s3);
 
-        treeSet.remove(sb.toString());
+        originSet.remove(sb.toString());
     }
 
     //二字定全組合

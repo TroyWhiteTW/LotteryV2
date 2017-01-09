@@ -16,8 +16,10 @@ import android.widget.Toast;
 public class QSRActivity extends AppCompatActivity {
     private Button btn_sendGameSet;
     private EditText et_perMoney;
+    private int rcedits, rcedits_use;
     private pDialog pDialog;
     private String cookie, app_net, webside;
+    private String size, set;
     private TextView tv_qselectres, tv_howMany, tv_totalMoney;
     private UIHandler handler;
 
@@ -29,6 +31,8 @@ public class QSRActivity extends AppCompatActivity {
         Intent it = getIntent();
         cookie = it.getStringExtra("cookie");
         webside = it.getStringExtra("webside");
+        size = it.getStringExtra("size");
+        set = it.getStringExtra("set");
 
         initial();
         connectThread(0);
@@ -45,6 +49,9 @@ public class QSRActivity extends AppCompatActivity {
         tv_howMany = (TextView) findViewById(R.id.tv_howMany);
         tv_totalMoney = (TextView) findViewById(R.id.tv_totalMoney);
 
+        tv_howMany.setText("笔数：" + size);
+        tv_qselectres.setText(set);
+
         btnClick();
     }
 
@@ -52,7 +59,15 @@ public class QSRActivity extends AppCompatActivity {
         btn_sendGameSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if (!et_perMoney.getText().toString().equals("")) {
+                    if (Integer.parseInt(et_perMoney.getText().toString()) * Integer.parseInt(size) > rcedits - rcedits_use) {
+                        Toast("余额不足");
+                    } else {
+                        connectThread(1);
+                    }
+                } else {
+                    Toast("未输入金额");
+                }
             }
         });
     }
@@ -68,7 +83,7 @@ public class QSRActivity extends AppCompatActivity {
                         getData();
                         break;
                     case 1:
-
+                        sendData();
                         break;
                     default:
                         break;
@@ -79,6 +94,15 @@ public class QSRActivity extends AppCompatActivity {
     }
 
     public void getData() {
+        try {
+
+        } catch (Exception e) {
+
+        }
+        handler.sendEmptyMessage(1);
+    }
+
+    public void sendData() {
         try {
 
         } catch (Exception e) {
