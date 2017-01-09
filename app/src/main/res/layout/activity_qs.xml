@@ -202,7 +202,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
-                    android:id="@+id/rb_dingChu"
+                    android:id="@+id/rb_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -211,7 +211,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
-                    android:id="@+id/rb_dingQu"
+                    android:id="@+id/rb_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -229,7 +229,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
-                    android:id="@+id/rb_peiChu"
+                    android:id="@+id/rb_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -238,7 +238,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
-                    android:id="@+id/rb_peiQu"
+                    android:id="@+id/rb_4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -266,7 +266,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
-                    android:id="@+id/rb_pei_chu"
+                    android:id="@+id/rb_5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -275,7 +275,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
-                    android:id="@+id/rb_pei_qu"
+                    android:id="@+id/rb_6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -588,6 +588,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
+                    android:id="@+id/rb_7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -596,6 +597,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_8"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -869,6 +871,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
+                    android:id="@+id/rb_9"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -906,6 +909,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
+                    android:id="@+id/rb_10"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -914,6 +918,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_11"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1100,6 +1105,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_12"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1108,6 +1114,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_13"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1164,6 +1171,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_14"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1172,6 +1180,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_15"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1228,6 +1237,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_16"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1236,6 +1246,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_17"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1292,6 +1303,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_18"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1300,6 +1312,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_19"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1318,6 +1331,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_20"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1326,6 +1340,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_21"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1344,6 +1359,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_22"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1352,6 +1368,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_23"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1370,6 +1387,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_24"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1378,6 +1396,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_25"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1396,6 +1415,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_26"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1404,6 +1424,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_27"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1422,6 +1443,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_28"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1430,6 +1452,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_29"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1448,6 +1471,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_30"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1456,6 +1480,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_31"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1474,6 +1499,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_32"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1482,6 +1508,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_33"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1538,6 +1565,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_34"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1546,6 +1574,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_35"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1576,6 +1605,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_36"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1584,6 +1614,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_37"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1620,6 +1651,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_38"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1628,6 +1660,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_39"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1670,6 +1703,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_40"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1678,6 +1712,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_41"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1708,6 +1743,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_42"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1716,6 +1752,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_43"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1752,6 +1789,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_44"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1760,6 +1798,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
+                    android:id="@+id/rb_45"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

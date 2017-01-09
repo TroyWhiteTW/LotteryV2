@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -37,6 +38,11 @@ public class QSActivity extends AppCompatActivity {
     private LinearLayout ll_1, ll_2, ll_3, ll_4, ll_5, ll_6, ll_7, ll_8, ll_9, ll_10,
             ll_11;
     private pDialog pDialog;
+    private RadioButton rb_1, rb_2, rb_3, rb_4, rb_5, rb_6, rb_7, rb_8, rb_9, rb_10,
+            rb_11, rb_12, rb_13, rb_14, rb_15, rb_16, rb_17, rb_18, rb_19, rb_20,
+            rb_21, rb_22, rb_23, rb_24, rb_25, rb_26, rb_27, rb_28, rb_29, rb_30,
+            rb_31, rb_32, rb_33, rb_34, rb_35, rb_36, rb_37, rb_38, rb_39, rb_40,
+            rb_41, rb_42, rb_43, rb_44, rb_45;
     private RadioGroup rg_1, rg_2, rg_3, rg_4, rg_5, rg_6, rg_7, rg_8, rg_9, rg_10,
             rg_11, rg_12, rg_13, rg_14, rg_15, rg_16, rg_17, rg_18, rg_19, rg_20,
             rg_21, rg_22;
@@ -158,6 +164,51 @@ public class QSActivity extends AppCompatActivity {
         ll_9 = (LinearLayout) findViewById(R.id.ll_9);
         ll_10 = (LinearLayout) findViewById(R.id.ll_10);
         ll_11 = (LinearLayout) findViewById(R.id.ll_11);
+        rb_1 = (RadioButton) findViewById(R.id.rb_1);
+        rb_2 = (RadioButton) findViewById(R.id.rb_2);
+        rb_3 = (RadioButton) findViewById(R.id.rb_3);
+        rb_4 = (RadioButton) findViewById(R.id.rb_4);
+        rb_5 = (RadioButton) findViewById(R.id.rb_5);
+        rb_6 = (RadioButton) findViewById(R.id.rb_6);
+        rb_7 = (RadioButton) findViewById(R.id.rb_7);
+        rb_8 = (RadioButton) findViewById(R.id.rb_8);
+        rb_9 = (RadioButton) findViewById(R.id.rb_9);
+        rb_10 = (RadioButton) findViewById(R.id.rb_10);
+        rb_11 = (RadioButton) findViewById(R.id.rb_11);
+        rb_12 = (RadioButton) findViewById(R.id.rb_12);
+        rb_13 = (RadioButton) findViewById(R.id.rb_13);
+        rb_14 = (RadioButton) findViewById(R.id.rb_14);
+        rb_15 = (RadioButton) findViewById(R.id.rb_15);
+        rb_16 = (RadioButton) findViewById(R.id.rb_16);
+        rb_17 = (RadioButton) findViewById(R.id.rb_17);
+        rb_18 = (RadioButton) findViewById(R.id.rb_18);
+        rb_19 = (RadioButton) findViewById(R.id.rb_19);
+        rb_20 = (RadioButton) findViewById(R.id.rb_20);
+        rb_21 = (RadioButton) findViewById(R.id.rb_21);
+        rb_22 = (RadioButton) findViewById(R.id.rb_22);
+        rb_23 = (RadioButton) findViewById(R.id.rb_23);
+        rb_24 = (RadioButton) findViewById(R.id.rb_24);
+        rb_25 = (RadioButton) findViewById(R.id.rb_25);
+        rb_26 = (RadioButton) findViewById(R.id.rb_26);
+        rb_27 = (RadioButton) findViewById(R.id.rb_27);
+        rb_28 = (RadioButton) findViewById(R.id.rb_28);
+        rb_29 = (RadioButton) findViewById(R.id.rb_29);
+        rb_30 = (RadioButton) findViewById(R.id.rb_30);
+        rb_31 = (RadioButton) findViewById(R.id.rb_31);
+        rb_32 = (RadioButton) findViewById(R.id.rb_32);
+        rb_33 = (RadioButton) findViewById(R.id.rb_33);
+        rb_34 = (RadioButton) findViewById(R.id.rb_34);
+        rb_35 = (RadioButton) findViewById(R.id.rb_35);
+        rb_36 = (RadioButton) findViewById(R.id.rb_36);
+        rb_37 = (RadioButton) findViewById(R.id.rb_37);
+        rb_38 = (RadioButton) findViewById(R.id.rb_38);
+        rb_39 = (RadioButton) findViewById(R.id.rb_39);
+        rb_40 = (RadioButton) findViewById(R.id.rb_40);
+        rb_41 = (RadioButton) findViewById(R.id.rb_41);
+        rb_42 = (RadioButton) findViewById(R.id.rb_42);
+        rb_43 = (RadioButton) findViewById(R.id.rb_43);
+        rb_44 = (RadioButton) findViewById(R.id.rb_44);
+        rb_45 = (RadioButton) findViewById(R.id.rb_45);
         rg_1 = (RadioGroup) findViewById(R.id.rg_1);
         rg_2 = (RadioGroup) findViewById(R.id.rg_2);
         rg_3 = (RadioGroup) findViewById(R.id.rg_3);
@@ -271,9 +322,10 @@ public class QSActivity extends AppCompatActivity {
         btn_qsr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QSSet set = new QSSet(6);
-//                set.quDingWeiZhi(true, "2", "", "3", "");
-                set.erXiongDi(true);
+                QSSet set = new QSSet(1);
+//                set.dingWeiZhi(false, "2", "", "3", "");
+//                set.dingWeiZhi(false, "1", "", "3", "");
+//                set.erXiongDi(true);
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("size", String.valueOf(set.getSetSize()));

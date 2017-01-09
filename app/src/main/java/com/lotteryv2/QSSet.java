@@ -9,13 +9,14 @@ import java.util.TreeSet;
 public class QSSet {
     private int gameStyle;
     private StringBuffer sb, sbRes, sbTmp;
-    private TreeSet<String> originSet, tmpSet, dingWeiZhiSet;
+    private TreeSet<String> originSet, set, tmpSet, dingWeiZhiSet;
 
     QSSet(int i) {
         sb = new StringBuffer();
         sbRes = new StringBuffer();
         sbTmp = new StringBuffer();
         originSet = new TreeSet<>();
+        set = new TreeSet<>();
 
         sb.setLength(4);
 
@@ -44,11 +45,11 @@ public class QSSet {
     }
 
     public int getSetSize() {
-        return originSet.size();
+        return set.size();
     }
 
     public String getSet() {
-        for (String s : originSet) {
+        for (String s : set) {
             sbRes.append(s);
             sbRes.append("\n");
         }
@@ -56,7 +57,7 @@ public class QSSet {
     }
 
     //定位置
-    public void quDingWeiZhi(boolean chuQu, String qian, String bai, String shi, String ge) {
+    public void dingWeiZhi(boolean chuQu, String qian, String bai, String shi, String ge) {
         dingWeiZhiSet = originSet;
         tmpSet = new TreeSet<>();
         if (!qian.equals("")) QuQian(qian);
@@ -65,7 +66,8 @@ public class QSSet {
         if (!ge.equals("")) QuGe(ge);
         for (String s : dingWeiZhiSet) tmpSet.add(s);
         if (!chuQu) {
-            originSet.removeAll(tmpSet);
+            set = originSet;
+            set.removeAll(tmpSet);
             if (!qian.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
                 String a;
@@ -75,7 +77,7 @@ public class QSSet {
                     a = sbTmp.substring(0, 1);
                     if (a.equals("X")) treeSet.add(s);
                 }
-                originSet.removeAll(treeSet);
+                set.removeAll(treeSet);
             }
             if (!bai.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
@@ -86,7 +88,7 @@ public class QSSet {
                     b = sbTmp.substring(1, 2);
                     if (b.equals("X")) treeSet.add(s);
                 }
-                originSet.removeAll(treeSet);
+                set.removeAll(treeSet);
             }
             if (!shi.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
@@ -97,7 +99,7 @@ public class QSSet {
                     c = sbTmp.substring(2, 3);
                     if (c.equals("X")) treeSet.add(s);
                 }
-                originSet.removeAll(treeSet);
+                set.removeAll(treeSet);
             }
             if (!ge.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
@@ -108,10 +110,10 @@ public class QSSet {
                     d = sbTmp.substring(3, 4);
                     if (d.equals("X")) treeSet.add(s);
                 }
-                originSet.removeAll(treeSet);
+                set.removeAll(treeSet);
             }
         } else {
-            originSet = tmpSet;
+            set.addAll(tmpSet);
         }
     }
 
@@ -171,7 +173,7 @@ public class QSSet {
     public void shuangChong(boolean chuQu) {
         tmpSet = new TreeSet<>();
         String a, b, c, d;
-        for (String s : originSet) {
+        for (String s : set) {
             sbTmp.setLength(0);
             sbTmp.append(s);
             a = sbTmp.substring(0, 1);
@@ -206,9 +208,9 @@ public class QSSet {
             }
         }
         if (!chuQu) {
-            originSet.removeAll(tmpSet);
+            set.removeAll(tmpSet);
         } else {
-            originSet = tmpSet;
+            set = tmpSet;
         }
     }
 
@@ -217,7 +219,7 @@ public class QSSet {
         tmpSet = new TreeSet<>();
         int a1, b2, c3, d4;
         String a, b, c, d;
-        for (String s : originSet) {
+        for (String s : set) {
             sbTmp.setLength(0);
             sbTmp.append(s);
             a = sbTmp.substring(0, 1);
@@ -282,9 +284,9 @@ public class QSSet {
             }
         }
         if (!chuQu) {
-            originSet.removeAll(tmpSet);
+            set.removeAll(tmpSet);
         } else {
-            originSet = tmpSet;
+            set = tmpSet;
         }
 
     }
