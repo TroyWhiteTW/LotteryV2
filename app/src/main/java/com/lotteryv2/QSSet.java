@@ -7,6 +7,7 @@ import java.util.TreeSet;
  */
 
 public class QSSet {
+    private int gameStyle;
     private StringBuffer sb, sbRes, sbTmp;
     private TreeSet<String> originSet, tmpSet, dingWeiZhiSet;
 
@@ -17,6 +18,8 @@ public class QSSet {
         originSet = new TreeSet<>();
 
         sb.setLength(4);
+
+        gameStyle = i;
 
         switch (i) {
             case 1:
@@ -52,8 +55,8 @@ public class QSSet {
         return sbRes.toString();
     }
 
-    //取定位置
-    public void quDingWeiZhi(String qian, String bai, String shi, String ge) {
+    //定位置
+    public void quDingWeiZhi(boolean chuQu, String qian, String bai, String shi, String ge) {
         dingWeiZhiSet = originSet;
         tmpSet = new TreeSet<>();
         if (!qian.equals("")) QuQian(qian);
@@ -61,7 +64,55 @@ public class QSSet {
         if (!shi.equals("")) QuShi(shi);
         if (!ge.equals("")) QuGe(ge);
         for (String s : dingWeiZhiSet) tmpSet.add(s);
-        originSet = tmpSet;
+        if (!chuQu) {
+            originSet.removeAll(tmpSet);
+            if (!qian.equals("")) {
+                TreeSet<String> treeSet = new TreeSet<>();
+                String a;
+                for (String s : originSet) {
+                    sbTmp.setLength(0);
+                    sbTmp.append(s);
+                    a = sbTmp.substring(0, 1);
+                    if (a.equals("X")) treeSet.add(s);
+                }
+                originSet.removeAll(treeSet);
+            }
+            if (!bai.equals("")) {
+                TreeSet<String> treeSet = new TreeSet<>();
+                String b;
+                for (String s : originSet) {
+                    sbTmp.setLength(0);
+                    sbTmp.append(s);
+                    b = sbTmp.substring(1, 2);
+                    if (b.equals("X")) treeSet.add(s);
+                }
+                originSet.removeAll(treeSet);
+            }
+            if (!shi.equals("")) {
+                TreeSet<String> treeSet = new TreeSet<>();
+                String c;
+                for (String s : originSet) {
+                    sbTmp.setLength(0);
+                    sbTmp.append(s);
+                    c = sbTmp.substring(2, 3);
+                    if (c.equals("X")) treeSet.add(s);
+                }
+                originSet.removeAll(treeSet);
+            }
+            if (!ge.equals("")) {
+                TreeSet<String> treeSet = new TreeSet<>();
+                String d;
+                for (String s : originSet) {
+                    sbTmp.setLength(0);
+                    sbTmp.append(s);
+                    d = sbTmp.substring(3, 4);
+                    if (d.equals("X")) treeSet.add(s);
+                }
+                originSet.removeAll(treeSet);
+            }
+        } else {
+            originSet = tmpSet;
+        }
     }
 
     //取千
@@ -116,8 +167,8 @@ public class QSSet {
         dingWeiZhiSet = tmpSet;
     }
 
-    //取雙重
-    public void quShuangChong() {
+    //雙重
+    public void shuangChong(boolean chuQu) {
         tmpSet = new TreeSet<>();
         String a, b, c, d;
         for (String s : originSet) {
@@ -127,17 +178,42 @@ public class QSSet {
             b = sbTmp.substring(1, 2);
             c = sbTmp.substring(2, 3);
             d = sbTmp.substring(3, 4);
-            if (a.equals(b) && c.equals(d) ||
-                    a.equals(c) && b.equals(d) ||
-                    a.equals(d) && b.equals(c)) {
-                tmpSet.add(s);
+            switch (gameStyle) {
+                case 1:
+                    if (a.equals(b) && c.equals(d) ||
+                            a.equals(c) && b.equals(d) ||
+                            a.equals(d) && b.equals(c)) tmpSet.add(s);
+                    break;
+                case 2:
+                    if (a.equals(b) || c.equals(d) ||
+                            a.equals(c) || b.equals(d) ||
+                            a.equals(d) || b.equals(c)) tmpSet.add(s);
+                    break;
+                case 3:
+                    if (a.equals(b) || c.equals(d) ||
+                            a.equals(c) || b.equals(d) ||
+                            a.equals(d) || b.equals(c)) tmpSet.add(s);
+                    break;
+                case 4:
+                    if (a.equals(b)) tmpSet.add(s);
+                    break;
+                case 5:
+                    if (a.equals(b) || b.equals(c)) tmpSet.add(s);
+                    break;
+                case 6:
+                    if (a.equals(b) || b.equals(c) || c.equals(d)) tmpSet.add(s);
+                    break;
             }
         }
-        originSet = tmpSet;
+        if (!chuQu) {
+            originSet.removeAll(tmpSet);
+        } else {
+            originSet = tmpSet;
+        }
     }
 
-    //取二兄弟
-    public void quErXiongDi() {
+    //二兄弟
+    public void erXiongDi(boolean chuQu) {
         tmpSet = new TreeSet<>();
         int a1, b2, c3, d4;
         String a, b, c, d;
@@ -205,11 +281,15 @@ public class QSSet {
                 tmpSet.add(s);
             }
         }
-        originSet = tmpSet;
+        if (!chuQu) {
+            originSet.removeAll(tmpSet);
+        } else {
+            originSet = tmpSet;
+        }
+
     }
 
     //把數組放進list結構裡面使用
-
     private void sbToList(String s1, String s2, String s3, String s4) {
         sb.replace(0, 1, s1);
         sb.replace(1, 2, s2);

@@ -271,10 +271,9 @@ public class QSActivity extends AppCompatActivity {
         btn_qsr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QSSet set = new QSSet(1);
-                set.quShuangChong();
-                Log(set.getSet());
-                Log("size = " + set.getSetSize());
+                QSSet set = new QSSet(6);
+//                set.quDingWeiZhi(true, "2", "", "3", "");
+                set.erXiongDi(true);
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("size", String.valueOf(set.getSetSize()));
