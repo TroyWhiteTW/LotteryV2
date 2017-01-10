@@ -13,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -25,7 +26,6 @@ import org.json.JSONObject;
 
 public class QSActivity extends AppCompatActivity {
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
-    //    private Button btn_erDing, btn_sanDing, btn_siDing, btn_erXian, btn_sanXian, btn_siXian;
     private Button btn_qsr, btn_reset;
     private CheckBox cb_1, cb_2, cb_3, cb_4, cb_5, cb_6, cb_7, cb_8, cb_9, cb_10,
             cb_11, cb_12, cb_13, cb_14, cb_15, cb_16, cb_17, cb_18, cb_19, cb_20,
@@ -35,6 +35,7 @@ public class QSActivity extends AppCompatActivity {
             et_11, et_12, et_13, et_14, et_15, et_16, et_17, et_18, et_19, et_20,
             et_21, et_22, et_23, et_24, et_25, et_26, et_27, et_28, et_29, et_30,
             et_31, et_32, et_33;
+    private int gameStyle = 0;//classID: 1=二定位; 2=三定位; 3=四定位; 4=二字現; 5=三字現; 6=四字現
     private LinearLayout ll_1, ll_2, ll_3, ll_4, ll_5, ll_6, ll_7, ll_8, ll_9, ll_10,
             ll_11;
     private pDialog pDialog;
@@ -76,12 +77,6 @@ public class QSActivity extends AppCompatActivity {
         btn_History = (Button) findViewById(R.id.btn_qsHistory);
         btn_qsr = (Button) findViewById(R.id.btn_qsr);
         btn_reset = (Button) findViewById(R.id.btn_reset);
-//        btn_erDing = (Button) findViewById(R.id.btn_erDing);
-//        btn_sanDing = (Button) findViewById(R.id.btn_sanDing);
-//        btn_siDing = (Button) findViewById(R.id.btn_siDing);
-//        btn_erXian = (Button) findViewById(R.id.btn_erXian);
-//        btn_sanXian = (Button) findViewById(R.id.btn_sanXian);
-//        btn_siXian = (Button) findViewById(R.id.btn_siXian);
         cb_1 = (CheckBox) findViewById(R.id.cb_1);
         cb_2 = (CheckBox) findViewById(R.id.cb_2);
         cb_3 = (CheckBox) findViewById(R.id.cb_3);
@@ -271,6 +266,7 @@ public class QSActivity extends AppCompatActivity {
         rg_22.setVisibility(View.GONE);
 
         btnClick();
+        rbClick();
     }
 
     public void btnClick() {
@@ -323,27 +319,127 @@ public class QSActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 QSSet set = new QSSet(1);
-//                set.dingWeiZhi(false, "2", "", "3", "");
-//                set.dingWeiZhi(false, "1", "", "3", "");
+                set.dingWeiZhi(false, "2", "", "3", "");
+                set.dingWeiZhi(false, "1", "", "3", "");
 //                set.erXiongDi(true);
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("size", String.valueOf(set.getSetSize()));
-                it.putExtra("set", set.getSet());
+                it.putStringArrayListExtra("set", set.getSet());
                 startActivity(it);
             }
         });
         btn_reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reset();
+                resetAll();
+            }
+        });
+    }
+
+    public void rbClick() {
+        rb_1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_1.isChecked()) {
+                    resetRg1And2();
+                    ll_2.setVisibility(View.VISIBLE);
+                    ll_3.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        rb_2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_2.isChecked()) {
+                    resetRg1And2();
+                    ll_2.setVisibility(View.VISIBLE);
+                    ll_3.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        rb_3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_3.isChecked()) {
+                    resetRg1And2();
+                    switch (gameStyle) {
+                        case 1:
+                            ll_4.setVisibility(View.VISIBLE);
+                            break;
+                        case 2:
+                            ll_5.setVisibility(View.VISIBLE);
+                            break;
+                        case 3:
+                            ll_6.setVisibility(View.VISIBLE);
+                            break;
+                    }
+                }
+            }
+        });
+        rb_4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_4.isChecked()) {
+                    resetRg1And2();
+                    switch (gameStyle) {
+                        case 1:
+                            ll_4.setVisibility(View.VISIBLE);
+                            break;
+                        case 2:
+                            ll_5.setVisibility(View.VISIBLE);
+                            break;
+                        case 3:
+                            ll_6.setVisibility(View.VISIBLE);
+                            break;
+                    }
+                }
+            }
+        });
+        rb_5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_5.isChecked()) {
+                    resetRg1And2();
+                    switch (gameStyle) {
+                        case 4:
+                            ll_4.setVisibility(View.VISIBLE);
+                            break;
+                        case 5:
+                            ll_5.setVisibility(View.VISIBLE);
+                            break;
+                        case 6:
+                            ll_6.setVisibility(View.VISIBLE);
+                            break;
+                    }
+                }
+            }
+        });
+        rb_6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_6.isChecked()) {
+                    resetRg1And2();
+                    switch (gameStyle) {
+                        case 4:
+                            ll_4.setVisibility(View.VISIBLE);
+                            break;
+                        case 5:
+                            ll_5.setVisibility(View.VISIBLE);
+                            break;
+                        case 6:
+                            ll_6.setVisibility(View.VISIBLE);
+                            break;
+                    }
+                }
             }
         });
     }
 
     public void btn_erDing(View view) {
+        gameStyle = 1;
         tv_gameStyle.setText("---二字定---");
-        reset();
+        resetAll();
         ll_1.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.GONE);
         ll_10.setVisibility(View.VISIBLE);
@@ -373,8 +469,9 @@ public class QSActivity extends AppCompatActivity {
     }
 
     public void btn_sanDing(View view) {
+        gameStyle = 2;
         tv_gameStyle.setText("---三字定---");
-        reset();
+        resetAll();
         ll_1.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.GONE);
         ll_10.setVisibility(View.VISIBLE);
@@ -404,8 +501,9 @@ public class QSActivity extends AppCompatActivity {
     }
 
     public void btn_siDing(View view) {
+        gameStyle = 3;
         tv_gameStyle.setText("---四字定---");
-        reset();
+        resetAll();
         ll_1.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.VISIBLE);
         ll_10.setVisibility(View.VISIBLE);
@@ -435,8 +533,9 @@ public class QSActivity extends AppCompatActivity {
     }
 
     public void btn_erXian(View view) {
+        gameStyle = 4;
         tv_gameStyle.setText("---二字現---");
-        reset();
+        resetAll();
         ll_1.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.GONE);
         ll_10.setVisibility(View.GONE);
@@ -466,8 +565,9 @@ public class QSActivity extends AppCompatActivity {
     }
 
     public void btn_sanXian(View view) {
+        gameStyle = 5;
         tv_gameStyle.setText("---三字現---");
-        reset();
+        resetAll();
         ll_1.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.GONE);
         ll_10.setVisibility(View.GONE);
@@ -497,8 +597,9 @@ public class QSActivity extends AppCompatActivity {
     }
 
     public void btn_siXian(View view) {
+        gameStyle = 6;
         tv_gameStyle.setText("---四字現---");
-        reset();
+        resetAll();
         ll_1.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.GONE);
         ll_10.setVisibility(View.GONE);
@@ -527,7 +628,30 @@ public class QSActivity extends AppCompatActivity {
         rg_22.setVisibility(View.VISIBLE);
     }
 
-    public void reset() {
+    public void resetRg1And2() {
+        rg_1.clearCheck();
+        rg_2.clearCheck();
+        ll_2.setVisibility(View.GONE);
+        ll_3.setVisibility(View.GONE);
+        ll_4.setVisibility(View.GONE);
+        ll_5.setVisibility(View.GONE);
+        ll_6.setVisibility(View.GONE);
+        et_1.setText("");
+        et_2.setText("");
+        et_3.setText("");
+        et_4.setText("");
+        et_5.setText("");
+        et_6.setText("");
+        et_7.setText("");
+        et_8.setText("");
+        et_9.setText("");
+        et_10.setText("");
+        et_11.setText("");
+        et_12.setText("");
+        et_13.setText("");
+    }
+
+    public void resetAll() {
         cb_1.setChecked(false);
         cb_2.setChecked(false);
         cb_3.setChecked(false);

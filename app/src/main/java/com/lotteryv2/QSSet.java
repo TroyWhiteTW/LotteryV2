@@ -1,5 +1,6 @@
 package com.lotteryv2;
 
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
@@ -48,12 +49,9 @@ public class QSSet {
         return set.size();
     }
 
-    public String getSet() {
-        for (String s : set) {
-            sbRes.append(s);
-            sbRes.append("\n");
-        }
-        return sbRes.toString();
+    public ArrayList<String> getSet() {
+        ArrayList<String> alRes = new ArrayList<>(set);
+        return alRes;
     }
 
     //定位置

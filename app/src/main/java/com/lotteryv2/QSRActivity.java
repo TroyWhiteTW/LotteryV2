@@ -13,13 +13,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class QSRActivity extends AppCompatActivity {
+    private ArrayList<String> set;
     private Button btn_sendGameSet;
     private EditText et_perMoney;
     private int rcedits, rcedits_use;
     private pDialog pDialog;
     private String cookie, app_net, webside;
-    private String size, set;
+    private String size;
+    private StringBuffer sb, sb2;
     private TextView tv_qselectres, tv_howMany, tv_totalMoney;
     private UIHandler handler;
 
@@ -32,7 +39,7 @@ public class QSRActivity extends AppCompatActivity {
         cookie = it.getStringExtra("cookie");
         webside = it.getStringExtra("webside");
         size = it.getStringExtra("size");
-        set = it.getStringExtra("set");
+        set = it.getStringArrayListExtra("set");
 
         initial();
         connectThread(0);
@@ -41,6 +48,8 @@ public class QSRActivity extends AppCompatActivity {
     public void initial() {
         handler = new UIHandler();
         pDialog = new pDialog(this);
+        sb = new StringBuffer();
+        sb2 = new StringBuffer();
 
         app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
         btn_sendGameSet = (Button) findViewById(R.id.btn_sendGameSet);
@@ -50,7 +59,13 @@ public class QSRActivity extends AppCompatActivity {
         tv_totalMoney = (TextView) findViewById(R.id.tv_totalMoney);
 
         tv_howMany.setText("笔数：" + size);
-        tv_qselectres.setText(set);
+        for (String s : set) {
+            sb.append(s);
+            sb.append("\n");
+            sb2.append(s);
+            sb2.append(",");
+        }
+        tv_qselectres.setText(sb.toString());
 
         btnClick();
     }
@@ -95,18 +110,35 @@ public class QSRActivity extends AppCompatActivity {
 
     public void getData() {
         try {
-
+            MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "app_head_data");
+            mu.sendCookie(cookie);
+            JSONObject jo = mu.getJSONObjectData();
+            rcedits = jo.getInt("rcedits");
+            Log("rcedits= " + rcedits);
+            rcedits_use = jo.getInt("rcedits_use");
+            Log("rcedits_use= " + rcedits_use);
         } catch (Exception e) {
-
+            Toast("无法与伺服器取得连线");
+            Log(e.toString());
         }
         handler.sendEmptyMessage(1);
     }
 
     public void sendData() {
         try {
-
+            MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "app_soonselect");
+            mu.sendCookie(cookie);
+            mu.postKeyValue("post_money", et_perMoney.getText().toString());
+            mu.postKeyValue("post_number_money", sb2.toString());
+//            mu.postKeyValue("selectlogsclassid", String.valueOf(gameStyle));
+//            mu.postKeyValue("selectlogs", selectlogs);
+            List<String> ret = mu.getHtml();
+            for (String line : ret) Log(line);
+            Toast("下注完成");
+            finish();
         } catch (Exception e) {
-
+            Toast("无法与伺服器取得连线");
+            Log(e.toString());
         }
         handler.sendEmptyMessage(1);
     }
