@@ -1,6 +1,9 @@
 package com.lotteryv2;
 
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.TreeSet;
 
 /**
@@ -9,15 +12,17 @@ import java.util.TreeSet;
 
 public class QSSet {
     private int gameStyle;
-    private StringBuffer sb, sbRes, sbTmp;
-    private TreeSet<String> originSet, set, tmpSet, dingWeiZhiSet;
+    private StringBuffer sb, sbTmp;
+    private TreeSet<String> originSet, set, tmpSet, dingWeiZhiSet, dingWeiZhiSet2, peiShuSet, peiShuSet2, buDingWeiHeFenSet;
 
     QSSet(int i) {
         sb = new StringBuffer();
-        sbRes = new StringBuffer();
         sbTmp = new StringBuffer();
         originSet = new TreeSet<>();
         set = new TreeSet<>();
+        dingWeiZhiSet2 = new TreeSet<>();
+        peiShuSet2 = new TreeSet<>();
+        buDingWeiHeFenSet = new TreeSet<>();
 
         sb.setLength(4);
 
@@ -43,6 +48,11 @@ public class QSSet {
                 siXianAll();
                 break;
         }
+        initialSet();
+    }
+
+    public void initialSet() {
+        set = originSet;
     }
 
     public int getSetSize() {
@@ -58,14 +68,14 @@ public class QSSet {
     public void dingWeiZhi(boolean chuQu, String qian, String bai, String shi, String ge) {
         dingWeiZhiSet = originSet;
         tmpSet = new TreeSet<>();
-        if (!qian.equals("")) QuQian(qian);
-        if (!bai.equals("")) QuBai(bai);
-        if (!shi.equals("")) QuShi(shi);
-        if (!ge.equals("")) QuGe(ge);
+        if (!qian.equals("")) quQian(qian);
+        if (!bai.equals("")) quBai(bai);
+        if (!shi.equals("")) quShi(shi);
+        if (!ge.equals("")) quGe(ge);
         for (String s : dingWeiZhiSet) tmpSet.add(s);
         if (!chuQu) {
-            set = originSet;
-            set.removeAll(tmpSet);
+            dingWeiZhiSet2 = set;
+            dingWeiZhiSet2.removeAll(tmpSet);
             if (!qian.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
                 String a;
@@ -75,7 +85,7 @@ public class QSSet {
                     a = sbTmp.substring(0, 1);
                     if (a.equals("X")) treeSet.add(s);
                 }
-                set.removeAll(treeSet);
+                dingWeiZhiSet2.removeAll(treeSet);
             }
             if (!bai.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
@@ -86,7 +96,7 @@ public class QSSet {
                     b = sbTmp.substring(1, 2);
                     if (b.equals("X")) treeSet.add(s);
                 }
-                set.removeAll(treeSet);
+                dingWeiZhiSet2.removeAll(treeSet);
             }
             if (!shi.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
@@ -97,7 +107,7 @@ public class QSSet {
                     c = sbTmp.substring(2, 3);
                     if (c.equals("X")) treeSet.add(s);
                 }
-                set.removeAll(treeSet);
+                dingWeiZhiSet2.removeAll(treeSet);
             }
             if (!ge.equals("")) {
                 TreeSet<String> treeSet = new TreeSet<>();
@@ -108,15 +118,19 @@ public class QSSet {
                     d = sbTmp.substring(3, 4);
                     if (d.equals("X")) treeSet.add(s);
                 }
-                set.removeAll(treeSet);
+                dingWeiZhiSet2.removeAll(treeSet);
             }
         } else {
-            set.addAll(tmpSet);
+            dingWeiZhiSet2.addAll(tmpSet);
         }
     }
 
+    public void dingWeiZhi() {
+        set = dingWeiZhiSet2;
+    }
+
     //取千
-    private void QuQian(String et) {
+    private void quQian(String et) {
         tmpSet = new TreeSet<>();
         String a;
         for (String s : dingWeiZhiSet) {
@@ -129,7 +143,7 @@ public class QSSet {
     }
 
     //取百
-    private void QuBai(String et) {
+    private void quBai(String et) {
         tmpSet = new TreeSet<>();
         String b;
         for (String s : dingWeiZhiSet) {
@@ -142,7 +156,7 @@ public class QSSet {
     }
 
     //取十
-    private void QuShi(String et) {
+    private void quShi(String et) {
         tmpSet = new TreeSet<>();
         String c;
         for (String s : dingWeiZhiSet) {
@@ -155,7 +169,7 @@ public class QSSet {
     }
 
     //取個
-    private void QuGe(String et) {
+    private void quGe(String et) {
         tmpSet = new TreeSet<>();
         String d;
         for (String s : dingWeiZhiSet) {
@@ -165,6 +179,183 @@ public class QSSet {
             if (d.equals(et)) tmpSet.add(s);
         }
         dingWeiZhiSet = tmpSet;
+    }
+
+    //配數
+    public void peiShu(boolean chuQu, String s1, String s2, String s3, String s4) {
+        peiShuSet = originSet;
+        tmpSet = new TreeSet<>();
+        if (!s1.equals("")) quYi(s1);
+        if (!s2.equals("")) quEr(s2);
+        if (!s3.equals("")) quSan(s3);
+        if (!s4.equals("")) quSi(s4);
+        for (String s : peiShuSet) tmpSet.add(s);
+        if (!chuQu) {
+            peiShuSet2 = set;
+            peiShuSet2.removeAll(tmpSet);
+        } else {
+            peiShuSet2.addAll(tmpSet);
+        }
+    }
+
+    public void peiShu() {
+        set = peiShuSet2;
+    }
+
+    //取一
+    private void quYi(String et) {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : peiShuSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(et) || b.equals(et) || c.equals(et) || d.equals(et)) tmpSet.add(s);
+        }
+        peiShuSet = tmpSet;
+    }
+
+    //取二
+    private void quEr(String et) {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : peiShuSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(et) || b.equals(et) || c.equals(et) || d.equals(et)) tmpSet.add(s);
+        }
+        peiShuSet = tmpSet;
+    }
+
+    //取三
+    private void quSan(String et) {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : peiShuSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(et) || b.equals(et) || c.equals(et) || d.equals(et)) tmpSet.add(s);
+        }
+        peiShuSet = tmpSet;
+    }
+
+    //取四
+    private void quSi(String et) {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : peiShuSet) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(et) || b.equals(et) || c.equals(et) || d.equals(et)) tmpSet.add(s);
+        }
+        peiShuSet = tmpSet;
+    }
+
+    //合分
+    public void heFen() {
+
+    }
+
+    //不定位合分
+    public void buDingWeiHeFen2(String et) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        int i = Integer.parseInt(et);
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            if (a1 != 99 && b2 != 99 && (a1 + b2) % 10 == i ||
+                    a1 != 99 && c3 != 99 && (a1 + c3) % 10 == i ||
+                    a1 != 99 && d4 != 99 && (a1 + d4) % 10 == i ||
+                    b2 != 99 && c3 != 99 && (b2 + c3) % 10 == i ||
+                    b2 != 99 && d4 != 99 && (b2 + d4) % 10 == i ||
+                    c3 != 99 && d4 != 99 && (c3 + d4) % 10 == i) tmpSet.add(s);
+        }
+        buDingWeiHeFenSet.addAll(tmpSet);
+    }
+
+    public void buDingWeiHeFen3(String et) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        int i = Integer.parseInt(et);
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            if (a1 != 99 && b2 != 99 && c3 != 99 && (a1 + b2 + c3) % 10 == i ||
+                    a1 != 99 && b2 != 99 && d4 != 99 && (a1 + b2 + d4) % 10 == i ||
+                    a1 != 99 && c3 != 99 && d4 != 99 && (a1 + c3 + d4) % 10 == i ||
+                    b2 != 99 && c3 != 99 && d4 != 99 && (b2 + c3 + d4) % 10 == i) tmpSet.add(s);
+        }
+        buDingWeiHeFenSet.addAll(tmpSet);
+    }
+
+    public void buDingWeiHeFen() {
+        set = buDingWeiHeFenSet;
     }
 
     //雙重
@@ -286,7 +477,6 @@ public class QSSet {
         } else {
             set = tmpSet;
         }
-
     }
 
     //把數組放進list結構裡面使用
@@ -312,31 +502,6 @@ public class QSSet {
         sb.replace(2, 3, s3);
 
         originSet.add(sb.toString());
-    }
-
-    //把數組從list結構移除
-    private void sbRemoveList(String s1, String s2, String s3, String s4) {
-        sb.replace(0, 1, s1);
-        sb.replace(1, 2, s2);
-        sb.replace(2, 3, s3);
-        sb.replace(3, 4, s4);
-
-        originSet.remove(sb.toString());
-    }
-
-    private void sbRemoveList(String s1, String s2) {
-        sb.replace(0, 1, s1);
-        sb.replace(1, 2, s2);
-
-        originSet.remove(sb.toString());
-    }
-
-    private void sbRemoveList(String s1, String s2, String s3) {
-        sb.replace(0, 1, s1);
-        sb.replace(1, 2, s2);
-        sb.replace(2, 3, s3);
-
-        originSet.remove(sb.toString());
     }
 
     //二字定全組合
@@ -514,5 +679,9 @@ public class QSSet {
                 }
             }
         }
+    }
+
+    public void Log(String s) {
+        Log.i("troy", s);
     }
 }
