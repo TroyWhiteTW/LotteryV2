@@ -275,7 +275,7 @@ public class QSSet {
         peiShuSet = tmpSet;
     }
 
-    //合分
+    //合分========
     public void heFen1() {
 
     }
@@ -411,17 +411,17 @@ public class QSSet {
         }
     }
 
-    //全轉
+    //全轉=========
     public void quanZhuan() {
 
     }
 
-    //上獎
+    //上獎========
     public void shangJiang() {
 
     }
 
-    //排除
+    //排除========
     public void paiChu() {
 
     }
@@ -468,7 +468,7 @@ public class QSSet {
         }
     }
 
-    //定復式
+    //定復式========
     public void dingFuShi() {
 
     }
@@ -785,7 +785,7 @@ public class QSSet {
         }
     }
 
-    //對數
+    //對數========
     public void duiShu() {
 
     }
@@ -934,7 +934,7 @@ public class QSSet {
         }
     }
 
-    //單雙組合
+    //單雙組合--留伏筆--
     public void danShuang() {
 
     }
