@@ -320,13 +320,22 @@ public class QSActivity extends AppCompatActivity {
             public void onClick(View view) {
                 pDialog.show();
                 QSSet set = new QSSet(3);
-//                set.initialSet();
-//                set.dingWeiZhi(false, "2", "", "3", "");
-//                set.dingWeiZhi(false, "1", "", "", "");
+//                set.dingWeiZhi(true, "2", "", "3", "");
+//                set.dingWeiZhi(true, "1", "", "3", "");
+//                set.dingWeiZhi();
 //                set.peiShu(false, "", "2", "", "");
-                set.buDingWeiHeFen3("1");
-                set.buDingWeiHeFen3("2");
-                set.buDingWeiHeFen();
+//                set.buDingWeiHeFen3("1");
+//                set.buDingWeiHeFen3("4");
+//                set.buDingWeiHeFen3("5");
+//                set.buDingWeiHeFen(0);
+//                set.buDingWeiHeFen4("1");
+//                set.buDingWeiHeFen4("2");
+//                set.buDingWeiHeFen4("3");
+//                set.buDingWeiHeFen4("4");
+//                set.buDingWeiHeFen4("5");
+//                set.buDingWeiHeFen4("6");
+//                set.buDingWeiHeFen(1);
+
                 if (pDialog.isShowing()) pDialog.dismiss();
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);

@@ -13,16 +13,19 @@ import java.util.TreeSet;
 public class QSSet {
     private int gameStyle;
     private StringBuffer sb, sbTmp;
-    private TreeSet<String> originSet, set, tmpSet, dingWeiZhiSet, dingWeiZhiSet2, peiShuSet, peiShuSet2, buDingWeiHeFenSet;
+    private TreeSet<String> originSet, set, tmpSet,
+            dingWeiZhiSet, dingWeiZhiSet2,
+            peiShuSet, peiShuSet2,
+            buDingWeiHeFenSet, buDingWeiHeFenSet2;
 
     QSSet(int i) {
         sb = new StringBuffer();
         sbTmp = new StringBuffer();
         originSet = new TreeSet<>();
-        set = new TreeSet<>();
         dingWeiZhiSet2 = new TreeSet<>();
         peiShuSet2 = new TreeSet<>();
         buDingWeiHeFenSet = new TreeSet<>();
+        buDingWeiHeFenSet2 = new TreeSet<>();
 
         sb.setLength(4);
 
@@ -267,6 +270,22 @@ public class QSSet {
     }
 
     //合分
+    public void heFen1() {
+
+    }
+
+    public void heFen2() {
+
+    }
+
+    public void heFen3() {
+
+    }
+
+    public void heFen4() {
+
+    }
+
     public void heFen() {
 
     }
@@ -354,9 +373,47 @@ public class QSSet {
         buDingWeiHeFenSet.addAll(tmpSet);
     }
 
-    public void buDingWeiHeFen() {
-        set = buDingWeiHeFenSet;
+    public void buDingWeiHeFen4(String et) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        int i = Integer.parseInt(et);
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            a1 = Integer.parseInt(a);
+            b2 = Integer.parseInt(b);
+            c3 = Integer.parseInt(c);
+            d4 = Integer.parseInt(d);
+            if ((a1 + b2 + c3 + d4) == i) tmpSet.add(s);
+        }
+        buDingWeiHeFenSet2.addAll(tmpSet);
     }
+
+    public void buDingWeiHeFen(int i) {
+        switch (i) {
+            case 0:
+                set = buDingWeiHeFenSet;
+                break;
+            case 1:
+                set = buDingWeiHeFenSet2;
+                break;
+        }
+    }
+
+    //全轉
+
+    //上獎
+
+    //排除
+
+    //含
+
+    //定復式
 
     //雙重
     public void shuangChong(boolean chuQu) {
@@ -402,6 +459,12 @@ public class QSSet {
             set = tmpSet;
         }
     }
+
+    //雙雙重
+
+    //三重
+
+    //四重
 
     //二兄弟
     public void erXiongDi(boolean chuQu) {
@@ -478,6 +541,16 @@ public class QSSet {
             set = tmpSet;
         }
     }
+
+    //三兄弟
+
+    //四兄弟
+
+    //對數
+
+    //單
+
+    //雙
 
     //把數組放進list結構裡面使用
     private void sbToList(String s1, String s2, String s3, String s4) {
