@@ -25,7 +25,7 @@ public class QSRActivity extends AppCompatActivity {
     private int rcedits, rcedits_use;
     private pDialog pDialog;
     private String cookie, app_net, webside;
-    private String size;
+    private String size, gameStyle;
     private StringBuffer sb, sb2;
     private TextView tv_qselectres, tv_howMany, tv_totalMoney;
     private UIHandler handler;
@@ -38,6 +38,7 @@ public class QSRActivity extends AppCompatActivity {
         Intent it = getIntent();
         cookie = it.getStringExtra("cookie");
         webside = it.getStringExtra("webside");
+        gameStyle = it.getStringExtra("gameStyle");
         size = it.getStringExtra("size");
         set = it.getStringArrayListExtra("set");
 
@@ -130,11 +131,11 @@ public class QSRActivity extends AppCompatActivity {
             mu.sendCookie(cookie);
             mu.postKeyValue("post_money", et_perMoney.getText().toString());
             mu.postKeyValue("post_number_money", sb2.toString());
-//            mu.postKeyValue("selectlogsclassid", String.valueOf(gameStyle));
+            mu.postKeyValue("selectlogsclassid", String.valueOf(gameStyle));
 //            mu.postKeyValue("selectlogs", selectlogs);
             List<String> ret = mu.getHtml();
             for (String line : ret) Log(line);
-            Toast("下注完成");
+            Toast("注单送出");
             finish();
         } catch (Exception e) {
             Toast("无法与伺服器取得连线");

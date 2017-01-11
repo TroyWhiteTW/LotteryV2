@@ -318,7 +318,7 @@ public class QSActivity extends AppCompatActivity {
         btn_qsr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QSSet set = new QSSet(3);
+                QSSet set = new QSSet(gameStyle);
 //                set.dingWeiZhi(true, "2", "", "3", "");
 //                set.dingWeiZhi(true, "1", "", "3", "");
 //                set.dingWeiZhi();
@@ -342,8 +342,11 @@ public class QSActivity extends AppCompatActivity {
 //                set.shuangshuangChong(true);
 //                set.sanChong(true);
 //                set.siChong(true);
+                set.dan(true,true,false,true,false);
+                set.shuang(true,false,false,false,true);
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("gameStyle", String.valueOf(gameStyle));
                 it.putExtra("size", String.valueOf(set.getSetSize()));
                 it.putStringArrayListExtra("set", set.getSet());
                 startActivity(it);

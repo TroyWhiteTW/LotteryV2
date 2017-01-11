@@ -15,7 +15,8 @@ public class QSSet {
     private TreeSet<String> originSet, set, tmpSet,
             dingWeiZhiSet, dingWeiZhiSet2,
             peiShuSet, peiShuSet2,
-            buDingWeiHeFenSet, buDingWeiHeFenSet2;
+            buDingWeiHeFenSet, buDingWeiHeFenSet2,
+            danSet1, danSet2, danSet3, shuangSet1, shuangSet2, shuangSet3;
 
     QSSet(int i) {
         sb = new StringBuffer();
@@ -25,6 +26,12 @@ public class QSSet {
         peiShuSet2 = new TreeSet<>();
         buDingWeiHeFenSet = new TreeSet<>();
         buDingWeiHeFenSet2 = new TreeSet<>();
+        danSet1 = new TreeSet<>();
+        danSet2 = new TreeSet<>();
+        danSet3 = new TreeSet<>();
+        shuangSet1 = new TreeSet<>();
+        shuangSet2 = new TreeSet<>();
+        shuangSet3 = new TreeSet<>();
 
         sb.setLength(4);
 
@@ -405,10 +412,19 @@ public class QSSet {
     }
 
     //全轉
+    public void quanZhuan() {
+
+    }
 
     //上獎
+    public void shangJiang() {
+
+    }
 
     //排除
+    public void paiChu() {
+
+    }
 
     //含
     public void han(boolean chuQu, String et) {
@@ -453,7 +469,7 @@ public class QSSet {
     }
 
     //定復式
-    public void dingFuShi(String et) {
+    public void dingFuShi() {
 
     }
 
@@ -770,10 +786,158 @@ public class QSSet {
     }
 
     //對數
+    public void duiShu() {
+
+    }
 
     //單
+    public void dan(boolean chuQu, boolean cb1, boolean cb2, boolean cb3, boolean cb4) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            if (cb1 && a1 % 2 == 1 && a1 != 99) {
+                danSet1.add(s);
+            } else if (!cb1) {
+                danSet1.add(s);
+            }
+        }
+        for (String s : danSet1) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            b = sbTmp.substring(1, 2);
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            if (cb2 && b2 % 2 == 1 && b2 != 99) {
+                danSet2.add(s);
+            } else if (!cb2) {
+                danSet2.add(s);
+            }
+        }
+        for (String s : danSet2) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            c = sbTmp.substring(2, 3);
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            if (cb3 && c3 % 2 == 1 && c3 != 99) {
+                danSet3.add(s);
+            } else if (!cb3) {
+                danSet3.add(s);
+            }
+        }
+        for (String s : danSet3) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            d = sbTmp.substring(3, 4);
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            if (cb4 && d4 % 2 == 1 && d4 != 99) {
+                tmpSet.add(s);
+            } else if (!cb4) {
+                tmpSet.add(s);
+            }
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
 
     //雙
+    public void shuang(boolean chuQu, boolean cb1, boolean cb2, boolean cb3, boolean cb4) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            if (cb1 && a1 % 2 == 0 && a1 != 99) {
+                shuangSet1.add(s);
+            } else if (!cb1) {
+                shuangSet1.add(s);
+            }
+        }
+        for (String s : shuangSet1) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            b = sbTmp.substring(1, 2);
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            if (cb2 && b2 % 2 == 0 && b2 != 99) {
+                shuangSet2.add(s);
+            } else if (!cb2) {
+                shuangSet2.add(s);
+            }
+        }
+        for (String s : shuangSet2) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            c = sbTmp.substring(2, 3);
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            if (cb3 && c3 % 2 == 0 && c3 != 99) {
+                shuangSet3.add(s);
+            } else if (!cb3) {
+                shuangSet3.add(s);
+            }
+        }
+        for (String s : shuangSet3) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            d = sbTmp.substring(3, 4);
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            if (cb4 && d4 % 2 == 0 && d4 != 99) {
+                tmpSet.add(s);
+            } else if (!cb4) {
+                tmpSet.add(s);
+            }
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
+
+    //單雙組合
+    public void danShuang() {
+
+    }
 
     //把數組放進list結構裡面使用
     private void sbToList(String s1, String s2, String s3, String s4) {
