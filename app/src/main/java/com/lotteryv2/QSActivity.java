@@ -318,8 +318,7 @@ public class QSActivity extends AppCompatActivity {
         btn_qsr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                pDialog.show();
-                QSSet set = new QSSet(6);
+                QSSet set = new QSSet(3);
 //                set.dingWeiZhi(true, "2", "", "3", "");
 //                set.dingWeiZhi(true, "1", "", "3", "");
 //                set.dingWeiZhi();
@@ -337,8 +336,12 @@ public class QSActivity extends AppCompatActivity {
 //                set.buDingWeiHeFen(1);
 //                set.erXiongDi(true);
 //                set.sanXiongDi(true);
-                set.siXiongDi(true);
-//                if (pDialog.isShowing()) pDialog.dismiss();
+//                set.siXiongDi(true);
+//                set.han(true, "1");
+//                set.dingFuShi("123");
+//                set.shuangshuangChong(true);
+//                set.sanChong(true);
+//                set.siChong(true);
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("size", String.valueOf(set.getSetSize()));

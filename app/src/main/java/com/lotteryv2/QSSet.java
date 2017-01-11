@@ -3,7 +3,6 @@ package com.lotteryv2;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.TreeSet;
 
 /**
@@ -412,8 +411,51 @@ public class QSSet {
     //排除
 
     //含
+    public void han(boolean chuQu, String et) {
+        tmpSet = new TreeSet<>();
+        int i = Integer.parseInt(et);
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            if (a1 == i || b2 == i || c3 == i || d4 == i) tmpSet.add(s);
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
 
     //定復式
+    public void dingFuShi(String et) {
+
+    }
 
     //雙重
     public void shuangChong(boolean chuQu) {
@@ -461,10 +503,70 @@ public class QSSet {
     }
 
     //雙雙重
+    public void shuangshuangChong(boolean chuQu) {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(b) && b.equals(c) && c.equals(d) ||
+                    a.equals(b) && c.equals(d) ||
+                    a.equals(c) && b.equals(d) ||
+                    a.equals(d) && b.equals(c)) tmpSet.add(s);
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
 
     //三重
+    public void sanChong(boolean chuQu) {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(b) && b.equals(c) ||
+                    a.equals(b) && b.equals(d) ||
+                    a.equals(c) && c.equals(d) ||
+                    b.equals(c) && c.equals(d)) tmpSet.add(s);
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
 
     //四重
+    public void siChong(boolean chuQu) {
+        tmpSet = new TreeSet<>();
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            if (a.equals(b) && b.equals(c) && c.equals(d)) tmpSet.add(s);
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
 
     //二兄弟
     public void erXiongDi(boolean chuQu) {
