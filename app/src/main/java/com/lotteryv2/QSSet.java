@@ -543,8 +543,129 @@ public class QSSet {
     }
 
     //三兄弟
+    public void sanXiongDi(boolean chuQu) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            for (int i = 0; i <= 9; i++) {
+                int j = (i + 1) % 10;
+                int k = (i + 2) % 10;
+                if (a1 == i && b2 == j && c3 == k ||
+                        a1 == i && b2 == j && d4 == k ||
+                        a1 == i && c3 == j && d4 == k ||
+                        a1 == i && b2 == k && c3 == j ||
+                        a1 == i && b2 == k && d4 == j ||
+                        a1 == i && c3 == k && d4 == j ||
+                        a1 == j && b2 == i && c3 == k ||
+                        a1 == j && b2 == i && d4 == k ||
+                        a1 == j && c3 == i && d4 == k ||
+                        a1 == j && b2 == k && c3 == i ||
+                        a1 == j && b2 == k && d4 == i ||
+                        a1 == j && c3 == k && d4 == i ||
+                        a1 == k && b2 == j && c3 == i ||
+                        a1 == k && b2 == j && d4 == i ||
+                        a1 == k && c3 == j && d4 == i ||
+                        a1 == k && b2 == i && c3 == j ||
+                        a1 == k && b2 == i && d4 == j ||
+                        a1 == k && c3 == i && d4 == j ||
+                        b2 == i && c3 == j && d4 == k ||
+                        b2 == i && c3 == k && d4 == j ||
+                        b2 == k && c3 == i && d4 == j ||
+                        b2 == j && c3 == k && d4 == i ||
+                        b2 == j && c3 == i && d4 == k ||
+                        b2 == k && c3 == j && d4 == i) {
+                    tmpSet.add(s);
+                }
+            }
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
 
     //四兄弟
+    public void siXiongDi(boolean chuQu) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            a1 = Integer.parseInt(a);
+            b2 = Integer.parseInt(b);
+            c3 = Integer.parseInt(c);
+            d4 = Integer.parseInt(d);
+            for (int i = 0; i <= 9; i++) {
+                int j = (i + 1) % 10;
+                int k = (i + 2) % 10;
+                int l = (i + 3) % 10;
+                if (a1 == i && b2 == j && c3 == k && d4 == l ||
+                        a1 == i && b2 == j && d4 == k && c3 == l ||
+                        a1 == i && c3 == j && d4 == k && b2 == l ||
+                        a1 == i && b2 == k && c3 == j && d4 == l ||
+                        a1 == i && b2 == k && d4 == j && c3 == l ||
+                        a1 == i && c3 == k && d4 == j && b2 == l ||
+                        a1 == j && b2 == i && c3 == k && d4 == l ||
+                        a1 == j && b2 == i && d4 == k && c3 == l ||
+                        a1 == j && c3 == i && d4 == k && b2 == l ||
+                        a1 == j && b2 == k && c3 == i && d4 == l ||
+                        a1 == j && b2 == k && d4 == i && c3 == l ||
+                        a1 == j && c3 == k && d4 == i && b2 == l ||
+                        a1 == k && b2 == j && c3 == i && d4 == l ||
+                        a1 == k && b2 == j && d4 == i && c3 == l ||
+                        a1 == k && c3 == j && d4 == i && b2 == l ||
+                        a1 == k && b2 == i && c3 == j && d4 == l ||
+                        a1 == k && b2 == i && d4 == j && c3 == l ||
+                        a1 == k && c3 == i && d4 == j && b2 == l ||
+                        b2 == i && c3 == j && d4 == k && a1 == l ||
+                        b2 == i && c3 == k && d4 == j && a1 == l ||
+                        b2 == k && c3 == i && d4 == j && a1 == l ||
+                        b2 == j && c3 == k && d4 == i && a1 == l ||
+                        b2 == j && c3 == i && d4 == k && a1 == l ||
+                        b2 == k && c3 == j && d4 == i && a1 == l) {
+                    tmpSet.add(s);
+                }
+            }
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
+    }
 
     //對數
 
