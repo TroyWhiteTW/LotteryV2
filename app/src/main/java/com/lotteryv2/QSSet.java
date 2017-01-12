@@ -275,25 +275,109 @@ public class QSSet {
         peiShuSet = tmpSet;
     }
 
-    //合分========
-    public void heFen1() {
-
-    }
-
-    public void heFen2() {
-
-    }
-
-    public void heFen3() {
-
-    }
-
-    public void heFen4() {
-
-    }
-
-    public void heFen() {
-
+    //合分
+    public void heFen(boolean chuQu, String et, int cb1, int cb2, int cb3, int cb4) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        StringBuffer sb1 = new StringBuffer(et);
+        for (int i = 0; i < sb1.length(); i++) {
+            int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+            for (String s : set) {
+                sbTmp.setLength(0);
+                sbTmp.append(s);
+                a = sbTmp.substring(0, 1);
+                b = sbTmp.substring(1, 2);
+                c = sbTmp.substring(2, 3);
+                d = sbTmp.substring(3, 4);
+                try {
+                    a1 = Integer.parseInt(a);
+                } catch (NumberFormatException e) {
+                    a1 = 99;
+                }
+                try {
+                    b2 = Integer.parseInt(b);
+                } catch (NumberFormatException e) {
+                    b2 = 99;
+                }
+                try {
+                    c3 = Integer.parseInt(c);
+                } catch (NumberFormatException e) {
+                    c3 = 99;
+                }
+                try {
+                    d4 = Integer.parseInt(d);
+                } catch (NumberFormatException e) {
+                    d4 = 99;
+                }
+                if (cb1 == 1 && cb2 == 1 && cb3 == 1 && cb4 == 1 &&
+                        a1 != 99 && b2 != 99 && c3 != 99 && d4 != 99 &&
+                        (a1 + b2 + c3 + d4) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 1 && cb2 == 1 && cb3 == 1 && cb4 == 0 &&
+                        a1 != 99 && b2 != 99 && c3 != 99 &&
+                        (a1 + b2 + c3) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 1 && cb2 == 1 && cb3 == 0 && cb4 == 1 &&
+                        a1 != 99 && b2 != 99 && d4 != 99 &&
+                        (a1 + b2 + d4) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 1 && cb2 == 0 && cb3 == 1 && cb4 == 1 &&
+                        a1 != 99 && c3 != 99 && d4 != 99 &&
+                        (a1 + c3 + d4) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 0 && cb2 == 1 && cb3 == 1 && cb4 == 1 &&
+                        b2 != 99 && c3 != 99 && d4 != 99 &&
+                        (b2 + c3 + d4) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 1 && cb2 == 1 && cb3 == 0 && cb4 == 0 &&
+                        a1 != 99 && b2 != 99 &&
+                        (a1 + b2) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 1 && cb2 == 0 && cb3 == 1 && cb4 == 0 &&
+                        a1 != 99 && c3 != 99 &&
+                        (a1 + c3) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 1 && cb2 == 0 && cb3 == 0 && cb4 == 1 &&
+                        a1 != 99 && d4 != 99 &&
+                        (a1 + d4) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 0 && cb2 == 1 && cb3 == 1 && cb4 == 0 &&
+                        b2 != 99 && c3 != 99 &&
+                        (b2 + c3) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 0 && cb2 == 1 && cb3 == 0 && cb4 == 1 &&
+                        b2 != 99 && d4 != 99 &&
+                        (b2 + d4) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 0 && cb2 == 0 && cb3 == 1 && cb4 == 1 &&
+                        c3 != 99 && d4 != 99 &&
+                        (c3 + d4) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 1 && cb2 == 0 && cb3 == 0 && cb4 == 0 &&
+                        a1 != 99 &&
+                        (a1) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 0 && cb2 == 1 && cb3 == 0 && cb4 == 0 &&
+                        b2 != 99 &&
+                        (b2) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 0 && cb2 == 0 && cb3 == 1 && cb4 == 0 &&
+                        c3 != 99 &&
+                        (c3) % 10 == i1) {
+                    tmpSet.add(s);
+                } else if (cb1 == 0 && cb2 == 0 && cb3 == 0 && cb4 == 1 &&
+                        d4 != 99 &&
+                        (d4) % 10 == i1) {
+                    tmpSet.add(s);
+                }
+            }
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
     }
 
     //不定位合分
@@ -631,6 +715,7 @@ public class QSSet {
 
     //定復式********========
     public void dingFuShi() {
+        set.clear();
 
     }
 
