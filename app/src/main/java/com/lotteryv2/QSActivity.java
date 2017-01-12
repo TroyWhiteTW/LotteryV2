@@ -368,7 +368,7 @@ public class QSActivity extends AppCompatActivity {
 //        set.duiShu(true, "12", "34", "");
 //        set.paiChu("12");
 //        set.chengHaoWeiZhi3(true, false, false, false);
-//        set.heFen(true, "12", 1, 0, 0, 0);
+//        set.heFen1(true, "12", 1, 0, 0, 0);
     }
 
     public void rbClick() {
