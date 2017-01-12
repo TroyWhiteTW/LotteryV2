@@ -342,8 +342,9 @@ public class QSActivity extends AppCompatActivity {
 //                set.shuangshuangChong(true);
 //                set.sanChong(true);
 //                set.siChong(true);
-                set.dan(true,true,false,true,false);
-                set.shuang(true,false,false,false,true);
+//                set.dan(true,true,false,true,false);
+//                set.shuang(true,false,false,false,true);
+//                set.duiShu(true, "12", "34", "");
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("gameStyle", String.valueOf(gameStyle));

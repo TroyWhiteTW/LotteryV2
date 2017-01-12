@@ -785,9 +785,101 @@ public class QSSet {
         }
     }
 
-    //對數========
-    public void duiShu() {
-
+    //對數
+    public void duiShu(boolean chuQu, String s1, String s2, String s3) {
+        tmpSet = new TreeSet<>();
+        StringBuffer sb1 = new StringBuffer(s1);
+        StringBuffer sb2 = new StringBuffer(s2);
+        StringBuffer sb3 = new StringBuffer(s3);
+        int i1 = Integer.parseInt(sb1.substring(0, 1));
+        int i2 = Integer.parseInt(sb1.substring(1, 2));
+        int i3 = Integer.parseInt(sb2.substring(0, 1));
+        int i4 = Integer.parseInt(sb2.substring(1, 2));
+        int i5 = Integer.parseInt(sb3.substring(0, 1));
+        int i6 = Integer.parseInt(sb3.substring(1, 2));
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            if (sb1.length() != 0) {
+                if (a1 == i1 && b2 == i2 ||
+                        a1 == i1 && c3 == i2 ||
+                        a1 == i1 && d4 == i2 ||
+                        b2 == i1 && c3 == i2 ||
+                        b2 == i1 && d4 == i2 ||
+                        c3 == i1 && d4 == i2 ||
+                        a1 == i2 && b2 == i1 ||
+                        a1 == i2 && c3 == i1 ||
+                        a1 == i2 && d4 == i1 ||
+                        b2 == i2 && c3 == i1 ||
+                        b2 == i2 && d4 == i1 ||
+                        c3 == i2 && d4 == i1) {
+                    tmpSet.add(s);
+                }
+            }
+            if (sb2.length() != 0) {
+                if (a1 == i3 && b2 == i4 ||
+                        a1 == i3 && c3 == i4 ||
+                        a1 == i3 && d4 == i4 ||
+                        b2 == i3 && c3 == i4 ||
+                        b2 == i3 && d4 == i4 ||
+                        c3 == i3 && d4 == i4 ||
+                        a1 == i4 && b2 == i3 ||
+                        a1 == i4 && c3 == i3 ||
+                        a1 == i4 && d4 == i3 ||
+                        b2 == i4 && c3 == i3 ||
+                        b2 == i4 && d4 == i3 ||
+                        c3 == i4 && d4 == i3) {
+                    tmpSet.add(s);
+                }
+            }
+            if (sb3.length() != 0) {
+                if (a1 == i5 && b2 == i6 ||
+                        a1 == i5 && c3 == i6 ||
+                        a1 == i5 && d4 == i6 ||
+                        b2 == i5 && c3 == i6 ||
+                        b2 == i5 && d4 == i6 ||
+                        c3 == i5 && d4 == i6 ||
+                        a1 == i6 && b2 == i5 ||
+                        a1 == i6 && c3 == i5 ||
+                        a1 == i6 && d4 == i5 ||
+                        b2 == i6 && c3 == i5 ||
+                        b2 == i6 && d4 == i5 ||
+                        c3 == i6 && d4 == i5) {
+                    tmpSet.add(s);
+                }
+            }
+        }
+        if (!chuQu) {
+            set.removeAll(tmpSet);
+        } else {
+            set = tmpSet;
+        }
     }
 
     //單

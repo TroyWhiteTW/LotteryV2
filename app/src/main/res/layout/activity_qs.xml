@@ -1523,7 +1523,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="2"
                     android:textAlignment="center" />
 
                 <View
@@ -1537,7 +1537,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="2"
                     android:textAlignment="center" />
 
                 <View
@@ -1551,7 +1551,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="2"
                     android:textAlignment="center" />
 
             </RadioGroup>
