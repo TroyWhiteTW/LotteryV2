@@ -413,17 +413,92 @@ public class QSSet {
 
     //全轉=========
     public void quanZhuan() {
+        set.clear();
 
     }
 
     //上獎========
     public void shangJiang() {
+        set.clear();
 
     }
 
-    //排除========
-    public void paiChu() {
+    //排除
+    public void paiChu(String et) {
+        tmpSet = new TreeSet<>();
+        StringBuffer sb1 = new StringBuffer(et);
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+            for (int i = 0; i < sb1.length(); i++) {
+                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                if (a1 == i1 || b2 == i1 || c3 == i1 || d4 == i1) tmpSet.add(s);
+            }
+        }
+        set.removeAll(tmpSet);
+    }
 
+    //乘號位置========
+    public void chengHaoWeiZhi(boolean cb1, boolean cb2, boolean cb3, boolean cb4) {
+        tmpSet = new TreeSet<>();
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        for (String s : set) {
+            sbTmp.setLength(0);
+            sbTmp.append(s);
+            a = sbTmp.substring(0, 1);
+            b = sbTmp.substring(1, 2);
+            c = sbTmp.substring(2, 3);
+            d = sbTmp.substring(3, 4);
+            try {
+                a1 = Integer.parseInt(a);
+            } catch (NumberFormatException e) {
+                a1 = 99;
+            }
+            try {
+                b2 = Integer.parseInt(b);
+            } catch (NumberFormatException e) {
+                b2 = 99;
+            }
+            try {
+                c3 = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                c3 = 99;
+            }
+            try {
+                d4 = Integer.parseInt(d);
+            } catch (NumberFormatException e) {
+                d4 = 99;
+            }
+
+        }
+        set = tmpSet;
     }
 
     //含
@@ -791,12 +866,28 @@ public class QSSet {
         StringBuffer sb1 = new StringBuffer(s1);
         StringBuffer sb2 = new StringBuffer(s2);
         StringBuffer sb3 = new StringBuffer(s3);
-        int i1 = Integer.parseInt(sb1.substring(0, 1));
-        int i2 = Integer.parseInt(sb1.substring(1, 2));
-        int i3 = Integer.parseInt(sb2.substring(0, 1));
-        int i4 = Integer.parseInt(sb2.substring(1, 2));
-        int i5 = Integer.parseInt(sb3.substring(0, 1));
-        int i6 = Integer.parseInt(sb3.substring(1, 2));
+        int i1, i2, i3, i4, i5, i6;
+        if (sb1.length() != 0) {
+            i1 = Integer.parseInt(sb1.substring(0, 1));
+            i2 = Integer.parseInt(sb1.substring(1, 2));
+        } else {
+            i1 = 98;
+            i2 = 98;
+        }
+        if (sb2.length() != 0) {
+            i3 = Integer.parseInt(sb2.substring(0, 1));
+            i4 = Integer.parseInt(sb2.substring(1, 2));
+        } else {
+            i3 = 98;
+            i4 = 98;
+        }
+        if (sb3.length() != 0) {
+            i5 = Integer.parseInt(sb3.substring(0, 1));
+            i6 = Integer.parseInt(sb3.substring(1, 2));
+        } else {
+            i5 = 98;
+            i6 = 98;
+        }
         int a1, b2, c3, d4;
         String a, b, c, d;
         for (String s : set) {

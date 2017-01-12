@@ -38,6 +38,7 @@ public class QSActivity extends AppCompatActivity {
     private int gameStyle = 0;//classID: 1=二定位; 2=三定位; 3=四定位; 4=二字現; 5=三字現; 6=四字現
     private LinearLayout ll_1, ll_2, ll_3, ll_4, ll_5, ll_6, ll_7, ll_8, ll_9, ll_10,
             ll_11;
+    private QSSet set;
     private pDialog pDialog;
     private RadioButton rb_1, rb_2, rb_3, rb_4, rb_5, rb_6, rb_7, rb_8, rb_9, rb_10,
             rb_11, rb_12, rb_13, rb_14, rb_15, rb_16, rb_17, rb_18, rb_19, rb_20,
@@ -318,33 +319,9 @@ public class QSActivity extends AppCompatActivity {
         btn_qsr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QSSet set = new QSSet(gameStyle);
-//                set.dingWeiZhi(true, "2", "", "3", "");
-//                set.dingWeiZhi(true, "1", "", "3", "");
-//                set.dingWeiZhi();
-//                set.peiShu(false, "", "2", "", "");
-//                set.buDingWeiHeFen3("1");
-//                set.buDingWeiHeFen3("4");
-//                set.buDingWeiHeFen3("5");
-//                set.buDingWeiHeFen(0);
-//                set.buDingWeiHeFen4("1");
-//                set.buDingWeiHeFen4("2");
-//                set.buDingWeiHeFen4("3");
-//                set.buDingWeiHeFen4("4");
-//                set.buDingWeiHeFen4("5");
-//                set.buDingWeiHeFen4("6");
-//                set.buDingWeiHeFen(1);
-//                set.erXiongDi(true);
-//                set.sanXiongDi(true);
-//                set.siXiongDi(true);
-//                set.han(true, "1");
-//                set.dingFuShi("123");
-//                set.shuangshuangChong(true);
-//                set.sanChong(true);
-//                set.siChong(true);
-//                set.dan(true,true,false,true,false);
-//                set.shuang(true,false,false,false,true);
-//                set.duiShu(true, "12", "34", "");
+                pDialog.show();
+                qsSet();
+                if (pDialog.isShowing()) pDialog.dismiss();
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("gameStyle", String.valueOf(gameStyle));
@@ -359,6 +336,37 @@ public class QSActivity extends AppCompatActivity {
                 resetAll();
             }
         });
+    }
+
+    public void qsSet() {
+        set = new QSSet(gameStyle);
+//        set.dingWeiZhi(true, "2", "", "3", "");
+//        set.dingWeiZhi(true, "1", "", "3", "");
+//        set.dingWeiZhi();
+//        set.peiShu(false, "", "2", "", "");
+//        set.buDingWeiHeFen3("1");
+//        set.buDingWeiHeFen3("4");
+//        set.buDingWeiHeFen3("5");
+//        set.buDingWeiHeFen(0);
+//        set.buDingWeiHeFen4("1");
+//        set.buDingWeiHeFen4("2");
+//        set.buDingWeiHeFen4("3");
+//        set.buDingWeiHeFen4("4");
+//        set.buDingWeiHeFen4("5");
+//        set.buDingWeiHeFen4("6");
+//        set.buDingWeiHeFen(1);
+//        set.erXiongDi(true);
+//        set.sanXiongDi(true);
+//        set.siXiongDi(true);
+//        set.han(true, "1");
+//        set.dingFuShi("123");
+//        set.shuangshuangChong(true);
+//        set.sanChong(true);
+//        set.siChong(true);
+//        set.dan(true,true,false,true,false);
+//        set.shuang(true,false,false,false,true);
+//        set.duiShu(true, "12", "34", "");
+//        set.paiChu("12");
     }
 
     public void rbClick() {
@@ -531,7 +539,7 @@ public class QSActivity extends AppCompatActivity {
         ll_1.setVisibility(View.VISIBLE);
         ll_9.setVisibility(View.VISIBLE);
         ll_10.setVisibility(View.VISIBLE);
-        ll_11.setVisibility(View.VISIBLE);
+        ll_11.setVisibility(View.GONE);
         rg_1.setVisibility(View.VISIBLE);
         rg_2.setVisibility(View.GONE);
         rg_3.setVisibility(View.VISIBLE);
