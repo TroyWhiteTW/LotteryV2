@@ -411,13 +411,13 @@ public class QSSet {
         }
     }
 
-    //全轉=========
+    //全轉********=========
     public void quanZhuan() {
         set.clear();
 
     }
 
-    //上獎========
+    //上獎********========
     public void shangJiang() {
         set.clear();
 
@@ -464,41 +464,127 @@ public class QSSet {
         set.removeAll(tmpSet);
     }
 
-    //乘號位置========
-    public void chengHaoWeiZhi(boolean cb1, boolean cb2, boolean cb3, boolean cb4) {
-        tmpSet = new TreeSet<>();
-        int a1, b2, c3, d4;
-        String a, b, c, d;
-        for (String s : set) {
-            sbTmp.setLength(0);
-            sbTmp.append(s);
-            a = sbTmp.substring(0, 1);
-            b = sbTmp.substring(1, 2);
-            c = sbTmp.substring(2, 3);
-            d = sbTmp.substring(3, 4);
-            try {
-                a1 = Integer.parseInt(a);
-            } catch (NumberFormatException e) {
-                a1 = 99;
-            }
-            try {
-                b2 = Integer.parseInt(b);
-            } catch (NumberFormatException e) {
-                b2 = 99;
-            }
-            try {
-                c3 = Integer.parseInt(c);
-            } catch (NumberFormatException e) {
-                c3 = 99;
-            }
-            try {
-                d4 = Integer.parseInt(d);
-            } catch (NumberFormatException e) {
-                d4 = 99;
-            }
+    //乘號位置********
+    public void chengHaoWeiZhi2(boolean cb1, boolean cb2, boolean cb3, boolean cb4) {
+        set.clear();
+        String s1, s2, s3, s4;
+        for (int a = 0; a <= 10; a++) {
+            for (int b = 0; b <= 10; b++) {
+                for (int c = 0; c <= 10; c++) {
+                    for (int d = 0; d <= 10; d++) {
+                        if (a == 10) {
+                            s1 = "X";
+                        } else {
+                            s1 = String.valueOf(a);
+                        }
+                        if (b == 10) {
+                            s2 = "X";
+                        } else {
+                            s2 = String.valueOf(b);
+                        }
+                        if (c == 10) {
+                            s3 = "X";
+                        } else {
+                            s3 = String.valueOf(c);
+                        }
+                        if (d == 10) {
+                            s4 = "X";
+                        } else {
+                            s4 = String.valueOf(d);
+                        }
+                        if (cb1) s1 = "X";
+                        if (cb2) s2 = "X";
+                        if (cb3) s3 = "X";
+                        if (cb4) s4 = "X";
 
+                        if (s1.equals("X") && s2.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s2.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s3.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s1.equals("X") && s3.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s1.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s2.equals("X") && s3.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s2.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s3.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else {
+
+                        }
+                    }
+                }
+            }
         }
-        set = tmpSet;
+    }
+
+    public void chengHaoWeiZhi3(boolean cb1, boolean cb2, boolean cb3, boolean cb4) {
+        set.clear();
+        String s1, s2, s3, s4;
+        for (int a = 0; a <= 10; a++) {
+            for (int b = 0; b <= 10; b++) {
+                for (int c = 0; c <= 10; c++) {
+                    for (int d = 0; d <= 10; d++) {
+                        if (a == 10) {
+                            s1 = "X";
+                        } else {
+                            s1 = String.valueOf(a);
+                        }
+                        if (b == 10) {
+                            s2 = "X";
+                        } else {
+                            s2 = String.valueOf(b);
+                        }
+                        if (c == 10) {
+                            s3 = "X";
+                        } else {
+                            s3 = String.valueOf(c);
+                        }
+                        if (d == 10) {
+                            s4 = "X";
+                        } else {
+                            s4 = String.valueOf(d);
+                        }
+                        if (cb1) s1 = "X";
+                        if (cb2) s2 = "X";
+                        if (cb3) s3 = "X";
+                        if (cb4) s4 = "X";
+
+                        if (s1.equals("X") && s2.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s2.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s3.equals("X")) {
+
+                        } else if (!s1.equals("X") && !s2.equals("X") && !s3.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (!s1.equals("X") && !s2.equals("X") && s3.equals("X") && !s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (!s1.equals("X") && s2.equals("X") && !s3.equals("X") && !s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s1.equals("X") && !s2.equals("X") && !s3.equals("X") && !s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else {
+
+                        }
+                    }
+                }
+            }
+        }
     }
 
     //含
@@ -543,7 +629,7 @@ public class QSSet {
         }
     }
 
-    //定復式========
+    //定復式********========
     public void dingFuShi() {
 
     }
