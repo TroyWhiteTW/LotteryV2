@@ -1025,10 +1025,230 @@ public class QSSet {
         }
     }
 
-    //定復式********========
-    public void dingFuShi() {
+    //定復式********
+    public void dingFuShi2(String et) {
         set.clear();
+        String s1, s2, s3, s4;
+        StringBuffer sb1 = new StringBuffer(et);
+        for (int a = 0; a <= 10; a++) {
+            for (int b = 0; b <= 10; b++) {
+                for (int c = 0; c <= 10; c++) {
+                    for (int d = 0; d <= 10; d++) {
+                        if (a == 10) {
+                            s1 = "X";
+                        } else {
+                            s1 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (a == i1) {
+                                    s1 = String.valueOf(a);
+                                }
+                            }
+                        }
+                        if (b == 10) {
+                            s2 = "X";
+                        } else {
+                            s2 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (b == i1) {
+                                    s2 = String.valueOf(b);
+                                }
+                            }
+                        }
+                        if (c == 10) {
+                            s3 = "X";
+                        } else {
+                            s3 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (c == i1) {
+                                    s3 = String.valueOf(c);
+                                }
+                            }
+                        }
+                        if (d == 10) {
+                            s4 = "X";
+                        } else {
+                            s4 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (d == i1) {
+                                    s4 = String.valueOf(d);
+                                }
+                            }
+                        }
+                        if (s1.equals("X") && s2.equals("X") && s3.equals("X") && s4.equals("X")) {
 
+                        } else if (s2.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s3.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s1.equals("X") && s3.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s1.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s2.equals("X") && s3.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s2.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s3.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void dingFuShi3(String et) {
+        set.clear();
+        String s1, s2, s3, s4;
+        StringBuffer sb1 = new StringBuffer(et);
+        for (int a = 0; a <= 10; a++) {
+            for (int b = 0; b <= 10; b++) {
+                for (int c = 0; c <= 10; c++) {
+                    for (int d = 0; d <= 10; d++) {
+                        if (a == 10) {
+                            s1 = "X";
+                        } else {
+                            s1 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (a == i1) {
+                                    s1 = String.valueOf(a);
+                                }
+                            }
+                        }
+                        if (b == 10) {
+                            s2 = "X";
+                        } else {
+                            s2 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (b == i1) {
+                                    s2 = String.valueOf(b);
+                                }
+                            }
+                        }
+                        if (c == 10) {
+                            s3 = "X";
+                        } else {
+                            s3 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (c == i1) {
+                                    s3 = String.valueOf(c);
+                                }
+                            }
+                        }
+                        if (d == 10) {
+                            s4 = "X";
+                        } else {
+                            s4 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (d == i1) {
+                                    s4 = String.valueOf(d);
+                                }
+                            }
+                        }
+                        if (s1.equals("X") && s2.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s2.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s3.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s4.equals("X")) {
+
+                        } else if (s1.equals("X") && s2.equals("X") && s3.equals("X")) {
+
+                        } else if (!s1.equals("X") && !s2.equals("X") && !s3.equals("X") && s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (!s1.equals("X") && !s2.equals("X") && s3.equals("X") && !s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (!s1.equals("X") && s2.equals("X") && !s3.equals("X") && !s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else if (s1.equals("X") && !s2.equals("X") && !s3.equals("X") && !s4.equals("X")) {
+                            sbToList(s1, s2, s3, s4);
+                        } else {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void dingFuShi4(String et) {
+        set.clear();
+        String s1, s2, s3, s4;
+        StringBuffer sb1 = new StringBuffer(et);
+        for (int a = 0; a <= 10; a++) {
+            for (int b = 0; b <= 10; b++) {
+                for (int c = 0; c <= 10; c++) {
+                    for (int d = 0; d <= 10; d++) {
+                        if (a == 10) {
+                            s1 = "X";
+                        } else {
+                            s1 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (a == i1) {
+                                    s1 = String.valueOf(a);
+                                }
+                            }
+                        }
+                        if (b == 10) {
+                            s2 = "X";
+                        } else {
+                            s2 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (b == i1) {
+                                    s2 = String.valueOf(b);
+                                }
+                            }
+                        }
+                        if (c == 10) {
+                            s3 = "X";
+                        } else {
+                            s3 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (c == i1) {
+                                    s3 = String.valueOf(c);
+                                }
+                            }
+                        }
+                        if (d == 10) {
+                            s4 = "X";
+                        } else {
+                            s4 = "X";
+                            for (int i = 0; i < sb1.length(); i++) {
+                                int i1 = Integer.parseInt(sb1.substring(i, i + 1));
+                                if (d == i1) {
+                                    s4 = String.valueOf(d);
+                                }
+                            }
+                        }
+                        if (s1.equals("X") || s2.equals("X") || s3.equals("X") || s4.equals("X")) {
+
+                        } else {
+                            sbToList(s1, s2, s3, s4);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     //雙重
