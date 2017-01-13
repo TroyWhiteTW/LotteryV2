@@ -25,7 +25,7 @@ public class QSRActivity extends AppCompatActivity {
     private int rcedits, rcedits_use;
     private pDialog pDialog;
     private String cookie, app_net, webside;
-    private String size, gameStyle;
+    private String size, gameStyle, selectlogs;
     private StringBuffer sb, sb2;
     private TextView tv_qselectres, tv_howMany, tv_totalMoney;
     private UIHandler handler;
@@ -39,6 +39,7 @@ public class QSRActivity extends AppCompatActivity {
         cookie = it.getStringExtra("cookie");
         webside = it.getStringExtra("webside");
         gameStyle = it.getStringExtra("gameStyle");
+        selectlogs = it.getStringExtra("selectlogs");
         size = it.getStringExtra("size");
         set = it.getStringArrayListExtra("set");
 
@@ -132,7 +133,7 @@ public class QSRActivity extends AppCompatActivity {
             mu.postKeyValue("post_money", et_perMoney.getText().toString());
             mu.postKeyValue("post_number_money", sb2.toString());
             mu.postKeyValue("selectlogsclassid", String.valueOf(gameStyle));
-//            mu.postKeyValue("selectlogs", selectlogs);
+            mu.postKeyValue("selectlogs", selectlogs);
             List<String> ret = mu.getHtml();
             for (String line : ret) Log(line);
             Toast("注单送出");

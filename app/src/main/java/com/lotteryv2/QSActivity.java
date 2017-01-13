@@ -49,6 +49,7 @@ public class QSActivity extends AppCompatActivity {
             rg_11, rg_12, rg_13, rg_14, rg_15, rg_16, rg_17, rg_18, rg_19, rg_20,
             rg_21, rg_22;
     private String cookie, app_net, webside;
+    private String selectlogs;
     private ScrollView sv_qs;
     private TextView tv_gameStyle, tv_gameOpenFalse, tv_gameOpenTrue;
     private UIHandler handler;
@@ -325,6 +326,7 @@ public class QSActivity extends AppCompatActivity {
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("gameStyle", String.valueOf(gameStyle));
+                it.putExtra("selectlogs", selectlogs);
                 it.putExtra("size", String.valueOf(set.getSetSize()));
                 it.putStringArrayListExtra("set", set.getSet());
                 startActivity(it);
@@ -340,7 +342,7 @@ public class QSActivity extends AppCompatActivity {
 
     public void qsSet() {
         set = new QSSet(gameStyle);
-//        set.dingWeiZhi(true, "2", "", "3", "");
+//        set.dingWeiZhi(true, "1", "", "", "");
 //        set.dingWeiZhi(true, "1", "", "3", "");
 //        set.dingWeiZhi();
 //        set.peiShu(false, "", "2", "", "");
@@ -370,8 +372,8 @@ public class QSActivity extends AppCompatActivity {
 //        set.chengHaoWeiZhi3(true, false, false, false);
 //        set.heFen1(true, "12", 1, 0, 0, 0);
 //        set.dingFuShi4("12345");
-//        set.quanZhuan2("12345");
-
+//        set.quanZhuan4("3366");
+        set.shangJiang("1234");
     }
 
     public void rbClick() {

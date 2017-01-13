@@ -982,8 +982,7 @@ public class QSSet {
     }
 
     //上獎********========
-    public void shangJiang() {
-        set.clear();
+    public void shangJiang(String et) {
 
     }
 
