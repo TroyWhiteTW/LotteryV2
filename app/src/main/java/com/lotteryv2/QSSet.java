@@ -807,10 +807,178 @@ public class QSSet {
         }
     }
 
-    //全轉********=========
-    public void quanZhuan() {
+    //全轉********
+    public void quanZhuan2(String et) {
         set.clear();
+        StringBuffer sb1 = new StringBuffer(et);
+        int i1 = sb1.length();
+        String s1, s2, s3, s4;
+        for (int i = 0; i < i1 + 2; i++) {
+            for (int j = 0; j < i1 + 2; j++) {
+                for (int k = 0; k < i1 + 2; k++) {
+                    for (int l = 0; l < i1 + 2; l++) {
+                        if (i == j && j == k && k == l) {
 
+                        } else if (i == j && j == k) {
+
+                        } else if (i == j && j == l) {
+
+                        } else if (i == k && k == l) {
+
+                        } else if (j == k && k == l) {
+
+                        } else if (i == j) {
+
+                        } else if (i == k) {
+
+                        } else if (i == l) {
+
+                        } else if (j == k) {
+
+                        } else if (j == l) {
+
+                        } else if (k == l) {
+
+                        } else {
+                            if (i >= i1) {
+                                s1 = "X";
+                            } else {
+                                s1 = sb1.substring(i, i + 1);
+                            }
+                            if (j >= i1) {
+                                s2 = "X";
+                            } else {
+                                s2 = sb1.substring(j, j + 1);
+                            }
+                            if (k >= i1) {
+                                s3 = "X";
+                            } else {
+                                s3 = sb1.substring(k, k + 1);
+                            }
+                            if (l >= i1) {
+                                s4 = "X";
+                            } else {
+                                s4 = sb1.substring(l, l + 1);
+                            }
+                            if (s1.equals("X") && s2.equals("X") ||
+                                    s1.equals("X") && s3.equals("X") ||
+                                    s1.equals("X") && s4.equals("X") ||
+                                    s2.equals("X") && s3.equals("X") ||
+                                    s2.equals("X") && s4.equals("X") ||
+                                    s3.equals("X") && s4.equals("X")) {
+                                sbToList(s1, s2, s3, s4);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void quanZhuan3(String et) {
+        set.clear();
+        StringBuffer sb1 = new StringBuffer(et);
+        int i1 = sb1.length();
+        String s1, s2, s3, s4;
+        for (int i = 0; i < i1 + 1; i++) {
+            for (int j = 0; j < i1 + 1; j++) {
+                for (int k = 0; k < i1 + 1; k++) {
+                    for (int l = 0; l < i1 + 1; l++) {
+                        if (i == j && j == k && k == l) {
+
+                        } else if (i == j && j == k) {
+
+                        } else if (i == j && j == l) {
+
+                        } else if (i == k && k == l) {
+
+                        } else if (j == k && k == l) {
+
+                        } else if (i == j) {
+
+                        } else if (i == k) {
+
+                        } else if (i == l) {
+
+                        } else if (j == k) {
+
+                        } else if (j == l) {
+
+                        } else if (k == l) {
+
+                        } else {
+                            if (i >= i1) {
+                                s1 = "X";
+                            } else {
+                                s1 = sb1.substring(i, i + 1);
+                            }
+                            if (j >= i1) {
+                                s2 = "X";
+                            } else {
+                                s2 = sb1.substring(j, j + 1);
+                            }
+                            if (k >= i1) {
+                                s3 = "X";
+                            } else {
+                                s3 = sb1.substring(k, k + 1);
+                            }
+                            if (l >= i1) {
+                                s4 = "X";
+                            } else {
+                                s4 = sb1.substring(l, l + 1);
+                            }
+                            if (s1.equals("X") || s2.equals("X") || s3.equals("X") || s4.equals("X")) {
+                                sbToList(s1, s2, s3, s4);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void quanZhuan4(String et) {
+        set.clear();
+        StringBuffer sb1 = new StringBuffer(et);
+        int i1 = sb1.length();
+        String s1, s2, s3, s4;
+        for (int i = 0; i < i1; i++) {
+            for (int j = 0; j < i1; j++) {
+                for (int k = 0; k < i1; k++) {
+                    for (int l = 0; l < i1; l++) {
+                        if (i == j && j == k && k == l) {
+
+                        } else if (i == j && j == k) {
+
+                        } else if (i == j && j == l) {
+
+                        } else if (i == k && k == l) {
+
+                        } else if (j == k && k == l) {
+
+                        } else if (i == j) {
+
+                        } else if (i == k) {
+
+                        } else if (i == l) {
+
+                        } else if (j == k) {
+
+                        } else if (j == l) {
+
+                        } else if (k == l) {
+
+                        } else {
+                            s1 = sb1.substring(i, i + 1);
+                            s2 = sb1.substring(j, j + 1);
+                            s3 = sb1.substring(k, k + 1);
+                            s4 = sb1.substring(l, l + 1);
+                            sbToList(s1, s2, s3, s4);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     //上獎********========

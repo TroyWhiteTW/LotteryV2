@@ -370,6 +370,8 @@ public class QSActivity extends AppCompatActivity {
 //        set.chengHaoWeiZhi3(true, false, false, false);
 //        set.heFen1(true, "12", 1, 0, 0, 0);
 //        set.dingFuShi4("12345");
+//        set.quanZhuan2("12345");
+
     }
 
     public void rbClick() {
