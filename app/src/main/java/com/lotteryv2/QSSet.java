@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class QSSet {
     private int gameStyle;
     private StringBuffer sb, sbTmp;
-    private TreeSet<String> originSet, set, tmpSet,
+    private TreeSet<String> originSet, set, tmpSet, setClone,
             dingWeiZhiSet, dingWeiZhiSet2,
             peiShuSet, peiShuSet2,
             buDingWeiHeFenSet, buDingWeiHeFenSet2,
@@ -74,68 +74,32 @@ public class QSSet {
     }
 
     //定位置
-    public void dingWeiZhi(boolean chuQu, String qian, String bai, String shi, String ge) {
-        dingWeiZhiSet = originSet;
+    public void dingWeiZhi(String qian, String bai, String shi, String ge) {
+        dingWeiZhiSet = set;
         tmpSet = new TreeSet<>();
         if (!qian.equals("")) quQian(qian);
         if (!bai.equals("")) quBai(bai);
         if (!shi.equals("")) quShi(shi);
         if (!ge.equals("")) quGe(ge);
         for (String s : dingWeiZhiSet) tmpSet.add(s);
-        if (!chuQu) {
-            dingWeiZhiSet2 = set;
-            dingWeiZhiSet2.removeAll(tmpSet);
-            if (!qian.equals("")) {
-                TreeSet<String> treeSet = new TreeSet<>();
-                String a;
-                for (String s : originSet) {
-                    sbTmp.setLength(0);
-                    sbTmp.append(s);
-                    a = sbTmp.substring(0, 1);
-                    if (a.equals("X")) treeSet.add(s);
-                }
-                dingWeiZhiSet2.removeAll(treeSet);
-            }
-            if (!bai.equals("")) {
-                TreeSet<String> treeSet = new TreeSet<>();
-                String b;
-                for (String s : originSet) {
-                    sbTmp.setLength(0);
-                    sbTmp.append(s);
-                    b = sbTmp.substring(1, 2);
-                    if (b.equals("X")) treeSet.add(s);
-                }
-                dingWeiZhiSet2.removeAll(treeSet);
-            }
-            if (!shi.equals("")) {
-                TreeSet<String> treeSet = new TreeSet<>();
-                String c;
-                for (String s : originSet) {
-                    sbTmp.setLength(0);
-                    sbTmp.append(s);
-                    c = sbTmp.substring(2, 3);
-                    if (c.equals("X")) treeSet.add(s);
-                }
-                dingWeiZhiSet2.removeAll(treeSet);
-            }
-            if (!ge.equals("")) {
-                TreeSet<String> treeSet = new TreeSet<>();
-                String d;
-                for (String s : originSet) {
-                    sbTmp.setLength(0);
-                    sbTmp.append(s);
-                    d = sbTmp.substring(3, 4);
-                    if (d.equals("X")) treeSet.add(s);
-                }
-                dingWeiZhiSet2.removeAll(treeSet);
-            }
-        } else {
-            dingWeiZhiSet2.addAll(tmpSet);
-        }
+        dingWeiZhiSet2.addAll(tmpSet);
     }
 
     public void dingWeiZhi() {
-        set = dingWeiZhiSet2;
+        set = (TreeSet<String>) dingWeiZhiSet2.clone();
+        dingWeiZhiSet2.clear();
+    }
+
+    public void dingWeiZhi_chu(int i) {
+        switch (i) {
+            case 0:
+                setClone = (TreeSet<String>) set.clone();
+                break;
+            case 1:
+                setClone.removeAll(set);
+                set = setClone;
+                break;
+        }
     }
 
     //取千
@@ -191,24 +155,32 @@ public class QSSet {
     }
 
     //配數
-    public void peiShu(boolean chuQu, String s1, String s2, String s3, String s4) {
-        peiShuSet = originSet;
+    public void peiShu(String s1, String s2, String s3, String s4) {
+        peiShuSet = set;
         tmpSet = new TreeSet<>();
         if (!s1.equals("")) quYi(s1);
         if (!s2.equals("")) quEr(s2);
         if (!s3.equals("")) quSan(s3);
         if (!s4.equals("")) quSi(s4);
         for (String s : peiShuSet) tmpSet.add(s);
-        if (!chuQu) {
-            peiShuSet2 = set;
-            peiShuSet2.removeAll(tmpSet);
-        } else {
-            peiShuSet2.addAll(tmpSet);
-        }
+        peiShuSet2.addAll(tmpSet);
     }
 
     public void peiShu() {
-        set = peiShuSet2;
+        set = (TreeSet<String>) peiShuSet2.clone();
+        peiShuSet2.clear();
+    }
+
+    public void peiShu_chu(int i) {
+        switch (i) {
+            case 0:
+                setClone = (TreeSet<String>) set.clone();
+                break;
+            case 1:
+                setClone.removeAll(set);
+                set = setClone;
+                break;
+        }
     }
 
     //取一
@@ -276,7 +248,7 @@ public class QSSet {
     }
 
     //合分
-    public void heFen1(boolean chuQu, String et, int cb1, int cb2, int cb3, int cb4) {
+    public void heFen1(String et, int cb1, int cb2, int cb3, int cb4) {
         tmpSet = new TreeSet<>();
         int a1, b2, c3, d4;
         String a, b, c, d;
@@ -373,14 +345,10 @@ public class QSSet {
                 }
             }
         }
-        if (!chuQu) {
-            set.removeAll(tmpSet);
-        } else {
-            set = tmpSet;
-        }
+        set = tmpSet;
     }
 
-    public void heFen2(boolean chuQu, String et, int cb1, int cb2, int cb3, int cb4) {
+    public void heFen2(String et, int cb1, int cb2, int cb3, int cb4) {
         tmpSet = new TreeSet<>();
         int a1, b2, c3, d4;
         String a, b, c, d;
@@ -477,14 +445,10 @@ public class QSSet {
                 }
             }
         }
-        if (!chuQu) {
-            set.removeAll(tmpSet);
-        } else {
-            set = tmpSet;
-        }
+        set = tmpSet;
     }
 
-    public void heFen3(boolean chuQu, String et, int cb1, int cb2, int cb3, int cb4) {
+    public void heFen3(String et, int cb1, int cb2, int cb3, int cb4) {
         tmpSet = new TreeSet<>();
         int a1, b2, c3, d4;
         String a, b, c, d;
@@ -581,14 +545,10 @@ public class QSSet {
                 }
             }
         }
-        if (!chuQu) {
-            set.removeAll(tmpSet);
-        } else {
-            set = tmpSet;
-        }
+        set = tmpSet;
     }
 
-    public void heFen4(boolean chuQu, String et, int cb1, int cb2, int cb3, int cb4) {
+    public void heFen4(String et, int cb1, int cb2, int cb3, int cb4) {
         tmpSet = new TreeSet<>();
         int a1, b2, c3, d4;
         String a, b, c, d;
@@ -685,10 +645,18 @@ public class QSSet {
                 }
             }
         }
-        if (!chuQu) {
-            set.removeAll(tmpSet);
-        } else {
-            set = tmpSet;
+        set = tmpSet;
+    }
+
+    public void heFen_chu(int i) {
+        switch (i) {
+            case 0:
+                setClone = (TreeSet<String>) set.clone();
+                break;
+            case 1:
+                setClone.removeAll(set);
+                set = setClone;
+                break;
         }
     }
 
@@ -1027,7 +995,7 @@ public class QSSet {
         set.removeAll(tmpSet);
     }
 
-    //乘號位置********
+    //乘號位置********========
     public void chengHaoWeiZhi2(boolean cb1, boolean cb2, boolean cb3, boolean cb4) {
         set.clear();
         String s1, s2, s3, s4;

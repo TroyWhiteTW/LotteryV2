@@ -1139,7 +1139,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="1"
                     android:textAlignment="center" />
 
                 <TextView
@@ -1205,7 +1205,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="1"
                     android:textAlignment="center" />
 
                 <TextView
@@ -1271,7 +1271,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="1"
                     android:textAlignment="center" />
 
                 <TextView
@@ -1285,6 +1285,204 @@
 
                 <EditText
                     android:id="@+id/et_30"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textAlignment="center" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_23"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_46"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="除"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:id="@+id/rb_47"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="二字现含"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_34"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="二字现复式"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_35"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textAlignment="center" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_24"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_48"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="除"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:id="@+id/rb_49"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="三字现含"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_36"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="三字现复式"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_37"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textAlignment="center" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_25"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#da8c8c"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_50"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="除"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:id="@+id/rb_51"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="四字现含"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_38"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="四字现复式"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_39"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

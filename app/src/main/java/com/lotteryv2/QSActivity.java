@@ -24,6 +24,14 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class QSActivity extends AppCompatActivity {
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
     private Button btn_qsr, btn_reset;
@@ -34,7 +42,7 @@ public class QSActivity extends AppCompatActivity {
     private EditText et_1, et_2, et_3, et_4, et_5, et_6, et_7, et_8, et_9, et_10,
             et_11, et_12, et_13, et_14, et_15, et_16, et_17, et_18, et_19, et_20,
             et_21, et_22, et_23, et_24, et_25, et_26, et_27, et_28, et_29, et_30,
-            et_31, et_32, et_33;
+            et_31, et_32, et_33, et_34, et_35, et_36, et_37, et_38, et_39;
     private int gameStyle = 0;//classID: 1=二定位; 2=三定位; 3=四定位; 4=二字現; 5=三字現; 6=四字現
     private LinearLayout ll_1, ll_2, ll_3, ll_4, ll_5, ll_6, ll_7, ll_8, ll_9, ll_10,
             ll_11;
@@ -44,10 +52,11 @@ public class QSActivity extends AppCompatActivity {
             rb_11, rb_12, rb_13, rb_14, rb_15, rb_16, rb_17, rb_18, rb_19, rb_20,
             rb_21, rb_22, rb_23, rb_24, rb_25, rb_26, rb_27, rb_28, rb_29, rb_30,
             rb_31, rb_32, rb_33, rb_34, rb_35, rb_36, rb_37, rb_38, rb_39, rb_40,
-            rb_41, rb_42, rb_43, rb_44, rb_45;
+            rb_41, rb_42, rb_43, rb_44, rb_45, rb_46, rb_47, rb_48, rb_49, rb_50,
+            rb_51;
     private RadioGroup rg_1, rg_2, rg_3, rg_4, rg_5, rg_6, rg_7, rg_8, rg_9, rg_10,
             rg_11, rg_12, rg_13, rg_14, rg_15, rg_16, rg_17, rg_18, rg_19, rg_20,
-            rg_21, rg_22;
+            rg_21, rg_22, rg_23, rg_24, rg_25;
     private String cookie, app_net, webside;
     private String selectlogs;
     private ScrollView sv_qs;
@@ -150,6 +159,12 @@ public class QSActivity extends AppCompatActivity {
         et_31 = (EditText) findViewById(R.id.et_31);
         et_32 = (EditText) findViewById(R.id.et_32);
         et_33 = (EditText) findViewById(R.id.et_33);
+        et_34 = (EditText) findViewById(R.id.et_34);
+        et_35 = (EditText) findViewById(R.id.et_35);
+        et_36 = (EditText) findViewById(R.id.et_36);
+        et_37 = (EditText) findViewById(R.id.et_37);
+        et_38 = (EditText) findViewById(R.id.et_38);
+        et_39 = (EditText) findViewById(R.id.et_39);
         ll_1 = (LinearLayout) findViewById(R.id.ll_1);
         ll_2 = (LinearLayout) findViewById(R.id.ll_2);
         ll_3 = (LinearLayout) findViewById(R.id.ll_3);
@@ -206,6 +221,12 @@ public class QSActivity extends AppCompatActivity {
         rb_43 = (RadioButton) findViewById(R.id.rb_43);
         rb_44 = (RadioButton) findViewById(R.id.rb_44);
         rb_45 = (RadioButton) findViewById(R.id.rb_45);
+        rb_46 = (RadioButton) findViewById(R.id.rb_46);
+        rb_47 = (RadioButton) findViewById(R.id.rb_47);
+        rb_48 = (RadioButton) findViewById(R.id.rb_48);
+        rb_49 = (RadioButton) findViewById(R.id.rb_49);
+        rb_50 = (RadioButton) findViewById(R.id.rb_50);
+        rb_51 = (RadioButton) findViewById(R.id.rb_51);
         rg_1 = (RadioGroup) findViewById(R.id.rg_1);
         rg_2 = (RadioGroup) findViewById(R.id.rg_2);
         rg_3 = (RadioGroup) findViewById(R.id.rg_3);
@@ -228,6 +249,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20 = (RadioGroup) findViewById(R.id.rg_20);
         rg_21 = (RadioGroup) findViewById(R.id.rg_21);
         rg_22 = (RadioGroup) findViewById(R.id.rg_22);
+        rg_23 = (RadioGroup) findViewById(R.id.rg_23);
+        rg_24 = (RadioGroup) findViewById(R.id.rg_24);
+        rg_25 = (RadioGroup) findViewById(R.id.rg_25);
         sv_qs = (ScrollView) findViewById(R.id.sv_qs);
         tv_gameStyle = (TextView) findViewById(R.id.tv_gameStyle);
         tv_gameOpenFalse = (TextView) findViewById(R.id.tv_gameOpenFalse);
@@ -266,6 +290,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.setVisibility(View.GONE);
         rg_21.setVisibility(View.GONE);
         rg_22.setVisibility(View.GONE);
+        rg_23.setVisibility(View.GONE);
+        rg_24.setVisibility(View.GONE);
+        rg_25.setVisibility(View.GONE);
 
         btnClick();
         rbClick();
@@ -342,38 +369,1263 @@ public class QSActivity extends AppCompatActivity {
 
     public void qsSet() {
         set = new QSSet(gameStyle);
-//        set.dingWeiZhi(true, "1", "", "", "");
-//        set.dingWeiZhi(true, "1", "", "3", "");
-//        set.dingWeiZhi();
-//        set.peiShu(false, "", "2", "", "");
-//        set.buDingWeiHeFen3("1");
-//        set.buDingWeiHeFen3("4");
-//        set.buDingWeiHeFen3("5");
-//        set.buDingWeiHeFen(0);
-//        set.buDingWeiHeFen4("1");
-//        set.buDingWeiHeFen4("2");
-//        set.buDingWeiHeFen4("3");
-//        set.buDingWeiHeFen4("4");
-//        set.buDingWeiHeFen4("5");
-//        set.buDingWeiHeFen4("6");
-//        set.buDingWeiHeFen(1);
-//        set.erXiongDi(true);
-//        set.sanXiongDi(true);
-//        set.siXiongDi(true);
-//        set.han(true, "1");
-//        set.dingFuShi("123");
-//        set.shuangshuangChong(true);
-//        set.sanChong(true);
-//        set.siChong(true);
-//        set.dan(true,true,false,true,false);
-//        set.shuang(true,false,false,false,true);
-//        set.duiShu(true, "12", "34", "");
-//        set.paiChu("12");
-//        set.chengHaoWeiZhi3(true, false, false, false);
-//        set.heFen1(true, "12", 1, 0, 0, 0);
-//        set.dingFuShi4("12345");
-//        set.quanZhuan4("3366");
-        set.shangJiang("1234");
+        if (!et_26.getText().toString().equals("")) set.dingFuShi2(et_26.getText().toString());
+        if (!et_28.getText().toString().equals("")) set.dingFuShi3(et_28.getText().toString());
+        if (!et_30.getText().toString().equals("")) set.dingFuShi4(et_30.getText().toString());
+        StringBuffer quanZhuanEt = new StringBuffer(et_22.getText().toString());
+        switch (gameStyle) {
+            case 1:
+                if (quanZhuanEt.length() >= 2) set.quanZhuan2(et_22.getText().toString());
+                break;
+            case 2:
+                if (quanZhuanEt.length() >= 3) set.quanZhuan3(et_22.getText().toString());
+                break;
+            case 3:
+                if (quanZhuanEt.length() >= 4) set.quanZhuan4(et_22.getText().toString());
+                break;
+        }
+        if (rb_1.isChecked()) {//定除
+            set.dingWeiZhi_chu(0);
+            if (!et_1.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_1.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi(al1.get(i).toString(), "", "", "");
+                set.dingWeiZhi();
+            }
+            if (!et_2.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_2.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi("", al1.get(i).toString(), "", "");
+                set.dingWeiZhi();
+            }
+            if (!et_3.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_3.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi("", "", al1.get(i).toString(), "");
+                set.dingWeiZhi();
+            }
+            if (!et_4.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_4.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi("", "", "", al1.get(i).toString());
+                set.dingWeiZhi();
+            }
+            set.dingWeiZhi_chu(1);
+        }
+        if (rb_2.isChecked()) {//定取
+            if (!et_1.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_1.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi(al1.get(i).toString(), "", "", "");
+                set.dingWeiZhi();
+            }
+            if (!et_2.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_2.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi("", al1.get(i).toString(), "", "");
+                set.dingWeiZhi();
+            }
+            if (!et_3.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_3.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi("", "", al1.get(i).toString(), "");
+                set.dingWeiZhi();
+            }
+            if (!et_4.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_4.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.dingWeiZhi("", "", "", al1.get(i).toString());
+                set.dingWeiZhi();
+            }
+        }
+        if (rb_3.isChecked()) {//配除
+            set.peiShu_chu(0);
+            switch (gameStyle) {
+                case 1:
+                    if (!et_5.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_5.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_6.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_6.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 2:
+                    if (!et_7.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_7.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_8.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_8.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_9.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_9.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 3:
+                    if (!et_10.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_10.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_11.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_11.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_12.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_12.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_13.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_13.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+            }
+            set.peiShu_chu(1);
+        }
+        if (rb_4.isChecked()) {//配取
+            switch (gameStyle) {
+                case 1:
+                    if (!et_5.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_5.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_6.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_6.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 2:
+                    if (!et_7.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_7.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_8.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_8.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_9.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_9.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 3:
+                    if (!et_10.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_10.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_11.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_11.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_12.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_12.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_13.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_13.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+            }
+        }
+        if (rb_5.isChecked()) {//配除
+            set.peiShu_chu(0);
+            switch (gameStyle) {
+                case 4:
+                    if (!et_5.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_5.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_6.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_6.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 5:
+                    if (!et_7.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_7.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_8.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_8.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_9.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_9.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 6:
+                    if (!et_10.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_10.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_11.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_11.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_12.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_12.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_13.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_13.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+            }
+            set.peiShu_chu(1);
+        }
+        if (rb_6.isChecked()) {//配取
+            switch (gameStyle) {
+                case 4:
+                    if (!et_5.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_5.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_6.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_6.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 5:
+                    if (!et_7.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_7.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_8.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_8.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_9.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_9.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+                case 6:
+                    if (!et_10.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_10.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu(al1.get(i).toString(), "", "", "");
+                        set.peiShu();
+                    }
+                    if (!et_11.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_11.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_12.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_12.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    if (!et_13.getText().toString().equals("")) {
+                        StringBuffer sb1 = new StringBuffer(et_13.getText().toString());
+                        HashMap<Integer, String> treeMap = new HashMap<>();
+                        for (int i = 0; i < sb1.length(); i++)
+                            treeMap.put(i, sb1.substring(i, i + 1));
+                        ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                        Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                            @Override
+                            public int compare(Map.Entry o1, Map.Entry o2) {
+                                return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                            }
+                        };
+                        Collections.sort(entryList, sortByValue);
+                        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                        for (Map.Entry e : entryList)
+                            linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                        ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                        for (int i = 0; i < al1.size(); i++)
+                            set.peiShu("", al1.get(i).toString(), "", "");
+                        set.peiShu();
+                    }
+                    break;
+            }
+        }
+        if (rb_7.isChecked()) {//合分除
+            set.heFen_chu(0);
+            int cb1 = 0, cb2 = 0, cb3 = 0, cb4 = 0, cb5 = 0, cb6 = 0, cb7 = 0, cb8 = 0, cb9 = 0, cb10 = 0,
+                    cb11 = 0, cb12 = 0, cb13 = 0, cb14 = 0, cb15 = 0, cb16 = 0;
+            if (cb_1.isChecked()) cb1 = 1;
+            if (cb_2.isChecked()) cb2 = 1;
+            if (cb_3.isChecked()) cb3 = 1;
+            if (cb_4.isChecked()) cb4 = 1;
+            if (cb_5.isChecked()) cb5 = 1;
+            if (cb_6.isChecked()) cb6 = 1;
+            if (cb_7.isChecked()) cb7 = 1;
+            if (cb_8.isChecked()) cb8 = 1;
+            if (cb_9.isChecked()) cb9 = 1;
+            if (cb_10.isChecked()) cb10 = 1;
+            if (cb_11.isChecked()) cb11 = 1;
+            if (cb_12.isChecked()) cb12 = 1;
+            if (cb_13.isChecked()) cb13 = 1;
+            if (cb_14.isChecked()) cb14 = 1;
+            if (cb_15.isChecked()) cb15 = 1;
+            if (cb_16.isChecked()) cb16 = 1;
+            if (cb1 == 1 || cb2 == 1 || cb3 == 1 || cb4 == 1)
+                set.heFen1(et_14.getText().toString(), cb1, cb2, cb3, cb4);
+            if (cb5 == 1 || cb6 == 1 || cb7 == 1 || cb8 == 1)
+                set.heFen2(et_15.getText().toString(), cb5, cb6, cb7, cb8);
+            if (cb9 == 1 || cb10 == 1 || cb11 == 1 || cb12 == 1)
+                set.heFen3(et_16.getText().toString(), cb9, cb10, cb11, cb12);
+            if (cb13 == 1 || cb14 == 1 || cb15 == 1 || cb16 == 1)
+                set.heFen4(et_17.getText().toString(), cb13, cb14, cb15, cb16);
+            set.heFen_chu(1);
+        }
+        if (rb_8.isChecked()) {//合分取
+            int cb1 = 0, cb2 = 0, cb3 = 0, cb4 = 0, cb5 = 0, cb6 = 0, cb7 = 0, cb8 = 0, cb9 = 0, cb10 = 0,
+                    cb11 = 0, cb12 = 0, cb13 = 0, cb14 = 0, cb15 = 0, cb16 = 0;
+            if (cb_1.isChecked()) cb1 = 1;
+            if (cb_2.isChecked()) cb2 = 1;
+            if (cb_3.isChecked()) cb3 = 1;
+            if (cb_4.isChecked()) cb4 = 1;
+            if (cb_5.isChecked()) cb5 = 1;
+            if (cb_6.isChecked()) cb6 = 1;
+            if (cb_7.isChecked()) cb7 = 1;
+            if (cb_8.isChecked()) cb8 = 1;
+            if (cb_9.isChecked()) cb9 = 1;
+            if (cb_10.isChecked()) cb10 = 1;
+            if (cb_11.isChecked()) cb11 = 1;
+            if (cb_12.isChecked()) cb12 = 1;
+            if (cb_13.isChecked()) cb13 = 1;
+            if (cb_14.isChecked()) cb14 = 1;
+            if (cb_15.isChecked()) cb15 = 1;
+            if (cb_16.isChecked()) cb16 = 1;
+            if (cb1 == 1 || cb2 == 1 || cb3 == 1 || cb4 == 1)
+                set.heFen1(et_14.getText().toString(), cb1, cb2, cb3, cb4);
+            if (cb5 == 1 || cb6 == 1 || cb7 == 1 || cb8 == 1)
+                set.heFen2(et_15.getText().toString(), cb5, cb6, cb7, cb8);
+            if (cb9 == 1 || cb10 == 1 || cb11 == 1 || cb12 == 1)
+                set.heFen3(et_16.getText().toString(), cb9, cb10, cb11, cb12);
+            if (cb13 == 1 || cb14 == 1 || cb15 == 1 || cb16 == 1)
+                set.heFen4(et_17.getText().toString(), cb13, cb14, cb15, cb16);
+        }
+        if (rb_9.isChecked()) {//不定位合分兩
+            if (!et_18.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_18.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.buDingWeiHeFen2(al1.get(i).toString());
+                set.buDingWeiHeFen(0);
+            }
+        }
+        if (rb_10.isChecked()) {//不定位合分兩
+            if (!et_19.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_19.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.buDingWeiHeFen2(al1.get(i).toString());
+                set.buDingWeiHeFen(0);
+            }
+        }
+        if (rb_11.isChecked()) {//不定位合分三
+            if (!et_19.getText().toString().equals("")) {
+                StringBuffer sb1 = new StringBuffer(et_19.getText().toString());
+                HashMap<Integer, String> treeMap = new HashMap<>();
+                for (int i = 0; i < sb1.length(); i++)
+                    treeMap.put(i, sb1.substring(i, i + 1));
+                ArrayList<Map.Entry<Integer, String>> entryList = new ArrayList<>(treeMap.entrySet());
+                Comparator<Map.Entry> sortByValue = new Comparator<Map.Entry>() {
+                    @Override
+                    public int compare(Map.Entry o1, Map.Entry o2) {
+                        return ((String) o1.getValue()).compareTo((String) o2.getValue());
+                    }
+                };
+                Collections.sort(entryList, sortByValue);
+                LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+                for (Map.Entry e : entryList)
+                    linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
+                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                for (int i = 0; i < al1.size(); i++)
+                    set.buDingWeiHeFen3(al1.get(i).toString());
+                set.buDingWeiHeFen(0);
+            }
+        }
+
+        //值範圍
+        int x = 0, y = 0;
+        if (!et_20.getText().toString().equals("") && !et_21.getText().toString().equals("")) {
+            x = Integer.parseInt(et_20.getText().toString());
+            y = Integer.parseInt(et_21.getText().toString());
+            for (int i = x; i <= y; i++) {
+                set.buDingWeiHeFen4(String.valueOf(i));
+            }
+            set.buDingWeiHeFen(1);
+        }
+        if (!et_20.getText().toString().equals("") && et_21.getText().toString().equals(""))
+            Toast("值范围输入错误");
+        if (et_20.getText().toString().equals("") && !et_21.getText().toString().equals(""))
+            Toast("值范围输入错误");
+
+        //排除
+        if (!et_24.getText().toString().equals("")) set.paiChu(et_24.getText().toString());
+
+        if (rb_12.isChecked()) {//二字定含除
+            if (!et_25.getText().toString().equals("")) set.han(false, et_25.getText().toString());
+        }
+        if (rb_13.isChecked()) {//二字定含取
+            if (!et_25.getText().toString().equals("")) set.han(true, et_25.getText().toString());
+        }
+        if (rb_14.isChecked()) {//三字定含除
+            if (!et_27.getText().toString().equals("")) set.han(false, et_27.getText().toString());
+        }
+        if (rb_15.isChecked()) {//三字定含取
+            if (!et_27.getText().toString().equals("")) set.han(true, et_27.getText().toString());
+        }
+        if (rb_16.isChecked()) {//四字定含除
+            if (!et_29.getText().toString().equals("")) set.han(false, et_29.getText().toString());
+        }
+        if (rb_17.isChecked()) {//四字定含取
+            if (!et_29.getText().toString().equals("")) set.han(true, et_29.getText().toString());
+        }
+        if (rb_18.isChecked()) {//雙重除
+            set.shuangChong(false);
+        }
+        if (rb_19.isChecked()) {//雙重取
+            set.shuangChong(true);
+        }
+        if (rb_20.isChecked()) {//雙雙重除
+            set.shuangshuangChong(false);
+        }
+        if (rb_21.isChecked()) {//雙雙重取
+            set.shuangshuangChong(true);
+        }
+        if (rb_22.isChecked()) {//三重除
+            set.sanChong(false);
+        }
+        if (rb_23.isChecked()) {//三重取
+            set.sanChong(true);
+        }
+        if (rb_24.isChecked()) {//四重除
+            set.siChong(false);
+        }
+        if (rb_25.isChecked()) {//四重取
+            set.siChong(true);
+        }
+        if (rb_26.isChecked()) {//二兄弟除
+            set.erXiongDi(false);
+        }
+        if (rb_27.isChecked()) {//二兄弟取
+            set.erXiongDi(true);
+        }
+        if (rb_28.isChecked()) {//三兄弟除
+            set.sanXiongDi(false);
+        }
+        if (rb_29.isChecked()) {//三兄弟取
+            set.sanXiongDi(true);
+        }
+        if (rb_30.isChecked()) {//四兄弟除
+            set.siXiongDi(false);
+        }
+        if (rb_31.isChecked()) {//四兄弟取
+            set.siXiongDi(true);
+        }
+        if (rb_32.isChecked()) {//對數除
+            if (!et_31.getText().toString().equals("") || !et_32.getText().toString().equals("") || !et_33.getText().toString().equals(""))
+                set.duiShu(false, et_31.getText().toString(), et_32.getText().toString(), et_33.getText().toString());
+        }
+        if (rb_33.isChecked()) {//對數取
+            if (!et_31.getText().toString().equals("") || !et_32.getText().toString().equals("") || !et_33.getText().toString().equals(""))
+                set.duiShu(true, et_31.getText().toString(), et_32.getText().toString(), et_33.getText().toString());
+        }
+        if (rb_34.isChecked()) {//單除2
+            set.dan(false, cb_21.isChecked(), cb_22.isChecked(), false, false);
+        }
+        if (rb_35.isChecked()) {//單取2
+            set.dan(true, cb_21.isChecked(), cb_22.isChecked(), false, false);
+        }
+        if (rb_36.isChecked()) {//單除3
+            set.dan(false, cb_23.isChecked(), cb_24.isChecked(), cb_25.isChecked(), false);
+        }
+        if (rb_37.isChecked()) {//單取3
+            set.dan(true, cb_23.isChecked(), cb_24.isChecked(), cb_25.isChecked(), false);
+        }
+        if (rb_38.isChecked()) {//單除4
+            set.dan(false, cb_26.isChecked(), cb_27.isChecked(), cb_28.isChecked(), cb_29.isChecked());
+        }
+        if (rb_39.isChecked()) {//單取4
+            set.dan(true, cb_26.isChecked(), cb_27.isChecked(), cb_28.isChecked(), cb_29.isChecked());
+        }
+        if (rb_40.isChecked()) {//雙除2
+            set.shuang(false, cb_30.isChecked(), cb_31.isChecked(), false, false);
+        }
+        if (rb_41.isChecked()) {//雙取2
+            set.shuang(true, cb_30.isChecked(), cb_31.isChecked(), false, false);
+        }
+        if (rb_42.isChecked()) {//雙除3
+            set.shuang(false, cb_32.isChecked(), cb_33.isChecked(), cb_34.isChecked(), false);
+        }
+        if (rb_43.isChecked()) {//雙取3
+            set.shuang(true, cb_32.isChecked(), cb_33.isChecked(), cb_34.isChecked(), false);
+        }
+        if (rb_44.isChecked()) {//雙除4
+            set.shuang(false, cb_35.isChecked(), cb_36.isChecked(), cb_37.isChecked(), cb_38.isChecked());
+        }
+        if (rb_45.isChecked()) {//雙取4
+            set.shuang(true, cb_35.isChecked(), cb_36.isChecked(), cb_37.isChecked(), cb_38.isChecked());
+        }
+        if (rb_46.isChecked()) {//二字現含除
+            if (!et_34.getText().toString().equals("")) set.han(false, et_34.getText().toString());
+        }
+        if (rb_47.isChecked()) {//二字現含取
+            if (!et_34.getText().toString().equals("")) set.han(true, et_34.getText().toString());
+        }
+        if (rb_48.isChecked()) {//三字現含除
+            if (!et_36.getText().toString().equals("")) set.han(false, et_36.getText().toString());
+        }
+        if (rb_49.isChecked()) {//三字現含取
+            if (!et_36.getText().toString().equals("")) set.han(true, et_36.getText().toString());
+        }
+        if (rb_50.isChecked()) {//四字現含除
+            if (!et_38.getText().toString().equals("")) set.han(false, et_38.getText().toString());
+        }
+        if (rb_51.isChecked()) {//四字現含取
+            if (!et_38.getText().toString().equals("")) set.han(true, et_38.getText().toString());
+        }
     }
 
     public void rbClick() {
@@ -473,6 +1725,24 @@ public class QSActivity extends AppCompatActivity {
                 }
             }
         });
+        rb_7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_7.isChecked()) {
+                    ll_7.setVisibility(View.VISIBLE);
+                    ll_8.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        rb_8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb_8.isChecked()) {
+                    ll_7.setVisibility(View.VISIBLE);
+                    ll_8.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
     public void btn_erDing(View view) {
@@ -505,6 +1775,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.setVisibility(View.GONE);
         rg_21.setVisibility(View.GONE);
         rg_22.setVisibility(View.VISIBLE);
+        rg_23.setVisibility(View.GONE);
+        rg_24.setVisibility(View.GONE);
+        rg_25.setVisibility(View.GONE);
     }
 
     public void btn_sanDing(View view) {
@@ -537,6 +1810,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.setVisibility(View.GONE);
         rg_21.setVisibility(View.GONE);
         rg_22.setVisibility(View.VISIBLE);
+        rg_23.setVisibility(View.GONE);
+        rg_24.setVisibility(View.GONE);
+        rg_25.setVisibility(View.GONE);
     }
 
     public void btn_siDing(View view) {
@@ -569,6 +1845,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.setVisibility(View.GONE);
         rg_21.setVisibility(View.GONE);
         rg_22.setVisibility(View.VISIBLE);
+        rg_23.setVisibility(View.GONE);
+        rg_24.setVisibility(View.GONE);
+        rg_25.setVisibility(View.GONE);
     }
 
     public void btn_erXian(View view) {
@@ -584,7 +1863,7 @@ public class QSActivity extends AppCompatActivity {
         rg_3.setVisibility(View.GONE);
         rg_4.setVisibility(View.VISIBLE);
         rg_5.setVisibility(View.GONE);
-        rg_6.setVisibility(View.VISIBLE);
+        rg_6.setVisibility(View.GONE);
         rg_7.setVisibility(View.GONE);
         rg_8.setVisibility(View.GONE);
         rg_9.setVisibility(View.VISIBLE);
@@ -601,6 +1880,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.setVisibility(View.VISIBLE);
         rg_21.setVisibility(View.GONE);
         rg_22.setVisibility(View.GONE);
+        rg_23.setVisibility(View.VISIBLE);
+        rg_24.setVisibility(View.GONE);
+        rg_25.setVisibility(View.GONE);
     }
 
     public void btn_sanXian(View view) {
@@ -617,7 +1899,7 @@ public class QSActivity extends AppCompatActivity {
         rg_4.setVisibility(View.GONE);
         rg_5.setVisibility(View.VISIBLE);
         rg_6.setVisibility(View.GONE);
-        rg_7.setVisibility(View.VISIBLE);
+        rg_7.setVisibility(View.GONE);
         rg_8.setVisibility(View.GONE);
         rg_9.setVisibility(View.VISIBLE);
         rg_10.setVisibility(View.GONE);
@@ -633,6 +1915,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.setVisibility(View.GONE);
         rg_21.setVisibility(View.VISIBLE);
         rg_22.setVisibility(View.GONE);
+        rg_23.setVisibility(View.GONE);
+        rg_24.setVisibility(View.VISIBLE);
+        rg_25.setVisibility(View.GONE);
     }
 
     public void btn_siXian(View view) {
@@ -650,7 +1935,7 @@ public class QSActivity extends AppCompatActivity {
         rg_5.setVisibility(View.VISIBLE);
         rg_6.setVisibility(View.GONE);
         rg_7.setVisibility(View.GONE);
-        rg_8.setVisibility(View.VISIBLE);
+        rg_8.setVisibility(View.GONE);
         rg_9.setVisibility(View.VISIBLE);
         rg_10.setVisibility(View.GONE);
         rg_11.setVisibility(View.VISIBLE);
@@ -665,6 +1950,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.setVisibility(View.GONE);
         rg_21.setVisibility(View.GONE);
         rg_22.setVisibility(View.VISIBLE);
+        rg_23.setVisibility(View.GONE);
+        rg_24.setVisibility(View.GONE);
+        rg_25.setVisibility(View.VISIBLE);
     }
 
     public void resetRg1And2() {
@@ -762,6 +2050,12 @@ public class QSActivity extends AppCompatActivity {
         et_31.setText("");
         et_32.setText("");
         et_33.setText("");
+        et_34.setText("");
+        et_35.setText("");
+        et_36.setText("");
+        et_37.setText("");
+        et_38.setText("");
+        et_39.setText("");
         ll_2.setVisibility(View.GONE);
         ll_3.setVisibility(View.GONE);
         ll_4.setVisibility(View.GONE);
@@ -791,6 +2085,9 @@ public class QSActivity extends AppCompatActivity {
         rg_20.clearCheck();
         rg_21.clearCheck();
         rg_22.clearCheck();
+        rg_23.clearCheck();
+        rg_24.clearCheck();
+        rg_25.clearCheck();
     }
 
     public void connectThread(final int connectThreadType) {
