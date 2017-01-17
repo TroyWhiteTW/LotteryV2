@@ -348,6 +348,7 @@ public class QSActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 qsSet();
+                selectlogs();
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("gameStyle", String.valueOf(gameStyle));
@@ -1628,6 +1629,166 @@ public class QSActivity extends AppCompatActivity {
         if (rb_51.isChecked()) {//四字現含取
             if (!et_38.getText().toString().equals("")) set.han(true, et_38.getText().toString());
         }
+    }
+
+    public void selectlogs() {
+        String s, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19;
+        s1 = (rb_1.isChecked() ? "1" : "0") + "," + (rb_2.isChecked() ? "1" : "0") + "," +
+                et_1.getText().toString() + "," + et_2.getText().toString() + "," + et_3.getText().toString() + "," + et_4.getText().toString() + ",";
+        s2 = (rb_7.isChecked() ? "1" : "0") + "," + (rb_8.isChecked() ? "1" : "0") + "," +
+                (cb_1.isChecked() ? "1" : "0") + "," + (cb_2.isChecked() ? "1" : "0") + "," + (cb_3.isChecked() ? "1" : "0") + "," + (cb_4.isChecked() ? "1" : "0") + "," +
+                et_14.getText().toString() + "," +
+                (cb_5.isChecked() ? "1" : "0") + "," + (cb_6.isChecked() ? "1" : "0") + "," + (cb_7.isChecked() ? "1" : "0") + "," + (cb_8.isChecked() ? "1" : "0") + "," +
+                et_15.getText().toString() + "," +
+                (cb_9.isChecked() ? "1" : "0") + "," + (cb_10.isChecked() ? "1" : "0") + "," + (cb_11.isChecked() ? "1" : "0") + "," + (cb_12.isChecked() ? "1" : "0") + "," +
+                et_16.getText().toString() + "," +
+                (cb_13.isChecked() ? "1" : "0") + "," + (cb_14.isChecked() ? "1" : "0") + "," + (cb_15.isChecked() ? "1" : "0") + "," + (cb_16.isChecked() ? "1" : "0") + "," +
+                et_17.getText().toString() + ",";
+        s3 = "0,0,,";
+        if (rb_9.isChecked()) s3 = "1,0," + et_18.getText().toString() + ",";
+        if (rb_10.isChecked() || rb_11.isChecked())
+            s3 = (rb_10.isChecked() ? "1" : "0") + "," + (rb_11.isChecked() ? "1" : "0") + "," + et_18.getText().toString() + ",";
+        s4 = "";
+        if (!et_20.getText().toString().equals("") && !et_21.getText().toString().equals(""))
+            s4 = et_20.getText().toString() + "," + et_21.getText().toString() + ",";
+        s5 = et_22.getText().toString() + "," + et_23.getText().toString() + "," + et_24.getText().toString() + ",";
+        s6 = (cb_17.isChecked() ? "1" : "0") + "," + (cb_18.isChecked() ? "1" : "0") + "," + (cb_19.isChecked() ? "1" : "0") + "," + (cb_20.isChecked() ? "1" : "0") + ",";
+        s7 = "0,0,,,";
+        if (rb_12.isChecked() || rb_13.isChecked())
+            s7 = (rb_12.isChecked() ? "1" : "0") + "," + (rb_13.isChecked() ? "1" : "0") + "," + et_25.getText().toString() + "," + et_26.getText().toString() + ",";
+        if (rb_14.isChecked() || rb_15.isChecked())
+            s7 = (rb_14.isChecked() ? "1" : "0") + "," + (rb_15.isChecked() ? "1" : "0") + "," + et_27.getText().toString() + "," + et_28.getText().toString() + ",";
+        if (rb_16.isChecked() || rb_17.isChecked())
+            s7 = (rb_16.isChecked() ? "1" : "0") + "," + (rb_17.isChecked() ? "1" : "0") + "," + et_29.getText().toString() + "," + et_30.getText().toString() + ",";
+        if (rb_46.isChecked() || rb_47.isChecked())
+            s7 = (rb_46.isChecked() ? "1" : "0") + "," + (rb_47.isChecked() ? "1" : "0") + "," + et_34.getText().toString() + "," + et_35.getText().toString() + ",";
+        if (rb_48.isChecked() || rb_49.isChecked())
+            s7 = (rb_48.isChecked() ? "1" : "0") + "," + (rb_49.isChecked() ? "1" : "0") + "," + et_36.getText().toString() + "," + et_37.getText().toString() + ",";
+        if (rb_50.isChecked() || rb_51.isChecked())
+            s7 = (rb_50.isChecked() ? "1" : "0") + "," + (rb_51.isChecked() ? "1" : "0") + "," + et_38.getText().toString() + "," + et_39.getText().toString() + ",";
+        s8 = (rb_18.isChecked() ? "1" : "0") + "," + (rb_19.isChecked() ? "1" : "0") + ",";//雙重
+        s9 = (rb_20.isChecked() ? "1" : "0") + "," + (rb_21.isChecked() ? "1" : "0") + ",";//雙雙重
+        s10 = (rb_22.isChecked() ? "1" : "0") + "," + (rb_23.isChecked() ? "1" : "0") + ",";//三重
+        s11 = (rb_24.isChecked() ? "1" : "0") + "," + (rb_25.isChecked() ? "1" : "0") + ",";//四重
+        s12 = (rb_26.isChecked() ? "1" : "0") + "," + (rb_27.isChecked() ? "1" : "0") + ",";//二兄弟
+        s13 = (rb_28.isChecked() ? "1" : "0") + "," + (rb_29.isChecked() ? "1" : "0") + ",";//三兄弟
+        s14 = (rb_30.isChecked() ? "1" : "0") + "," + (rb_31.isChecked() ? "1" : "0") + ",";//四兄弟
+        s15 = (rb_32.isChecked() ? "1" : "0") + "," + (rb_33.isChecked() ? "1" : "0") + "," +
+                et_31.getText().toString() + "," + et_32.getText().toString() + "," + et_33.getText().toString() + ",";
+        s16 = "";//單
+        switch (gameStyle) {
+            case 1:
+                s16 = "0,0,0,0,0,0,";
+                if (rb_38.isChecked() || rb_39.isChecked())
+                    s16 = (rb_38.isChecked() ? "1" : "0") + "," + (rb_39.isChecked() ? "1" : "0") + "," +
+                            (cb_26.isChecked() ? "1" : "0") + "," + (cb_27.isChecked() ? "1" : "0") + "," + (cb_28.isChecked() ? "1" : "0") + "," + (cb_29.isChecked() ? "1" : "0") + ",";
+                break;
+            case 2:
+                s16 = "0,0,0,0,0,0,";
+                if (rb_38.isChecked() || rb_39.isChecked())
+                    s16 = (rb_38.isChecked() ? "1" : "0") + "," + (rb_39.isChecked() ? "1" : "0") + "," +
+                            (cb_26.isChecked() ? "1" : "0") + "," + (cb_27.isChecked() ? "1" : "0") + "," + (cb_28.isChecked() ? "1" : "0") + "," + (cb_29.isChecked() ? "1" : "0") + ",";
+                break;
+            case 3:
+                s16 = "0,0,0,0,0,0,";
+                if (rb_38.isChecked() || rb_39.isChecked())
+                    s16 = (rb_38.isChecked() ? "1" : "0") + "," + (rb_39.isChecked() ? "1" : "0") + "," +
+                            (cb_26.isChecked() ? "1" : "0") + "," + (cb_27.isChecked() ? "1" : "0") + "," + (cb_28.isChecked() ? "1" : "0") + "," + (cb_29.isChecked() ? "1" : "0") + ",";
+                break;
+            case 4:
+                s16 = "0,0,0,0,";
+                if (rb_34.isChecked() || rb_35.isChecked())
+                    s16 = (rb_34.isChecked() ? "1" : "0") + "," + (rb_35.isChecked() ? "1" : "0") + "," +
+                            (cb_21.isChecked() ? "1" : "0") + "," + (cb_22.isChecked() ? "1" : "0") + ",";
+                break;
+            case 5:
+                s16 = "0,0,0,0,0,";
+                if (rb_36.isChecked() || rb_37.isChecked())
+                    s16 = (rb_36.isChecked() ? "1" : "0") + "," + (rb_37.isChecked() ? "1" : "0") + "," +
+                            (cb_23.isChecked() ? "1" : "0") + "," + (cb_24.isChecked() ? "1" : "0") + "," + (cb_25.isChecked() ? "1" : "0") + ",";
+                break;
+            case 6:
+                s16 = "0,0,0,0,0,0,";
+                if (rb_38.isChecked() || rb_39.isChecked())
+                    s16 = (rb_38.isChecked() ? "1" : "0") + "," + (rb_39.isChecked() ? "1" : "0") + "," +
+                            (cb_26.isChecked() ? "1" : "0") + "," + (cb_27.isChecked() ? "1" : "0") + "," + (cb_28.isChecked() ? "1" : "0") + "," + (cb_29.isChecked() ? "1" : "0") + ",";
+                break;
+        }
+        s17 = "";//雙
+        switch (gameStyle) {
+            case 1:
+                s17 = "0,0,0,0,0,0,";
+                if (rb_44.isChecked() || rb_45.isChecked())
+                    s17 = (rb_44.isChecked() ? "1" : "0") + "," + (rb_45.isChecked() ? "1" : "0") + "," +
+                            (cb_35.isChecked() ? "1" : "0") + "," + (cb_36.isChecked() ? "1" : "0") + "," + (cb_37.isChecked() ? "1" : "0") + "," + (cb_38.isChecked() ? "1" : "0") + ",";
+                break;
+            case 2:
+                s17 = "0,0,0,0,0,0,";
+                if (rb_44.isChecked() || rb_45.isChecked())
+                    s17 = (rb_44.isChecked() ? "1" : "0") + "," + (rb_45.isChecked() ? "1" : "0") + "," +
+                            (cb_35.isChecked() ? "1" : "0") + "," + (cb_36.isChecked() ? "1" : "0") + "," + (cb_37.isChecked() ? "1" : "0") + "," + (cb_38.isChecked() ? "1" : "0") + ",";
+                break;
+            case 3:
+                s17 = "0,0,0,0,0,0,";
+                if (rb_44.isChecked() || rb_45.isChecked())
+                    s17 = (rb_44.isChecked() ? "1" : "0") + "," + (rb_45.isChecked() ? "1" : "0") + "," +
+                            (cb_35.isChecked() ? "1" : "0") + "," + (cb_36.isChecked() ? "1" : "0") + "," + (cb_37.isChecked() ? "1" : "0") + "," + (cb_38.isChecked() ? "1" : "0") + ",";
+                break;
+            case 4:
+                s17 = "0,0,0,0,";
+                if (rb_40.isChecked() || rb_41.isChecked())
+                    s17 = (rb_40.isChecked() ? "1" : "0") + "," + (rb_41.isChecked() ? "1" : "0") + "," +
+                            (cb_30.isChecked() ? "1" : "0") + "," + (cb_31.isChecked() ? "1" : "0") + ",";
+                break;
+            case 5:
+                s17 = "0,0,0,0,0,";
+                if (rb_42.isChecked() || rb_43.isChecked())
+                    s17 = (rb_42.isChecked() ? "1" : "0") + "," + (rb_43.isChecked() ? "1" : "0") + "," +
+                            (cb_32.isChecked() ? "1" : "0") + "," + (cb_33.isChecked() ? "1" : "0") + "," + (cb_34.isChecked() ? "1" : "0") + ",";
+                break;
+            case 6:
+                s17 = "0,0,0,0,0,0,";
+                if (rb_44.isChecked() || rb_45.isChecked())
+                    s17 = (rb_44.isChecked() ? "1" : "0") + "," + (rb_45.isChecked() ? "1" : "0") + "," +
+                            (cb_35.isChecked() ? "1" : "0") + "," + (cb_36.isChecked() ? "1" : "0") + "," + (cb_37.isChecked() ? "1" : "0") + "," + (cb_38.isChecked() ? "1" : "0") + ",";
+                break;
+        }
+        s18 = "";//配數
+        switch (gameStyle) {
+            case 1:
+                if (rb_3.isChecked() || rb_4.isChecked())
+                    s18 = (rb_3.isChecked() ? "1" : "0") + "," + (rb_4.isChecked() ? "1" : "0") + "," +
+                            et_5.getText().toString() + "," + et_6.getText().toString() + "," + "" + "," + "" + ",0,0,0,0,";
+                break;
+            case 2:
+                if (rb_3.isChecked() || rb_4.isChecked())
+                    s18 = (rb_3.isChecked() ? "1" : "0") + "," + (rb_4.isChecked() ? "1" : "0") + "," +
+                            et_7.getText().toString() + "," + et_8.getText().toString() + "," + et_9.getText().toString() + "," + "" + ",0,0,0,0,";
+                break;
+            case 3:
+                if (rb_3.isChecked() || rb_4.isChecked())
+                    s18 = (rb_3.isChecked() ? "1" : "0") + "," + (rb_4.isChecked() ? "1" : "0") + "," +
+                            et_10.getText().toString() + "," + et_11.getText().toString() + "," + et_12.getText().toString() + "," + et_13.getText().toString() + ",0,0,0,0,";
+                break;
+            case 4:
+                if (rb_5.isChecked() || rb_6.isChecked())
+                    s18 = (rb_3.isChecked() ? "1" : "0") + "," + (rb_4.isChecked() ? "1" : "0") + "," +
+                            et_5.getText().toString() + "," + et_6.getText().toString() + "," + "" + "," + "" + ",0,0,0,0,";
+                break;
+            case 5:
+                if (rb_5.isChecked() || rb_6.isChecked())
+                    s18 = (rb_3.isChecked() ? "1" : "0") + "," + (rb_4.isChecked() ? "1" : "0") + "," +
+                            et_7.getText().toString() + "," + et_8.getText().toString() + "," + et_9.getText().toString() + "," + "" + ",0,0,0,0,";
+                break;
+            case 6:
+                if (rb_5.isChecked() || rb_6.isChecked())
+                    s18 = (rb_3.isChecked() ? "1" : "0") + "," + (rb_4.isChecked() ? "1" : "0") + "," +
+                            et_10.getText().toString() + "," + et_11.getText().toString() + "," + et_12.getText().toString() + "," + et_13.getText().toString() + ",0,0,0,0,";
+                break;
+        }
+        s19 = "";
+        selectlogs = s1 + "|" + s2 + "|" + s3 + "|" + s4 + "|" + s5 + "|" + s6 + "|" + s7 + "|" + s8 + "|" + s9 + "|" + s10 +
+                "|" + s11 + "|" + s12 + "|" + s13 + "|" + s14 + "|" + s15 + "|" + s16 + "|" + s17 + "|" + s18 + "|" + s19;
     }
 
     public void rbClick() {
