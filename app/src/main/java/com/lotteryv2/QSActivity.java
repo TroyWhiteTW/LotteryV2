@@ -404,6 +404,7 @@ public class QSActivity extends AppCompatActivity {
                 ArrayList al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
                     set.dingWeiZhi(al1.get(i).toString(), "", "", "");
+                set.dingWeiZhi("X", "", "", "");
                 set.dingWeiZhi();
             }
             if (!et_2.getText().toString().equals("")) {
@@ -425,6 +426,7 @@ public class QSActivity extends AppCompatActivity {
                 ArrayList al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
                     set.dingWeiZhi("", al1.get(i).toString(), "", "");
+                set.dingWeiZhi("", "X", "", "");
                 set.dingWeiZhi();
             }
             if (!et_3.getText().toString().equals("")) {
@@ -446,6 +448,7 @@ public class QSActivity extends AppCompatActivity {
                 ArrayList al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
                     set.dingWeiZhi("", "", al1.get(i).toString(), "");
+                set.dingWeiZhi("", "", "X", "");
                 set.dingWeiZhi();
             }
             if (!et_4.getText().toString().equals("")) {
@@ -467,6 +470,7 @@ public class QSActivity extends AppCompatActivity {
                 ArrayList al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
                     set.dingWeiZhi("", "", "", al1.get(i).toString());
+                set.dingWeiZhi("", "", "", "X");
                 set.dingWeiZhi();
             }
             set.dingWeiZhi_chu(1);
