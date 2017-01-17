@@ -68,6 +68,10 @@ public class QSSet {
         set = originSet;
     }
 
+    public void clear() {
+        set.clear();
+    }
+
     public int getSetSize() {
         return set.size();
     }

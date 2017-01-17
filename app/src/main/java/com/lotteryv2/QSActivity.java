@@ -374,13 +374,43 @@ public class QSActivity extends AppCompatActivity {
         StringBuffer quanZhuanEt = new StringBuffer(et_22.getText().toString());
         switch (gameStyle) {
             case 1:
-                if (quanZhuanEt.length() >= 2) set.quanZhuan2(et_22.getText().toString());
+                if (quanZhuanEt.length() >= 2) {
+                    set.quanZhuan2(et_22.getText().toString());
+                } else {
+                    set.clear();
+                }
                 break;
             case 2:
-                if (quanZhuanEt.length() >= 3) set.quanZhuan3(et_22.getText().toString());
+                if (quanZhuanEt.length() >= 3) {
+                    set.quanZhuan3(et_22.getText().toString());
+                } else {
+                    set.clear();
+                }
                 break;
             case 3:
-                if (quanZhuanEt.length() >= 4) set.quanZhuan4(et_22.getText().toString());
+                if (quanZhuanEt.length() >= 4) {
+                    set.quanZhuan4(et_22.getText().toString());
+                } else {
+                    set.clear();
+                }
+                break;
+        }
+        StringBuffer shangJiangEt = new StringBuffer(et_23.getText().toString());
+        switch (gameStyle) {
+            case 1:
+                if (shangJiangEt.length() >= 2) {
+                    set.quanZhuan2(et_23.getText().toString());
+                }
+                break;
+            case 2:
+                if (shangJiangEt.length() >= 3) {
+                    set.quanZhuan3(et_23.getText().toString());
+                }
+                break;
+            case 3:
+                if (shangJiangEt.length() >= 4) {
+                    set.quanZhuan4(et_23.getText().toString());
+                }
                 break;
         }
         if (rb_1.isChecked()) {//定除
@@ -470,25 +500,25 @@ public class QSActivity extends AppCompatActivity {
                 set.dingWeiZhi();
             }
             set.dingWeiZhi_chu(1);
-            if (!et_1.getText().toString().equals("")){
+            if (!et_1.getText().toString().equals("")) {
                 set.dingWeiZhi_chu(0);
                 set.dingWeiZhi("X", "", "", "");
                 set.dingWeiZhi();
                 set.dingWeiZhi_chu(1);
             }
-            if (!et_2.getText().toString().equals("")){
+            if (!et_2.getText().toString().equals("")) {
                 set.dingWeiZhi_chu(0);
                 set.dingWeiZhi("", "X", "", "");
                 set.dingWeiZhi();
                 set.dingWeiZhi_chu(1);
             }
-            if (!et_3.getText().toString().equals("")){
+            if (!et_3.getText().toString().equals("")) {
                 set.dingWeiZhi_chu(0);
                 set.dingWeiZhi("", "", "X", "");
                 set.dingWeiZhi();
                 set.dingWeiZhi_chu(1);
             }
-            if (!et_4.getText().toString().equals("")){
+            if (!et_4.getText().toString().equals("")) {
                 set.dingWeiZhi_chu(0);
                 set.dingWeiZhi("", "", "", "X");
                 set.dingWeiZhi();
