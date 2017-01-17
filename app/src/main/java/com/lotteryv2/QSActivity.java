@@ -401,10 +401,9 @@ public class QSActivity extends AppCompatActivity {
                 LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
                 for (Map.Entry e : entryList)
                     linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
-                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                ArrayList<String> al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
-                    set.dingWeiZhi(al1.get(i).toString(), "", "", "");
-                set.dingWeiZhi("X", "", "", "");
+                    set.dingWeiZhi(al1.get(i), "", "", "");
                 set.dingWeiZhi();
             }
             if (!et_2.getText().toString().equals("")) {
@@ -423,10 +422,9 @@ public class QSActivity extends AppCompatActivity {
                 LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
                 for (Map.Entry e : entryList)
                     linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
-                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                ArrayList<String> al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
-                    set.dingWeiZhi("", al1.get(i).toString(), "", "");
-                set.dingWeiZhi("", "X", "", "");
+                    set.dingWeiZhi("", al1.get(i), "", "");
                 set.dingWeiZhi();
             }
             if (!et_3.getText().toString().equals("")) {
@@ -445,10 +443,9 @@ public class QSActivity extends AppCompatActivity {
                 LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
                 for (Map.Entry e : entryList)
                     linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
-                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                ArrayList<String> al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
-                    set.dingWeiZhi("", "", al1.get(i).toString(), "");
-                set.dingWeiZhi("", "", "X", "");
+                    set.dingWeiZhi("", "", al1.get(i), "");
                 set.dingWeiZhi();
             }
             if (!et_4.getText().toString().equals("")) {
@@ -467,13 +464,36 @@ public class QSActivity extends AppCompatActivity {
                 LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
                 for (Map.Entry e : entryList)
                     linkedHashMap.put((Integer) e.getKey(), (String) e.getValue());
-                ArrayList al1 = new ArrayList<>(linkedHashMap.values());
+                ArrayList<String> al1 = new ArrayList<>(linkedHashMap.values());
                 for (int i = 0; i < al1.size(); i++)
-                    set.dingWeiZhi("", "", "", al1.get(i).toString());
-                set.dingWeiZhi("", "", "", "X");
+                    set.dingWeiZhi("", "", "", al1.get(i));
                 set.dingWeiZhi();
             }
             set.dingWeiZhi_chu(1);
+            if (!et_1.getText().toString().equals("")){
+                set.dingWeiZhi_chu(0);
+                set.dingWeiZhi("X", "", "", "");
+                set.dingWeiZhi();
+                set.dingWeiZhi_chu(1);
+            }
+            if (!et_2.getText().toString().equals("")){
+                set.dingWeiZhi_chu(0);
+                set.dingWeiZhi("", "X", "", "");
+                set.dingWeiZhi();
+                set.dingWeiZhi_chu(1);
+            }
+            if (!et_3.getText().toString().equals("")){
+                set.dingWeiZhi_chu(0);
+                set.dingWeiZhi("", "", "X", "");
+                set.dingWeiZhi();
+                set.dingWeiZhi_chu(1);
+            }
+            if (!et_4.getText().toString().equals("")){
+                set.dingWeiZhi_chu(0);
+                set.dingWeiZhi("", "", "", "X");
+                set.dingWeiZhi();
+                set.dingWeiZhi_chu(1);
+            }
         }
         if (rb_2.isChecked()) {//定取
             if (!et_1.getText().toString().equals("")) {
