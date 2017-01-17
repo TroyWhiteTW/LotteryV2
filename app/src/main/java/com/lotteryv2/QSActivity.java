@@ -347,9 +347,7 @@ public class QSActivity extends AppCompatActivity {
         btn_qsr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pDialog.show();
                 qsSet();
-                if (pDialog.isShowing()) pDialog.dismiss();
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
                 it.putExtra("gameStyle", String.valueOf(gameStyle));
@@ -1503,6 +1501,10 @@ public class QSActivity extends AppCompatActivity {
 
         //排除
         if (!et_24.getText().toString().equals("")) set.paiChu(et_24.getText().toString());
+
+        //承號位置
+        if (cb_17.isChecked() || cb_18.isChecked() || cb_19.isChecked() || cb_20.isChecked())
+            set.chengHaoWeiZhi(cb_17.isChecked(), cb_18.isChecked(), cb_19.isChecked(), cb_20.isChecked());
 
         if (rb_12.isChecked()) {//二字定含除
             if (!et_25.getText().toString().equals("")) set.han(false, et_25.getText().toString());

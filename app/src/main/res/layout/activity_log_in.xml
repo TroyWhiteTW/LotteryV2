@@ -23,13 +23,15 @@
                 android:layout_height="wrap_content"
                 android:text="网址："
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/et_webside"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:inputType="text" />
+                android:inputType="text"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
