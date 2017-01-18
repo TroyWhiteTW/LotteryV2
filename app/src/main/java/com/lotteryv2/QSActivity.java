@@ -368,9 +368,18 @@ public class QSActivity extends AppCompatActivity {
 
     public void qsSet() {
         set = new QSSet(gameStyle);
+
+        //定復式
         if (!et_26.getText().toString().equals("")) set.dingFuShi2(et_26.getText().toString());
         if (!et_28.getText().toString().equals("")) set.dingFuShi3(et_28.getText().toString());
         if (!et_30.getText().toString().equals("")) set.dingFuShi4(et_30.getText().toString());
+
+        //現復式
+        if (!et_35.getText().toString().equals("")) set.xainFuShi2(et_35.getText().toString());
+        if (!et_37.getText().toString().equals("")) set.xainFuShi3(et_37.getText().toString());
+        if (!et_39.getText().toString().equals("")) set.xainFuShi4(et_39.getText().toString());
+
+        //全轉
         StringBuffer quanZhuanEt = new StringBuffer(et_22.getText().toString());
         switch (gameStyle) {
             case 1:
@@ -395,6 +404,8 @@ public class QSActivity extends AppCompatActivity {
                 }
                 break;
         }
+
+        //上獎
         StringBuffer shangJiangEt = new StringBuffer(et_23.getText().toString());
         switch (gameStyle) {
             case 1:
@@ -1585,6 +1596,26 @@ public class QSActivity extends AppCompatActivity {
         if (rb_17.isChecked()) {//四字定含取
             if (!et_29.getText().toString().equals("")) set.han(true, et_29.getText().toString());
         }
+
+        if (rb_46.isChecked()) {//二字現含除
+            if (!et_34.getText().toString().equals("")) set.han(false, et_34.getText().toString());
+        }
+        if (rb_47.isChecked()) {//二字現含取
+            if (!et_34.getText().toString().equals("")) set.han(true, et_34.getText().toString());
+        }
+        if (rb_48.isChecked()) {//三字現含除
+            if (!et_36.getText().toString().equals("")) set.han(false, et_36.getText().toString());
+        }
+        if (rb_49.isChecked()) {//三字現含取
+            if (!et_36.getText().toString().equals("")) set.han(true, et_36.getText().toString());
+        }
+        if (rb_50.isChecked()) {//四字現含除
+            if (!et_38.getText().toString().equals("")) set.han(false, et_38.getText().toString());
+        }
+        if (rb_51.isChecked()) {//四字現含取
+            if (!et_38.getText().toString().equals("")) set.han(true, et_38.getText().toString());
+        }
+
         if (rb_18.isChecked()) {//雙重除
             set.shuangChong(false);
         }
