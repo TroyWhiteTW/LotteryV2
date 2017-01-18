@@ -376,21 +376,21 @@ public class QSActivity extends AppCompatActivity {
             case 1:
                 if (quanZhuanEt.length() >= 2) {
                     set.quanZhuan2(et_22.getText().toString());
-                } else {
+                } else if (quanZhuanEt.length() > 0) {
                     set.clear();
                 }
                 break;
             case 2:
                 if (quanZhuanEt.length() >= 3) {
                     set.quanZhuan3(et_22.getText().toString());
-                } else {
+                } else if (quanZhuanEt.length() > 0) {
                     set.clear();
                 }
                 break;
             case 3:
                 if (quanZhuanEt.length() >= 4) {
                     set.quanZhuan4(et_22.getText().toString());
-                } else {
+                } else if (quanZhuanEt.length() > 0) {
                     set.clear();
                 }
                 break;
@@ -400,16 +400,22 @@ public class QSActivity extends AppCompatActivity {
             case 1:
                 if (shangJiangEt.length() >= 2) {
                     set.quanZhuan2(et_23.getText().toString());
+                } else if (shangJiangEt.length() > 0) {
+                    set.shangJiang(et_23.getText().toString());
                 }
                 break;
             case 2:
                 if (shangJiangEt.length() >= 3) {
                     set.quanZhuan3(et_23.getText().toString());
+                } else if (shangJiangEt.length() > 0) {
+                    set.shangJiang(et_23.getText().toString());
                 }
                 break;
             case 3:
                 if (shangJiangEt.length() >= 4) {
                     set.quanZhuan4(et_23.getText().toString());
+                } else if (shangJiangEt.length() > 0) {
+                    set.shangJiang(et_23.getText().toString());
                 }
                 break;
         }

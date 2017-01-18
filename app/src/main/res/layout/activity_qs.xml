@@ -1032,7 +1032,7 @@
                     android:layout_weight="1"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="4"
                     android:textAlignment="center" />
 
                 <TextView

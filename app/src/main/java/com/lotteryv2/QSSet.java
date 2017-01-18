@@ -957,9 +957,102 @@ public class QSSet {
         }
     }
 
-    //上獎********========
+    //上獎========
     public void shangJiang(String et) {
-
+        tmpSet = new TreeSet<>();
+        StringBuffer sb1 = new StringBuffer(et);
+        int a1, b2, c3, d4;
+        String a, b, c, d;
+        switch (sb1.length()) {
+            case 1:
+                String s6 = sb1.substring(0, 1);
+                for (String s : set) {
+                    sbTmp.setLength(0);
+                    sbTmp.append(s);
+                    a = sbTmp.substring(0, 1);
+                    b = sbTmp.substring(1, 2);
+                    c = sbTmp.substring(2, 3);
+                    d = sbTmp.substring(3, 4);
+                    if (a.equals(s6) ||
+                            b.equals(s6) ||
+                            c.equals(s6) ||
+                            d.equals(s6)) {
+                        tmpSet.add(s);
+                    }
+                }
+                Log(tmpSet.toString());
+                set = tmpSet;
+                break;
+            case 2:
+                String s4 = sb1.substring(0, 1);
+                String s5 = sb1.substring(1, 2);
+                for (String s : set) {
+                    sbTmp.setLength(0);
+                    sbTmp.append(s);
+                    a = sbTmp.substring(0, 1);
+                    b = sbTmp.substring(1, 2);
+                    c = sbTmp.substring(2, 3);
+                    d = sbTmp.substring(3, 4);
+                    if (a.equals(s4) && b.equals(s5) ||
+                            a.equals(s4) && c.equals(s5) ||
+                            b.equals(s4) && c.equals(s5) ||
+                            a.equals(s4) && d.equals(s5) ||
+                            b.equals(s4) && d.equals(s5) ||
+                            a.equals(s5) && b.equals(s4) ||
+                            a.equals(s5) && c.equals(s4) ||
+                            b.equals(s5) && c.equals(s4) ||
+                            b.equals(s5) && d.equals(s4) ||
+                            c.equals(s5) && d.equals(s4) ||
+                            c.equals(s4) && d.equals(s5) ||
+                            a.equals(s5) && d.equals(s4)) {
+                        tmpSet.add(s);
+                    }
+                }
+                Log(tmpSet.toString());
+                set = tmpSet;
+                break;
+            case 3:
+                String s1 = sb1.substring(0, 1);
+                String s2 = sb1.substring(1, 2);
+                String s3 = sb1.substring(2, 3);
+                for (String s : set) {
+                    sbTmp.setLength(0);
+                    sbTmp.append(s);
+                    a = sbTmp.substring(0, 1);
+                    b = sbTmp.substring(1, 2);
+                    c = sbTmp.substring(2, 3);
+                    d = sbTmp.substring(3, 4);
+                    if (a.equals(s1) && b.equals(s2) && c.equals(s3) ||
+                            a.equals(s1) && b.equals(s2) && d.equals(s3) ||
+                            a.equals(s1) && c.equals(s2) && d.equals(s3) ||
+                            b.equals(s1) && c.equals(s2) && d.equals(s3) ||
+                            a.equals(s1) && b.equals(s3) && c.equals(s2) ||
+                            a.equals(s1) && b.equals(s3) && d.equals(s2) ||
+                            a.equals(s1) && c.equals(s3) && d.equals(s2) ||
+                            b.equals(s1) && c.equals(s3) && d.equals(s2) ||
+                            a.equals(s2) && b.equals(s1) && c.equals(s3) ||
+                            a.equals(s2) && b.equals(s1) && d.equals(s3) ||
+                            a.equals(s2) && c.equals(s1) && d.equals(s3) ||
+                            b.equals(s2) && c.equals(s1) && d.equals(s3) ||
+                            a.equals(s3) && b.equals(s2) && c.equals(s1) ||
+                            a.equals(s3) && b.equals(s2) && d.equals(s1) ||
+                            a.equals(s3) && c.equals(s2) && d.equals(s1) ||
+                            b.equals(s3) && c.equals(s2) && d.equals(s1) ||
+                            a.equals(s3) && b.equals(s1) && c.equals(s2) ||
+                            a.equals(s3) && b.equals(s1) && d.equals(s2) ||
+                            a.equals(s3) && c.equals(s1) && d.equals(s2) ||
+                            b.equals(s3) && c.equals(s1) && d.equals(s2) ||
+                            a.equals(s2) && b.equals(s3) && c.equals(s1) ||
+                            a.equals(s2) && b.equals(s3) && d.equals(s1) ||
+                            a.equals(s2) && c.equals(s3) && d.equals(s1) ||
+                            b.equals(s2) && c.equals(s3) && d.equals(s1)) {
+                        tmpSet.add(s);
+                    }
+                }
+                Log(tmpSet.toString());
+                set = tmpSet;
+                break;
+        }
     }
 
     //排除
