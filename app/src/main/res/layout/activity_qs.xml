@@ -1155,10 +1155,10 @@
                     android:id="@+id/et_26"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="8"
                     android:textAlignment="center" />
 
             </RadioGroup>
@@ -1221,10 +1221,10 @@
                     android:id="@+id/et_28"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="8"
                     android:textAlignment="center" />
 
             </RadioGroup>
@@ -1287,10 +1287,10 @@
                     android:id="@+id/et_30"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="8"
                     android:textAlignment="center" />
 
             </RadioGroup>
@@ -1353,10 +1353,10 @@
                     android:id="@+id/et_35"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="8"
                     android:textAlignment="center" />
 
             </RadioGroup>
@@ -1419,10 +1419,10 @@
                     android:id="@+id/et_37"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="8"
                     android:textAlignment="center" />
 
             </RadioGroup>
@@ -1485,10 +1485,10 @@
                     android:id="@+id/et_39"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="#ffffff"
                     android:inputType="number"
-                    android:maxLength="10"
+                    android:maxLength="8"
                     android:textAlignment="center" />
 
             </RadioGroup>

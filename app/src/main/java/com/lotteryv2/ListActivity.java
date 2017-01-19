@@ -202,6 +202,7 @@ public class ListActivity extends AppCompatActivity {
                     String money = rec.getString("money");
                     String frank = rec.getString("frank");
                     int cancel_able = rec.getInt("cancel_able");
+                    int stattuima = rec.getInt("stattuima");
                     String id = rec.getString("id");
 
                     Message msg = new Message();
@@ -210,6 +211,7 @@ public class ListActivity extends AppCompatActivity {
                     b.putString("money", money);
                     b.putString("frank", frank);
                     b.putInt("cancel_able", cancel_able);
+                    b.putInt("stattuima", stattuima);
                     b.putInt("i", i);
                     b.putString("id", id);
                     msg.setData(b);
@@ -261,9 +263,10 @@ public class ListActivity extends AppCompatActivity {
                     String money = msg.getData().getString("money");
                     String frank = msg.getData().getString("frank");
                     int cancel_able = msg.getData().getInt("cancel_able");
+                    int stattuima = msg.getData().getInt("stattuima");
                     int i = msg.getData().getInt("i");
                     String id = msg.getData().getString("id");
-                    list(number, money, frank, i, cancel_able, id);
+                    list(number, money, frank, i, cancel_able, stattuima, id);
                     break;
                 case 1:
                     if (pDialog.isShowing()) pDialog.dismiss();
@@ -278,7 +281,7 @@ public class ListActivity extends AppCompatActivity {
         return (int) ((i * getBaseContext().getResources().getDisplayMetrics().density) + 0.5);
     }
 
-    public void list(String number, String money, String frank, int i, int cancel_able, final String id) {
+    public void list(String number, String money, String frank, int i, int cancel_able, int stattuima, final String id) {
         LinearLayout ll = new LinearLayout(ListActivity.this);
         ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(50)));
         ll.setOrientation(LinearLayout.HORIZONTAL);
@@ -336,7 +339,14 @@ public class ListActivity extends AppCompatActivity {
             ll.addView(tv4);
         } else {
             TextView tv4 = new TextView(ListActivity.this);
-            tv4.setText("--");
+            switch (stattuima){
+                case 0:
+                    tv4.setText("成功");
+                    break;
+                case 1:
+                    tv4.setText("已退碼");
+                    break;
+            }
             tv4.setTextSize(20);
             tv4.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
             tv4.setGravity(Gravity.CENTER);

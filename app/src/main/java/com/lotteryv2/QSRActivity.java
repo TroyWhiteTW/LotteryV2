@@ -136,7 +136,7 @@ public class QSRActivity extends AppCompatActivity {
             mu.postKeyValue("selectlogs", selectlogs);
             List<String> ret = mu.getHtml();
             for (String line : ret) Log(line);
-            Toast("注单送出");
+            Toast("注单送出，请至明细中查看");
             finish();
         } catch (Exception e) {
             Toast("无法与伺服器取得连线");
