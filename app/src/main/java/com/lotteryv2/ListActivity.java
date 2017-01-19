@@ -319,6 +319,7 @@ public class ListActivity extends AppCompatActivity {
             CheckBox tv4 = new CheckBox(ListActivity.this);
             int cbID = Integer.parseInt(id);
             tv4.setId(cbID);
+            tv4.setText("可退碼");
             tv4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -30,7 +31,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class QSActivity extends AppCompatActivity {
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
@@ -430,6 +430,7 @@ public class QSActivity extends AppCompatActivity {
                 }
                 break;
         }
+
         if (rb_1.isChecked()) {//定除
             set.dingWeiZhi_chu(0);
             if (!et_1.getText().toString().equals("")) {
@@ -628,6 +629,7 @@ public class QSActivity extends AppCompatActivity {
                 set.dingWeiZhi();
             }
         }
+
         if (rb_3.isChecked()) {//配除
             set.peiShu_chu(0);
             switch (gameStyle) {
@@ -1428,6 +1430,7 @@ public class QSActivity extends AppCompatActivity {
                     break;
             }
         }
+
         if (rb_7.isChecked()) {//合分除
             set.heFen_chu(0);
             int cb1 = 0, cb2 = 0, cb3 = 0, cb4 = 0, cb5 = 0, cb6 = 0, cb7 = 0, cb8 = 0, cb9 = 0, cb10 = 0,
@@ -1486,6 +1489,7 @@ public class QSActivity extends AppCompatActivity {
             if (cb13 == 1 || cb14 == 1 || cb15 == 1 || cb16 == 1)
                 set.heFen4(et_17.getText().toString(), cb13, cb14, cb15, cb16);
         }
+
         if (rb_9.isChecked()) {//不定位合分兩
             if (!et_18.getText().toString().equals("")) {
                 StringBuffer sb1 = new StringBuffer(et_18.getText().toString());
@@ -2032,6 +2036,7 @@ public class QSActivity extends AppCompatActivity {
         rg_23.setVisibility(View.GONE);
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
+        et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
     }
 
     public void btn_sanDing(View view) {
@@ -2067,6 +2072,7 @@ public class QSActivity extends AppCompatActivity {
         rg_23.setVisibility(View.GONE);
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
+        et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
     }
 
     public void btn_siDing(View view) {
@@ -2102,6 +2108,7 @@ public class QSActivity extends AppCompatActivity {
         rg_23.setVisibility(View.GONE);
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
+        et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
     }
 
     public void btn_erXian(View view) {
@@ -2137,6 +2144,7 @@ public class QSActivity extends AppCompatActivity {
         rg_23.setVisibility(View.VISIBLE);
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
+        et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(0)});
     }
 
     public void btn_sanXian(View view) {
@@ -2172,6 +2180,7 @@ public class QSActivity extends AppCompatActivity {
         rg_23.setVisibility(View.GONE);
         rg_24.setVisibility(View.VISIBLE);
         rg_25.setVisibility(View.GONE);
+        et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(0)});
     }
 
     public void btn_siXian(View view) {
@@ -2207,6 +2216,7 @@ public class QSActivity extends AppCompatActivity {
         rg_23.setVisibility(View.GONE);
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.VISIBLE);
+        et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(0)});
     }
 
     public void resetRg1And2() {

@@ -400,7 +400,7 @@
                 android:layout_marginTop="5dp"
                 android:background="#da8c8c"
                 android:gravity="center"
-                android:text="下注失败（号码x金额）："
+                android:text="目前停押号码（号码x金额）："
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />

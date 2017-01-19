@@ -248,7 +248,7 @@ public class BTPActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 setup();
             } else {
-                Toast("藍芽未開啟");
+                Toast("蓝牙未开启");
                 finish();
             }
         }
@@ -311,9 +311,7 @@ public class BTPActivity extends AppCompatActivity {
         }
 
         public void cancel() {
-            Toast.makeText(getApplicationContext(),
-                    "close bluetoothSocket",
-                    Toast.LENGTH_LONG).show();
+            Toast("蓝牙断开");
             try {
                 bluetoothSocket.close();
             } catch (IOException e) {
