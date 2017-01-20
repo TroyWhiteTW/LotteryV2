@@ -60,7 +60,7 @@ public class QGActivity extends AppCompatActivity {
         sb_2 = new StringBuffer();
         sb_fail = new StringBuffer();
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_qgList);
         btn_QG = (Button) findViewById(R.id.btn_qgQG);
         btn_QS = (Button) findViewById(R.id.btn_qgQS);
@@ -103,6 +103,7 @@ public class QGActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QGActivity.this, ListActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -121,6 +122,7 @@ public class QGActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QGActivity.this, QSActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -130,6 +132,7 @@ public class QGActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QGActivity.this, MemberActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -139,6 +142,7 @@ public class QGActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QGActivity.this, HistoryActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }

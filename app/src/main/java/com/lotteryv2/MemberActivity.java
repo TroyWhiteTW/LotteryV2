@@ -54,7 +54,7 @@ public class MemberActivity extends AppCompatActivity {
         list = new ArrayList();
         pDialog = new pDialog(this);
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_memList);
         btn_QG = (Button) findViewById(R.id.btn_memQG);
         btn_QS = (Button) findViewById(R.id.btn_memQS);
@@ -77,6 +77,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MemberActivity.this, ListActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -86,6 +87,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MemberActivity.this, QGActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -95,6 +97,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MemberActivity.this, QSActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -113,6 +116,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MemberActivity.this, HistoryActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }

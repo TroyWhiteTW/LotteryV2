@@ -47,7 +47,7 @@ public class MoreListActivity extends AppCompatActivity {
         handler = new UIHandler();
         pDialog = new pDialog(this);
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_loadNextPage = (Button) findViewById(R.id.btn_loadNextPage);
         ll_moreList = (LinearLayout) findViewById(R.id.ll_moreList);
         tv_totalPages = (TextView) findViewById(R.id.tv_totalPages);

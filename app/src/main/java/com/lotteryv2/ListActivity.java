@@ -55,7 +55,7 @@ public class ListActivity extends AppCompatActivity {
         cancelList = new ArrayList();
         sb = new StringBuffer();
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_listList);
         btn_QG = (Button) findViewById(R.id.btn_listQG);
         btn_QS = (Button) findViewById(R.id.btn_listQS);
@@ -85,6 +85,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(ListActivity.this, QGActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -94,6 +95,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(ListActivity.this, QSActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -103,6 +105,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(ListActivity.this, MemberActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -112,6 +115,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(ListActivity.this, HistoryActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -127,6 +131,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(ListActivity.this, BTPActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 it.putExtra("ListID", ListID);
                 startActivity(it);
             }
@@ -136,6 +141,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(ListActivity.this, MoreListActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 it.putExtra("totalPage", totalPage);
                 it.putExtra("s_issueno", String.valueOf(s_issueno));
                 it.putExtra("winList", true);
@@ -147,6 +153,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(ListActivity.this, MoreListActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 it.putExtra("totalPage", totalPage);
                 it.putExtra("s_issueno", String.valueOf(s_issueno));
                 it.putExtra("winList", false);

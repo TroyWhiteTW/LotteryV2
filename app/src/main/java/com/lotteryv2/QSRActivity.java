@@ -53,7 +53,7 @@ public class QSRActivity extends AppCompatActivity {
         sb = new StringBuffer();
         sb2 = new StringBuffer();
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_sendGameSet = (Button) findViewById(R.id.btn_sendGameSet);
         et_perMoney = (EditText) findViewById(R.id.et_perMoney);
         tv_qselectres = (TextView) findViewById(R.id.tv_qselectres);
@@ -134,9 +134,11 @@ public class QSRActivity extends AppCompatActivity {
             mu.postKeyValue("post_number_money", sb2.toString());
             mu.postKeyValue("selectlogsclassid", String.valueOf(gameStyle));
             mu.postKeyValue("selectlogs", selectlogs);
-            List<String> ret = mu.getHtml();
-            for (String line : ret) Log(line);
-            Toast("注单送出，请至明细中查看");
+//            List<String> ret = mu.getHtml();
+//            for (String line : ret) Log("RES" + line);
+            JSONObject jo = mu.getJSONObjectData();
+            String exec_time = jo.getString("exec_time");
+            Toast("注单送出，执行时间 " + exec_time + " 秒，请至明细中查看");
             finish();
         } catch (Exception e) {
             Toast("无法与伺服器取得连线");

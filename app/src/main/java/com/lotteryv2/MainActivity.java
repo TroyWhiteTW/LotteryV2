@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initial() {
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_mainList);
         btn_QG = (Button) findViewById(R.id.btn_mainQG);
         btn_QS = (Button) findViewById(R.id.btn_mainQS);
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MainActivity.this, ListActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MainActivity.this, QGActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MainActivity.this, QSActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MainActivity.this, MemberActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -84,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(MainActivity.this, HistoryActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }

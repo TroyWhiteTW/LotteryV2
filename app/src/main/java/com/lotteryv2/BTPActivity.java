@@ -98,7 +98,7 @@ public class BTPActivity extends AppCompatActivity {
         handler = new UIHandler();
         pDialog = new pDialog(this);
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         tv_status = (TextView) findViewById(R.id.tv_status);
         lv_pairedlist = (ListView) findViewById(R.id.lv_pairedlist);
         sv_preview = (ScrollView) findViewById(R.id.sv_preview);

@@ -46,7 +46,7 @@ public class HistoryActivity extends AppCompatActivity {
         handler = new UIHandler();
         pDialog = new pDialog(this);
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_hisList);
         btn_QG = (Button) findViewById(R.id.btn_hisQG);
         btn_QS = (Button) findViewById(R.id.btn_hisQS);
@@ -63,6 +63,7 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(HistoryActivity.this, ListActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -72,6 +73,7 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(HistoryActivity.this, QGActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -81,6 +83,7 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(HistoryActivity.this, QSActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -90,6 +93,7 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(HistoryActivity.this, MemberActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -277,6 +281,7 @@ public class HistoryActivity extends AppCompatActivity {
 
             Intent it = new Intent(HistoryActivity.this, MoreListActivity.class);
             it.putExtra("cookie", cookie);
+            it.putExtra("webside", webside);
             it.putExtra("totalPage", totalPage);
             it.putExtra("s_issueno", s);
             it.putExtra("winList", false);

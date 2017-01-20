@@ -80,7 +80,7 @@ public class QSActivity extends AppCompatActivity {
         handler = new UIHandler();
         pDialog = new pDialog(this);
 
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/mobile/wap_ajax.php?action=";
+        app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_qsList);
         btn_QG = (Button) findViewById(R.id.btn_qsQG);
         btn_QS = (Button) findViewById(R.id.btn_qsQS);
@@ -304,6 +304,7 @@ public class QSActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QSActivity.this, ListActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -313,6 +314,7 @@ public class QSActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QSActivity.this, QGActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -331,6 +333,7 @@ public class QSActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QSActivity.this, MemberActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -340,6 +343,7 @@ public class QSActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it = new Intent(QSActivity.this, HistoryActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 startActivity(it);
                 finish();
             }
@@ -351,6 +355,7 @@ public class QSActivity extends AppCompatActivity {
                 selectlogs();
                 Intent it = new Intent(QSActivity.this, QSRActivity.class);
                 it.putExtra("cookie", cookie);
+                it.putExtra("webside", webside);
                 it.putExtra("gameStyle", String.valueOf(gameStyle));
                 it.putExtra("selectlogs", selectlogs);
                 it.putExtra("size", String.valueOf(set.getSetSize()));

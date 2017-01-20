@@ -35,7 +35,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void initial() {
-        app_net = "http://" + getResources().getString(R.string.app_net) + "/ajax_login.php?action=";
+//        app_net = "http://" + getResources().getString(R.string.app_net) + "/ajax_login.php?action=";
         et_webside = (EditText) findViewById(R.id.et_webside);
         et_act = (EditText) findViewById(R.id.et_act);
         et_pw = (EditText) findViewById(R.id.et_pw);
@@ -57,6 +57,7 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (cb_agree.isChecked()) {
+                    app_net = "http://" + et_webside.getText().toString() + "/ajax_login.php?action=";
                     loginThread();
                 } else {
                     Toast("请先同意会员协议后方可登入");
