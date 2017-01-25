@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class MemberActivity extends AppCompatActivity {
+    private ArrayAdapter<String> adapter;
     private ArrayList<String> list;
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
     private Button btn_commit;
@@ -33,6 +36,7 @@ public class MemberActivity extends AppCompatActivity {
     private String enter_btn;
     private String cookie, app_net, webside;
     private String[] sa;
+    private Spinner sp_1;
     private TextView tv_username, tv_rcedits, tv_rcedits_use, tv_rcedits_canUse;
     private UIHandler handler;
 
@@ -63,6 +67,7 @@ public class MemberActivity extends AppCompatActivity {
         btn_commit = (Button) findViewById(R.id.btn_commit);
         rb_ac = (RadioButton) findViewById(R.id.rb_ac);
         rb_tr = (RadioButton) findViewById(R.id.rb_tr);
+        sp_1 = (Spinner) findViewById(R.id.sp_1);
         tv_rcedits = (TextView) findViewById(R.id.tv_rcedits);
         tv_rcedits_use = (TextView) findViewById(R.id.tv_rcedits_use);
         tv_rcedits_canUse = (TextView) findViewById(R.id.tv_rcedits_canUse);
@@ -247,6 +252,8 @@ public class MemberActivity extends AppCompatActivity {
                         default:
                             break;
                     }
+                    adapter = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, sa);
+                    sp_1.setAdapter(adapter);
                     break;
                 case 1:
                     if (pDialog.isShowing()) pDialog.dismiss();
