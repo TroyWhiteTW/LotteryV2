@@ -354,6 +354,7 @@ public class QGActivity extends AppCompatActivity {
             String number = rec.getString("number");
             String money = rec.getString("money");
             String frank = rec.getString("frank");
+            int stattuima = rec.getInt("stattuima");
 
             Message msg_2 = new Message();
             msg_2.what = 2;
@@ -361,6 +362,7 @@ public class QGActivity extends AppCompatActivity {
             b_2.putString("number", number);
             b_2.putString("money", money);
             b_2.putString("frank", frank);
+            b_2.putInt("stattuima", stattuima);
             msg_2.setData(b_2);
             handler.sendMessage(msg_2);
         } catch (IOException e) {
@@ -518,7 +520,8 @@ public class QGActivity extends AppCompatActivity {
                     String number = msg.getData().getString("number");
                     String money = msg.getData().getString("money");
                     String frank = msg.getData().getString("frank");
-                    list(number, money, frank);
+                    int stattuima = msg.getData().getInt("stattuima");
+                    list(number, money, frank, stattuima);
                     break;
                 case 3:
                     tv_fail.setText(sb_fail.toString());
@@ -537,10 +540,17 @@ public class QGActivity extends AppCompatActivity {
         }
     }
 
-    public void list(String number, String money, String frank) {
+    public void list(String number, String money, String frank, int stattuima) {
         LinearLayout ll = new LinearLayout(QGActivity.this);
         ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         ll.setOrientation(LinearLayout.HORIZONTAL);
+        Log("stattuima = " + stattuima);
+        switch (stattuima) {
+            case 1:
+                ll.setBackgroundColor(Color.parseColor("#d1d0d0"));
+                break;
+        }
+
         TextView tv0 = new TextView(QGActivity.this);
         tv0.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT));
         TextView tv1 = new TextView(QGActivity.this);
