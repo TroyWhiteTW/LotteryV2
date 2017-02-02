@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -25,8 +26,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class MemberActivity extends AppCompatActivity {
-    private ArrayAdapter<String> adapter;
-    private ArrayList<String> list;
+    private ArrayAdapter<String> adapter1, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7, adapter8, adapter9, adapter10,
+            adapter11, adapter12;
+    private ArrayList<String> al1, al2, al3, al4, al5, al6, al7, al8, al9, al10,
+            al11, al12;
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
     private Button btn_commit;
     private int odd_sw;
@@ -35,8 +38,8 @@ public class MemberActivity extends AppCompatActivity {
     private RadioButton rb_ac, rb_tr;
     private String enter_btn;
     private String cookie, app_net, webside;
-    private String[] sa;
-    private Spinner sp_1;
+    private Spinner sp_1, sp_2, sp_3, sp_4, sp_5, sp_6, sp_7, sp_8, sp_9, sp_10,
+            sp_11, sp_12;
     private TextView tv_username, tv_rcedits, tv_rcedits_use, tv_rcedits_canUse;
     private UIHandler handler;
 
@@ -55,8 +58,19 @@ public class MemberActivity extends AppCompatActivity {
 
     public void initial() {
         handler = new UIHandler();
-        list = new ArrayList();
         pDialog = new pDialog(this);
+        al1 = new ArrayList();
+        al2 = new ArrayList();
+        al3 = new ArrayList();
+        al4 = new ArrayList();
+        al5 = new ArrayList();
+        al6 = new ArrayList();
+        al7 = new ArrayList();
+        al8 = new ArrayList();
+        al9 = new ArrayList();
+        al10 = new ArrayList();
+        al11 = new ArrayList();
+        al12 = new ArrayList();
 
         app_net = "http://" + webside + "/mobile/wap_ajax.php?action=";
         btn_List = (Button) findViewById(R.id.btn_memList);
@@ -68,6 +82,17 @@ public class MemberActivity extends AppCompatActivity {
         rb_ac = (RadioButton) findViewById(R.id.rb_ac);
         rb_tr = (RadioButton) findViewById(R.id.rb_tr);
         sp_1 = (Spinner) findViewById(R.id.sp_1);
+        sp_2 = (Spinner) findViewById(R.id.sp_2);
+        sp_3 = (Spinner) findViewById(R.id.sp_3);
+        sp_4 = (Spinner) findViewById(R.id.sp_4);
+        sp_5 = (Spinner) findViewById(R.id.sp_5);
+        sp_6 = (Spinner) findViewById(R.id.sp_6);
+        sp_7 = (Spinner) findViewById(R.id.sp_7);
+        sp_8 = (Spinner) findViewById(R.id.sp_8);
+        sp_9 = (Spinner) findViewById(R.id.sp_9);
+        sp_10 = (Spinner) findViewById(R.id.sp_10);
+        sp_11 = (Spinner) findViewById(R.id.sp_11);
+        sp_12 = (Spinner) findViewById(R.id.sp_12);
         tv_rcedits = (TextView) findViewById(R.id.tv_rcedits);
         tv_rcedits_use = (TextView) findViewById(R.id.tv_rcedits_use);
         tv_rcedits_canUse = (TextView) findViewById(R.id.tv_rcedits_canUse);
@@ -159,6 +184,10 @@ public class MemberActivity extends AppCompatActivity {
         try {
             MultipartUtility_tw mu = new MultipartUtility_tw(app_net + "app_get_mem_data");
             mu.sendCookie(cookie);
+//            List<String> a = mu.getHtml();
+//            for (String line : a) {
+//                Log.i("troy", line);
+//            }
             JSONObject jo = mu.getJSONObjectData();
             int len = jo.length();
             Log("共有" + len + "筆資料");
@@ -173,14 +202,43 @@ public class MemberActivity extends AppCompatActivity {
             left_show = jo.getJSONObject("head_data").getInt("left_show");
             Log("小票打印功能：" + left_show);
 
-            Iterator<String> iter = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("1").keys();
-            while (iter.hasNext()) {
-                String key = iter.next();
-//                Log(key);
-                list.add(key);
+            Iterator<String> iter1 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("102").keys();
+            while (iter1.hasNext()) {
+                String key = iter1.next();
+                al1.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("102").getJSONObject(key).getString("huishui"));
+                al2.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("102").getJSONObject(key).getString("frank"));
             }
-//            Log(list.toString());
-            sa = list.toArray(new String[list.size()]);
+            Iterator<String> iter2 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("106").keys();
+            while (iter2.hasNext()) {
+                String key = iter2.next();
+                al3.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("106").getJSONObject(key).getString("huishui"));
+                al4.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("106").getJSONObject(key).getString("frank"));
+            }
+            Iterator<String> iter3 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("5").keys();
+            while (iter3.hasNext()) {
+                String key = iter3.next();
+                al5.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("5").getJSONObject(key).getString("huishui"));
+                al6.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("5").getJSONObject(key).getString("frank"));
+            }
+            Iterator<String> iter4 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").keys();
+            while (iter4.hasNext()) {
+                String key = iter4.next();
+                al7.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").getJSONObject(key).getString("huishui"));
+                al8.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").getJSONObject(key).getString("frank"));
+            }
+            Iterator<String> iter5 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").keys();
+            while (iter5.hasNext()) {
+                String key = iter5.next();
+                al9.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").getJSONObject(key).getString("huishui"));
+                al10.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").getJSONObject(key).getString("frank"));
+            }
+            Iterator<String> iter6 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").keys();
+//            Log(jo.getJSONObject("huishui_list").getJSONObject("list").getString("107"));
+            while (iter6.hasNext()) {
+                String key = iter6.next();
+                al11.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").getJSONObject(key).getString("huishui"));
+                al12.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").getJSONObject(key).getString("frank"));
+            }
 
             Message msg = new Message();
             Bundle b = new Bundle();
@@ -252,8 +310,175 @@ public class MemberActivity extends AppCompatActivity {
                         default:
                             break;
                     }
-                    adapter = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, sa);
-                    sp_1.setAdapter(adapter);
+                    adapter1 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al1);
+                    sp_1.setAdapter(adapter1);
+                    adapter2 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al2);
+                    sp_2.setAdapter(adapter2);
+                    adapter3 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al3);
+                    sp_3.setAdapter(adapter3);
+                    adapter4 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al4);
+                    sp_4.setAdapter(adapter4);
+                    adapter5 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al5);
+                    sp_5.setAdapter(adapter5);
+                    adapter6 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al6);
+                    sp_6.setAdapter(adapter6);
+                    adapter7 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al7);
+                    sp_7.setAdapter(adapter7);
+                    adapter8 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al8);
+                    sp_8.setAdapter(adapter8);
+                    adapter9 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al9);
+                    sp_9.setAdapter(adapter9);
+                    adapter10 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al10);
+                    sp_10.setAdapter(adapter10);
+                    adapter11 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al11);
+                    sp_11.setAdapter(adapter11);
+                    adapter12 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al12);
+                    sp_12.setAdapter(adapter12);
+
+                    sp_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_1.getSelectedItemPosition();
+                            sp_2.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_2.getSelectedItemPosition();
+                            sp_1.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_3.getSelectedItemPosition();
+                            sp_4.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_4.getSelectedItemPosition();
+                            sp_3.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_5.getSelectedItemPosition();
+                            sp_6.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_6.getSelectedItemPosition();
+                            sp_5.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_7.getSelectedItemPosition();
+                            sp_8.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_8.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_8.getSelectedItemPosition();
+                            sp_7.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_9.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_9.getSelectedItemPosition();
+                            sp_10.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_10.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_10.getSelectedItemPosition();
+                            sp_9.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_11.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_11.getSelectedItemPosition();
+                            sp_12.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    sp_12.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int pos = sp_12.getSelectedItemPosition();
+                            sp_11.setSelection(pos);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                     break;
                 case 1:
                     if (pDialog.isShowing()) pDialog.dismiss();

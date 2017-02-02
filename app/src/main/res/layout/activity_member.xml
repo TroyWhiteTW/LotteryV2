@@ -402,11 +402,13 @@
                         android:textSize="18sp" />
 
                     <Spinner
+                        android:id="@+id/sp_5"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 
                     <Spinner
+                        android:id="@+id/sp_6"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -429,11 +431,13 @@
                         android:textSize="18sp" />
 
                     <Spinner
+                        android:id="@+id/sp_7"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 
                     <Spinner
+                        android:id="@+id/sp_8"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -456,11 +460,13 @@
                         android:textSize="18sp" />
 
                     <Spinner
+                        android:id="@+id/sp_9"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 
                     <Spinner
+                        android:id="@+id/sp_10"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -483,11 +489,13 @@
                         android:textSize="18sp" />
 
                     <Spinner
+                        android:id="@+id/sp_11"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 
                     <Spinner
+                        android:id="@+id/sp_12"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
