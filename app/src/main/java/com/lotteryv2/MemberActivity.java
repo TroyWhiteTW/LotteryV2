@@ -34,6 +34,7 @@ public class MemberActivity extends AppCompatActivity {
     private Button btn_commit;
     private int odd_sw;
     private int left_show;
+    private int i1, i2, i3, i4, i5, i6;
     private pDialog pDialog;
     private RadioButton rb_ac, rb_tr;
     private String enter_btn;
@@ -202,42 +203,60 @@ public class MemberActivity extends AppCompatActivity {
             left_show = jo.getJSONObject("head_data").getInt("left_show");
             Log("小票打印功能：" + left_show);
 
+            String s1 = jo.getJSONObject("huishui_list").getJSONObject("idx").getString("102");
+            String s2 = jo.getJSONObject("huishui_list").getJSONObject("idx").getString("106");
+            String s3 = jo.getJSONObject("huishui_list").getJSONObject("idx").getString("5");
+            String s4 = jo.getJSONObject("huishui_list").getJSONObject("idx").getString("6");
+            String s5 = jo.getJSONObject("huishui_list").getJSONObject("idx").getString("7");
+            String s6 = jo.getJSONObject("huishui_list").getJSONObject("idx").getString("107");
+
             Iterator<String> iter1 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("102").keys();
             while (iter1.hasNext()) {
                 String key = iter1.next();
+                if (s1.equals(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("102").getJSONObject(key).getString("huishui")))
+                    i1 = al1.size();
                 al1.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("102").getJSONObject(key).getString("huishui"));
                 al2.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("102").getJSONObject(key).getString("frank"));
             }
             Iterator<String> iter2 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("106").keys();
             while (iter2.hasNext()) {
                 String key = iter2.next();
+                if (s2.equals(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("106").getJSONObject(key).getString("huishui")))
+                    i2 = al3.size();
                 al3.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("106").getJSONObject(key).getString("huishui"));
                 al4.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("106").getJSONObject(key).getString("frank"));
             }
             Iterator<String> iter3 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("5").keys();
             while (iter3.hasNext()) {
                 String key = iter3.next();
+                if (s3.equals(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("5").getJSONObject(key).getString("huishui")))
+                    i3 = al5.size();
                 al5.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("5").getJSONObject(key).getString("huishui"));
                 al6.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("5").getJSONObject(key).getString("frank"));
             }
             Iterator<String> iter4 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").keys();
             while (iter4.hasNext()) {
                 String key = iter4.next();
+                if (s4.equals(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").getJSONObject(key).getString("huishui")))
+                    i4 = al7.size();
                 al7.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").getJSONObject(key).getString("huishui"));
-                al8.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").getJSONObject(key).getString("frank"));
+                al8.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("6").getJSONObject(key).getString("frank").split("\\/")[0]);
             }
             Iterator<String> iter5 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").keys();
             while (iter5.hasNext()) {
                 String key = iter5.next();
+                if (s5.equals(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").getJSONObject(key).getString("huishui")))
+                    i5 = al9.size();
                 al9.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").getJSONObject(key).getString("huishui"));
-                al10.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").getJSONObject(key).getString("frank"));
+                al10.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("7").getJSONObject(key).getString("frank").split("\\/")[0]);
             }
             Iterator<String> iter6 = jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").keys();
-//            Log(jo.getJSONObject("huishui_list").getJSONObject("list").getString("107"));
             while (iter6.hasNext()) {
                 String key = iter6.next();
+                if (s6.equals(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").getJSONObject(key).getString("huishui")))
+                    i6 = al11.size();
                 al11.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").getJSONObject(key).getString("huishui"));
-                al12.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").getJSONObject(key).getString("frank"));
+                al12.add(jo.getJSONObject("huishui_list").getJSONObject("list").getJSONObject("107").getJSONObject(key).getString("frank").split("\\/")[0]);
             }
 
             Message msg = new Message();
@@ -265,6 +284,80 @@ public class MemberActivity extends AppCompatActivity {
                 mu.postKeyValue("isfpfrankhotzhuan", "1");
             }
             mu.postKeyValue("sendmode", String.valueOf(left_show));
+
+            mu.postKeyValue("formhash", "09ac9c04");
+            mu.postKeyValue("editsubmit", "提交");
+            //--回水賠率--
+//            mu.postKeyValue("fixstrhuishui_1", sp_1.getSelectedItem().toString());//二定位
+//            mu.postKeyValue("fixstrfrank_1", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_102", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_102", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_101", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_101", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_100", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_100", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_99", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_99", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_98", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_98", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_97", sp_1.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_97", sp_1.getSelectedItem().toString());
+//
+//            mu.postKeyValue("fixstrhuishui_4", sp_3.getSelectedItem().toString());//三定位
+//            mu.postKeyValue("fixstrfrank_4", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_106", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_106", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_105", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_105", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_104", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_104", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrhuishui_103", sp_3.getSelectedItem().toString());
+//            mu.postKeyValue("fixstrfrank_103", sp_3.getSelectedItem().toString());
+//
+//            mu.postKeyValue("fixstrhuishui_5", sp_5.getSelectedItem().toString());//四定位
+//            mu.postKeyValue("fixstrfrank_5", sp_5.getSelectedItem().toString());//四定位
+//            mu.postKeyValue("fixstrhuishui_6", sp_7.getSelectedItem().toString());//二字現
+//            mu.postKeyValue("fixstrfrank_6", sp_7.getSelectedItem().toString());//二字現
+//            mu.postKeyValue("fixstrhuishui_7", sp_9.getSelectedItem().toString());//三字現
+//            mu.postKeyValue("fixstrfrank_7", sp_9.getSelectedItem().toString());//三字現
+//            mu.postKeyValue("fixstrhuishui_107", sp_11.getSelectedItem().toString());//四字現
+//            mu.postKeyValue("fixstrfrank_107", sp_11.getSelectedItem().toString());//四字現
+
+            mu.postKeyValue("fixstrhuishui_1", "0");//二定位
+            mu.postKeyValue("fixstrfrank_1", "0");
+            mu.postKeyValue("fixstrhuishui_102", "0");
+            mu.postKeyValue("fixstrfrank_102", "0");
+            mu.postKeyValue("fixstrhuishui_101", "0");
+            mu.postKeyValue("fixstrfrank_101", "0");
+            mu.postKeyValue("fixstrhuishui_100", "0");
+            mu.postKeyValue("fixstrfrank_100", "0");
+            mu.postKeyValue("fixstrhuishui_99", "0");
+            mu.postKeyValue("fixstrfrank_99", "0");
+            mu.postKeyValue("fixstrhuishui_98", "0");
+            mu.postKeyValue("fixstrfrank_98", "0");
+            mu.postKeyValue("fixstrhuishui_97", "0");
+            mu.postKeyValue("fixstrfrank_97", "0");
+
+            mu.postKeyValue("fixstrhuishui_4", "0");//三定位
+            mu.postKeyValue("fixstrfrank_4", "0");
+            mu.postKeyValue("fixstrhuishui_106", "0");
+            mu.postKeyValue("fixstrfrank_106", "0");
+            mu.postKeyValue("fixstrhuishui_105", "0");
+            mu.postKeyValue("fixstrfrank_105", "0");
+            mu.postKeyValue("fixstrhuishui_104", "0");
+            mu.postKeyValue("fixstrfrank_104", "0");
+            mu.postKeyValue("fixstrhuishui_103", "0");
+            mu.postKeyValue("fixstrfrank_103", "0");
+
+            mu.postKeyValue("fixstrhuishui_5", "0");//四定位
+            mu.postKeyValue("fixstrfrank_5", "0");//四定位
+            mu.postKeyValue("fixstrhuishui_6", "0");//二字現
+            mu.postKeyValue("fixstrfrank_6", "0");//二字現
+            mu.postKeyValue("fixstrhuishui_7", "0");//三字現
+            mu.postKeyValue("fixstrfrank_7", "0");//三字現
+            mu.postKeyValue("fixstrhuishui_107", "0");//四字現
+            mu.postKeyValue("fixstrfrank_107", "0");//四字現
+
 //            List<String> ret = mu.getHtml();
 //            for (String line : ret) {
 //                Log(line);
@@ -334,6 +427,19 @@ public class MemberActivity extends AppCompatActivity {
                     sp_11.setAdapter(adapter11);
                     adapter12 = new ArrayAdapter<String>(MemberActivity.this, android.R.layout.simple_spinner_item, al12);
                     sp_12.setAdapter(adapter12);
+
+                    sp_1.setSelection(i1);
+                    sp_2.setSelection(i1);
+                    sp_3.setSelection(i2);
+                    sp_4.setSelection(i2);
+                    sp_5.setSelection(i3);
+                    sp_6.setSelection(i3);
+                    sp_7.setSelection(i4);
+                    sp_8.setSelection(i4);
+                    sp_9.setSelection(i5);
+                    sp_10.setSelection(i5);
+                    sp_11.setSelection(i6);
+                    sp_12.setSelection(i6);
 
                     sp_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override

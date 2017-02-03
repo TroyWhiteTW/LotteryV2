@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="text"
-                android:text="mb.sm2.xyz" />
+                android:text="m.139jrd.me" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="text"
-                android:text="luby8" />
+                android:text="luby7" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="textPassword"
-                android:text="aa1111" />
+                android:text="111111" />
 
             <TextView
                 android:layout_width="match_parent"

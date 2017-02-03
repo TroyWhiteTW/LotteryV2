@@ -170,7 +170,7 @@
 
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:orientation="horizontal">
 
                     <RadioButton
@@ -190,13 +190,6 @@
                         android:text="转换" />
 
                 </RadioGroup>
-
-                <Button
-                    android:id="@+id/btn_commit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:text="提交调整录码模式" />
 
             </LinearLayout>
 
@@ -502,13 +495,22 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:text="提交調整回水及賠率" />
-
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <Button
+                android:id="@+id/btn_commit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:text="提交" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
         </LinearLayout>
 
