@@ -87,12 +87,24 @@ public class LogInActivity extends AppCompatActivity {
 //                Log.i("troy", line);
 //            }
             String serverID = mu.getCookie().split("; ")[0];
-            Log(serverID);
+//            Log(serverID);
             JSONObject jo = mu.getJSONObjectData();
-            Log(jo.getString("status"));
+//            Log(jo.getString("status"));
             if (jo.getInt("status") == 200) {
-                Log(jo.getString("PHPSESSID"));
+//                Log(jo.getString("PHPSESSID"));
                 cookie = "PHPSESSID=" + jo.getString("PHPSESSID") + "; " + serverID + "; path=/";
+//                int apkCode = jo.getInt("apkCode");
+//                int versionCode = 1;
+//                if (apkCode > versionCode) {
+//                    upDateDialog();
+//                } else {
+//                    Toast("成功登录");
+//                    Intent it = new Intent(LogInActivity.this, MainActivity.class);
+//                    it.putExtra("cookie", cookie);
+//                    it.putExtra("webside", et_webside.getText().toString());
+//                    startActivity(it);
+//                    finish();
+//                }
                 Toast("成功登录");
                 Intent it = new Intent(LogInActivity.this, MainActivity.class);
                 it.putExtra("cookie", cookie);
@@ -108,6 +120,28 @@ public class LogInActivity extends AppCompatActivity {
         } catch (JSONException e) {
             Log("JSONException：" + e.toString());
         }
+    }
+
+    public void upDateDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);//創建訊息方塊
+        builder.setMessage("请至下载页下载新版本");
+        builder.setTitle("请更新版本");
+        builder.setPositiveButton("前往更新", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //intent瀏覽器
+                dialogInterface.dismiss();//dismiss為關閉dialog,Activity還會保留dialog的狀態
+                LogInActivity.this.finish();//關閉activity
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                finish();
+            }
+        });
+        builder.create().show();
     }
 
     public void Toast(String s) {
