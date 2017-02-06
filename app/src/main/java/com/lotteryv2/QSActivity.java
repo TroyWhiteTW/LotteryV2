@@ -35,6 +35,7 @@ import java.util.Map;
 public class QSActivity extends AppCompatActivity {
     private Button btn_List, btn_QG, btn_QS, btn_Member, btn_History;
     private Button btn_qsr, btn_reset;
+    private Button btn_erDing;
     private CheckBox cb_1, cb_2, cb_3, cb_4, cb_5, cb_6, cb_7, cb_8, cb_9, cb_10,
             cb_11, cb_12, cb_13, cb_14, cb_15, cb_16, cb_17, cb_18, cb_19, cb_20,
             cb_21, cb_22, cb_23, cb_24, cb_25, cb_26, cb_27, cb_28, cb_29, cb_30,
@@ -88,6 +89,7 @@ public class QSActivity extends AppCompatActivity {
         btn_History = (Button) findViewById(R.id.btn_qsHistory);
         btn_qsr = (Button) findViewById(R.id.btn_qsr);
         btn_reset = (Button) findViewById(R.id.btn_reset);
+        btn_erDing = (Button) findViewById(R.id.btn_erDing);
         cb_1 = (CheckBox) findViewById(R.id.cb_1);
         cb_2 = (CheckBox) findViewById(R.id.cb_2);
         cb_3 = (CheckBox) findViewById(R.id.cb_3);
@@ -296,6 +298,7 @@ public class QSActivity extends AppCompatActivity {
 
         btnClick();
         rbClick();
+        btn_erDing.performClick();
     }
 
     public void btnClick() {
@@ -2042,6 +2045,7 @@ public class QSActivity extends AppCompatActivity {
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
         et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+        rb_2.performClick();
     }
 
     public void btn_sanDing(View view) {
@@ -2078,6 +2082,7 @@ public class QSActivity extends AppCompatActivity {
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
         et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
+        rb_2.performClick();
     }
 
     public void btn_siDing(View view) {
@@ -2114,6 +2119,7 @@ public class QSActivity extends AppCompatActivity {
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
         et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
+        rb_2.performClick();
     }
 
     public void btn_erXian(View view) {
@@ -2150,6 +2156,7 @@ public class QSActivity extends AppCompatActivity {
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.GONE);
         et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(0)});
+        rb_6.performClick();
     }
 
     public void btn_sanXian(View view) {
@@ -2186,6 +2193,7 @@ public class QSActivity extends AppCompatActivity {
         rg_24.setVisibility(View.VISIBLE);
         rg_25.setVisibility(View.GONE);
         et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(0)});
+        rb_6.performClick();
     }
 
     public void btn_siXian(View view) {
@@ -2222,6 +2230,7 @@ public class QSActivity extends AppCompatActivity {
         rg_24.setVisibility(View.GONE);
         rg_25.setVisibility(View.VISIBLE);
         et_23.setFilters(new InputFilter[]{new InputFilter.LengthFilter(0)});
+        rb_6.performClick();
     }
 
     public void resetRg1And2() {
