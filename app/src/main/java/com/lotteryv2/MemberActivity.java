@@ -284,80 +284,41 @@ public class MemberActivity extends AppCompatActivity {
                 mu.postKeyValue("isfpfrankhotzhuan", "1");
             }
             mu.postKeyValue("sendmode", String.valueOf(left_show));
-
-            mu.postKeyValue("formhash", "09ac9c04");
-            mu.postKeyValue("editsubmit", "提交");
             //--回水賠率--
-//            mu.postKeyValue("fixstrhuishui_1", sp_1.getSelectedItem().toString());//二定位
-//            mu.postKeyValue("fixstrfrank_1", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_102", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_102", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_101", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_101", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_100", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_100", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_99", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_99", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_98", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_98", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_97", sp_1.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_97", sp_1.getSelectedItem().toString());
-//
-//            mu.postKeyValue("fixstrhuishui_4", sp_3.getSelectedItem().toString());//三定位
-//            mu.postKeyValue("fixstrfrank_4", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_106", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_106", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_105", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_105", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_104", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_104", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrhuishui_103", sp_3.getSelectedItem().toString());
-//            mu.postKeyValue("fixstrfrank_103", sp_3.getSelectedItem().toString());
-//
-//            mu.postKeyValue("fixstrhuishui_5", sp_5.getSelectedItem().toString());//四定位
-//            mu.postKeyValue("fixstrfrank_5", sp_5.getSelectedItem().toString());//四定位
-//            mu.postKeyValue("fixstrhuishui_6", sp_7.getSelectedItem().toString());//二字現
-//            mu.postKeyValue("fixstrfrank_6", sp_7.getSelectedItem().toString());//二字現
-//            mu.postKeyValue("fixstrhuishui_7", sp_9.getSelectedItem().toString());//三字現
-//            mu.postKeyValue("fixstrfrank_7", sp_9.getSelectedItem().toString());//三字現
-//            mu.postKeyValue("fixstrhuishui_107", sp_11.getSelectedItem().toString());//四字現
-//            mu.postKeyValue("fixstrfrank_107", sp_11.getSelectedItem().toString());//四字現
+            mu.postKeyValue("fixstrhuishui_1", sp_1.getSelectedItem().toString());//二定位
+            mu.postKeyValue("fixstrfrank_1", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_102", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_102", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_101", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_101", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_100", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_100", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_99", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_99", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_98", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_98", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_97", sp_1.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_97", sp_1.getSelectedItem().toString());
 
-            mu.postKeyValue("fixstrhuishui_1", "0");//二定位
-            mu.postKeyValue("fixstrfrank_1", "0");
-            mu.postKeyValue("fixstrhuishui_102", "0");
-            mu.postKeyValue("fixstrfrank_102", "0");
-            mu.postKeyValue("fixstrhuishui_101", "0");
-            mu.postKeyValue("fixstrfrank_101", "0");
-            mu.postKeyValue("fixstrhuishui_100", "0");
-            mu.postKeyValue("fixstrfrank_100", "0");
-            mu.postKeyValue("fixstrhuishui_99", "0");
-            mu.postKeyValue("fixstrfrank_99", "0");
-            mu.postKeyValue("fixstrhuishui_98", "0");
-            mu.postKeyValue("fixstrfrank_98", "0");
-            mu.postKeyValue("fixstrhuishui_97", "0");
-            mu.postKeyValue("fixstrfrank_97", "0");
+            mu.postKeyValue("fixstrhuishui_4", sp_3.getSelectedItem().toString());//三定位
+            mu.postKeyValue("fixstrfrank_4", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_106", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_106", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_105", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_105", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_104", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_104", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrhuishui_103", sp_3.getSelectedItem().toString());
+            mu.postKeyValue("fixstrfrank_103", sp_3.getSelectedItem().toString());
 
-            mu.postKeyValue("fixstrhuishui_4", "0");//三定位
-            mu.postKeyValue("fixstrfrank_4", "0");
-            mu.postKeyValue("fixstrhuishui_106", "0");
-            mu.postKeyValue("fixstrfrank_106", "0");
-            mu.postKeyValue("fixstrhuishui_105", "0");
-            mu.postKeyValue("fixstrfrank_105", "0");
-            mu.postKeyValue("fixstrhuishui_104", "0");
-            mu.postKeyValue("fixstrfrank_104", "0");
-            mu.postKeyValue("fixstrhuishui_103", "0");
-            mu.postKeyValue("fixstrfrank_103", "0");
-
-            mu.postKeyValue("fixstrhuishui_5", "0");//四定位
-            mu.postKeyValue("fixstrfrank_5", "0");//四定位
-            mu.postKeyValue("fixstrhuishui_6", "0");//二字現
-            mu.postKeyValue("fixstrfrank_6", "0");//二字現
-            mu.postKeyValue("fixstrhuishui_7", "0");//三字現
-            mu.postKeyValue("fixstrfrank_7", "0");//三字現
-            mu.postKeyValue("fixstrhuishui_107", "0");//四字現
-            mu.postKeyValue("fixstrfrank_107", "0");//四字現
-
+            mu.postKeyValue("fixstrhuishui_5", sp_5.getSelectedItem().toString());//四定位
+            mu.postKeyValue("fixstrfrank_5", sp_5.getSelectedItem().toString());//四定位
+            mu.postKeyValue("fixstrhuishui_6", sp_7.getSelectedItem().toString());//二字現
+            mu.postKeyValue("fixstrfrank_6", sp_7.getSelectedItem().toString());//二字現
+            mu.postKeyValue("fixstrhuishui_7", sp_9.getSelectedItem().toString());//三字現
+            mu.postKeyValue("fixstrfrank_7", sp_9.getSelectedItem().toString());//三字現
+            mu.postKeyValue("fixstrhuishui_107", sp_11.getSelectedItem().toString());//四字現
+            mu.postKeyValue("fixstrfrank_107", sp_11.getSelectedItem().toString());//四字現
 //            List<String> ret = mu.getHtml();
 //            for (String line : ret) {
 //                Log(line);
