@@ -87,30 +87,21 @@ public class LogInActivity extends AppCompatActivity {
 //                Log.i("troy", line);
 //            }
             String serverID = mu.getCookie().split("; ")[0];
-//            Log(serverID);
             JSONObject jo = mu.getJSONObjectData();
-//            Log(jo.getString("status"));
             if (jo.getInt("status") == 200) {
-//                Log(jo.getString("PHPSESSID"));
                 cookie = "PHPSESSID=" + jo.getString("PHPSESSID") + "; " + serverID + "; path=/";
-//                int apkCode = jo.getInt("apkCode");
-//                int versionCode = 1;
-//                if (apkCode > versionCode) {
-//                    upDateDialog();
-//                } else {
-//                    Toast("成功登录");
-//                    Intent it = new Intent(LogInActivity.this, MainActivity.class);
-//                    it.putExtra("cookie", cookie);
-//                    it.putExtra("webside", et_webside.getText().toString());
-//                    startActivity(it);
-//                    finish();
-//                }
-                Toast("成功登录");
-                Intent it = new Intent(LogInActivity.this, MainActivity.class);
-                it.putExtra("cookie", cookie);
-                it.putExtra("webside", et_webside.getText().toString());
-                startActivity(it);
-                finish();
+                int apkCode = jo.getInt("apkCode");
+                int versionCode = 1;
+                if (apkCode > versionCode) {
+                    upDateDialog();
+                } else {
+                    Toast("成功登录");
+                    Intent it = new Intent(LogInActivity.this, MainActivity.class);
+                    it.putExtra("cookie", cookie);
+                    it.putExtra("webside", et_webside.getText().toString());
+                    startActivity(it);
+                    finish();
+                }
             } else {
                 Toast("账号和密码不匹配，请重新登录。");
             }
@@ -129,16 +120,9 @@ public class LogInActivity extends AppCompatActivity {
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //intent瀏覽器
+                //intent瀏覽器??
                 dialogInterface.dismiss();//dismiss為關閉dialog,Activity還會保留dialog的狀態
                 LogInActivity.this.finish();//關閉activity
-            }
-        });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-                finish();
             }
         });
         builder.create().show();
