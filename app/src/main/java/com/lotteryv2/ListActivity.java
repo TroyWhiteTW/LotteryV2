@@ -295,10 +295,8 @@ public class ListActivity extends AppCompatActivity {
         if (i % 2 == 0) {
             ll.setBackgroundColor(Color.parseColor("#d1d0d0"));
         }
-
         TextView tv0 = new TextView(ListActivity.this);
         tv0.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT));
-
         TextView tv1 = new TextView(ListActivity.this);
         tv1.setText(number);
         tv1.setTextSize(20);
@@ -335,10 +333,8 @@ public class ListActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     if (((CheckBox) view).isChecked()) {
                         cancelList.add(id);
-                        Log(cancelList.toString());
                     } else {
                         cancelList.remove(id);
-                        Log(cancelList.toString());
                     }
                 }
             });
@@ -346,7 +342,7 @@ public class ListActivity extends AppCompatActivity {
             ll.addView(tv4);
         } else {
             TextView tv4 = new TextView(ListActivity.this);
-            switch (stattuima){
+            switch (stattuima) {
                 case 0:
                     tv4.setText("成功");
                     break;

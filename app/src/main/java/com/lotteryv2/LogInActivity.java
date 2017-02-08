@@ -124,9 +124,9 @@ public class LogInActivity extends AppCompatActivity {
 
     public void upDateDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);//創建訊息方塊
-        builder.setMessage("请至下载页下载新版本");
+        builder.setMessage("请至网站下载最新版本apk档案并重新安装");
         builder.setTitle("请更新版本");
-        builder.setPositiveButton("前往更新", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //intent瀏覽器
