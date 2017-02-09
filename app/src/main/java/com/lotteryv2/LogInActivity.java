@@ -115,14 +115,26 @@ public class LogInActivity extends AppCompatActivity {
 
     public void upDateDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);//創建訊息方塊
-        builder.setMessage("请至网站下载最新版本apk档案并重新安装");
+        builder.setMessage("请至网站下载最新版本apk档案并重新安装，如不重新安装最新版本可能会造成系统或是其他错误！");
         builder.setTitle("请更新版本");
-        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("关闭程式", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //intent瀏覽器??
                 dialogInterface.dismiss();//dismiss為關閉dialog,Activity還會保留dialog的狀態
                 LogInActivity.this.finish();//關閉activity
+            }
+        });
+        builder.setNegativeButton("稍后更新", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                Toast("成功登录");
+                Intent it = new Intent(LogInActivity.this, MainActivity.class);
+                it.putExtra("cookie", cookie);
+                it.putExtra("webside", et_webside.getText().toString());
+                startActivity(it);
+                finish();
             }
         });
         builder.create().show();

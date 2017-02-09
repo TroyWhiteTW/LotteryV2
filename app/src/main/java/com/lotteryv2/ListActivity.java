@@ -145,7 +145,9 @@ public class ListActivity extends AppCompatActivity {
                 it.putExtra("totalPage", totalPage);
                 it.putExtra("s_issueno", String.valueOf(s_issueno));
                 it.putExtra("winList", true);
+                it.putExtra("whatActivity", 0);
                 startActivity(it);
+                finish();
             }
         });
         btn_moreData.setOnClickListener(new View.OnClickListener() {
@@ -157,7 +159,9 @@ public class ListActivity extends AppCompatActivity {
                 it.putExtra("totalPage", totalPage);
                 it.putExtra("s_issueno", String.valueOf(s_issueno));
                 it.putExtra("winList", false);
+                it.putExtra("whatActivity", 0);
                 startActivity(it);
+                finish();
             }
         });
     }

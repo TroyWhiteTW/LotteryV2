@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,6 +28,7 @@ public class MoreListActivity extends AppCompatActivity {
     private Button btn_loadNextPage, btn_orderCancel;
     private int totalPage;
     private int whatpage = 1;
+    private int whatActivity;
     private LinearLayout ll_moreList;
     private pDialog pDialog;
     private String cookie, app_net, webside, s_issueno;
@@ -44,6 +46,8 @@ public class MoreListActivity extends AppCompatActivity {
         webside = it.getStringExtra("webside");
         s_issueno = it.getStringExtra("s_issueno");
         winList = it.getBooleanExtra("winList", false);
+        winList = it.getBooleanExtra("winList", false);
+        whatActivity = it.getIntExtra("whatActivity", 0);
 
         initial();
         connectThread(0);
@@ -304,5 +308,29 @@ public class MoreListActivity extends AppCompatActivity {
 
     public void Log(String s) {
         Log.i("troy", s);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        確定按下退出鍵and防止重複按下退出鍵
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            switch (whatActivity) {
+                case 0:
+                    Intent it0 = new Intent(MoreListActivity.this, ListActivity.class);
+                    it0.putExtra("cookie", cookie);
+                    it0.putExtra("webside", webside);
+                    startActivity(it0);
+                    finish();
+                    break;
+                case 1:
+                    Intent it1 = new Intent(MoreListActivity.this, HistoryActivity.class);
+                    it1.putExtra("cookie", cookie);
+                    it1.putExtra("webside", webside);
+                    startActivity(it1);
+                    finish();
+                    break;
+            }
+        }
+        return false;
     }
 }

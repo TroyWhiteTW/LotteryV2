@@ -285,7 +285,9 @@ public class HistoryActivity extends AppCompatActivity {
             it.putExtra("totalPage", totalPage);
             it.putExtra("s_issueno", s);
             it.putExtra("winList", false);
+            it.putExtra("whatActivity", 1);
             startActivity(it);
+            finish();
         } catch (Exception e) {
             Toast("无法与伺服器取得连线");
             Log(e.toString());
