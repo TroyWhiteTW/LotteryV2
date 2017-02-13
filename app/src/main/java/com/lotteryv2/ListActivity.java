@@ -215,6 +215,7 @@ public class ListActivity extends AppCompatActivity {
                     int cancel_able = rec.getInt("cancel_able");
                     int stattuima = rec.getInt("stattuima");
                     String id = rec.getString("id");
+                    String mem_war = rec.getString("mem_war");
 
                     Message msg = new Message();
                     Bundle b = new Bundle();
@@ -225,6 +226,7 @@ public class ListActivity extends AppCompatActivity {
                     b.putInt("stattuima", stattuima);
                     b.putInt("i", i);
                     b.putString("id", id);
+                    b.putString("mem_war", mem_war);
                     msg.setData(b);
                     handler.sendMessage(msg);
                 }
@@ -277,7 +279,8 @@ public class ListActivity extends AppCompatActivity {
                     int stattuima = msg.getData().getInt("stattuima");
                     int i = msg.getData().getInt("i");
                     String id = msg.getData().getString("id");
-                    list(number, money, frank, i, cancel_able, stattuima, id);
+                    String mem_war = msg.getData().getString("mem_war");
+                    list(number, money, frank, i, cancel_able, stattuima, id, mem_war);
                     break;
                 case 1:
                     if (pDialog.isShowing()) pDialog.dismiss();
@@ -292,7 +295,7 @@ public class ListActivity extends AppCompatActivity {
         return (int) ((i * getBaseContext().getResources().getDisplayMetrics().density) + 0.5);
     }
 
-    public void list(String number, String money, String frank, int i, int cancel_able, int stattuima, final String id) {
+    public void list(String number, String money, String frank, int i, int cancel_able, int stattuima, final String id, String mem_war) {
         LinearLayout ll = new LinearLayout(ListActivity.this);
         ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(50)));
         ll.setOrientation(LinearLayout.HORIZONTAL);
@@ -319,6 +322,12 @@ public class ListActivity extends AppCompatActivity {
         tv3.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
         tv3.setGravity(Gravity.CENTER);
         tv3.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));
+        TextView tv6 = new TextView(ListActivity.this);
+        tv6.setText(mem_war);
+        tv6.setTextSize(20);
+        tv6.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        tv6.setGravity(Gravity.CENTER);
+        tv6.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));
 
         TextView tv5 = new TextView(ListActivity.this);
         tv5.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(10), LinearLayout.LayoutParams.MATCH_PARENT));
@@ -327,6 +336,7 @@ public class ListActivity extends AppCompatActivity {
         ll.addView(tv1);
         ll.addView(tv2);
         ll.addView(tv3);
+        ll.addView(tv6);
         if (cancel_able == 1) {
             CheckBox tv4 = new CheckBox(ListActivity.this);
             int cbID = Integer.parseInt(id);

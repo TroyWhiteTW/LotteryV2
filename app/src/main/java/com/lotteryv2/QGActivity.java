@@ -10,6 +10,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -355,6 +356,7 @@ public class QGActivity extends AppCompatActivity {
             String money = rec.getString("money");
             String frank = rec.getString("frank");
             int stattuima = rec.getInt("stattuima");
+            String mem_war = rec.getString("mem_war");
 
             Message msg_2 = new Message();
             msg_2.what = 2;
@@ -363,6 +365,7 @@ public class QGActivity extends AppCompatActivity {
             b_2.putString("money", money);
             b_2.putString("frank", frank);
             b_2.putInt("stattuima", stattuima);
+            b_2.putString("mem_war", mem_war);
             msg_2.setData(b_2);
             handler.sendMessage(msg_2);
         } catch (IOException e) {
@@ -419,6 +422,7 @@ public class QGActivity extends AppCompatActivity {
                 String number = rec.getString("number");
                 String money = rec.getString("money");
                 String frank = rec.getString("frank");
+                String mem_war = rec.getString("mem_war");
 
                 Message msg_2 = new Message();
                 msg_2.what = 2;
@@ -426,6 +430,7 @@ public class QGActivity extends AppCompatActivity {
                 b_2.putString("number", number);
                 b_2.putString("money", money);
                 b_2.putString("frank", frank);
+                b_2.putString("mem_war", mem_war);
                 msg_2.setData(b_2);
                 handler.sendMessage(msg_2);
                 Toast("下注成功");
@@ -521,7 +526,8 @@ public class QGActivity extends AppCompatActivity {
                     String money = msg.getData().getString("money");
                     String frank = msg.getData().getString("frank");
                     int stattuima = msg.getData().getInt("stattuima");
-                    list(number, money, frank, stattuima);
+                    String mem_war = msg.getData().getString("mem_war");
+                    list(number, money, frank, stattuima, mem_war);
                     break;
                 case 3:
                     tv_fail.setText(sb_fail.toString());
@@ -540,7 +546,7 @@ public class QGActivity extends AppCompatActivity {
         }
     }
 
-    public void list(String number, String money, String frank, int stattuima) {
+    public void list(String number, String money, String frank, int stattuima, String mem_war) {
         LinearLayout ll = new LinearLayout(QGActivity.this);
         ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         ll.setOrientation(LinearLayout.HORIZONTAL);
@@ -557,23 +563,33 @@ public class QGActivity extends AppCompatActivity {
         tv1.setText(number);
         tv1.setTextSize(20);
         tv1.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        tv1.setGravity(Gravity.CENTER);
         tv1.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));
         TextView tv2 = new TextView(QGActivity.this);
         tv2.setText(money);
         tv2.setTextSize(20);
         tv2.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        tv2.setGravity(Gravity.CENTER);
         tv2.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));
         TextView tv3 = new TextView(QGActivity.this);
         tv3.setText(frank);
         tv3.setTextSize(20);
         tv3.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        tv3.setGravity(Gravity.CENTER);
         tv3.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));
+        TextView tv6 = new TextView(QGActivity.this);
+        tv6.setText(mem_war);
+        tv6.setTextSize(20);
+        tv6.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        tv6.setGravity(Gravity.CENTER);
+        tv6.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1));
         TextView tv4 = new TextView(QGActivity.this);
         tv4.setLayoutParams(new LinearLayout.LayoutParams(50, LinearLayout.LayoutParams.MATCH_PARENT));
         ll.addView(tv0);
         ll.addView(tv1);
         ll.addView(tv2);
         ll.addView(tv3);
+        ll.addView(tv6);
         ll.addView(tv4);
         ll_recentOrder.addView(ll);
     }
