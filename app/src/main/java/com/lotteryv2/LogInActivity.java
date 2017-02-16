@@ -3,6 +3,7 @@ package com.lotteryv2;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class LogInActivity extends AppCompatActivity {
     private CheckBox cb_agree;
     private EditText et_webside, et_act, et_pw;
     private String cookie, app_net;
+    private String downloadUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +93,8 @@ public class LogInActivity extends AppCompatActivity {
             if (jo.getInt("status") == 200) {
                 cookie = "PHPSESSID=" + jo.getString("PHPSESSID") + "; " + serverID + "; path=/";
                 int apkCode = jo.getInt("apkCode");
-                int versionCode = 1;
+                int versionCode = 2;//版本號
+                downloadUrl = jo.getString("apkUrl");
                 if (apkCode > versionCode) {
                     upDateDialog();
                 } else {
@@ -117,12 +120,14 @@ public class LogInActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);//創建訊息方塊
         builder.setMessage("请至网站下载最新版本apk档案并重新安装，如不重新安装最新版本可能会造成系统或是其他错误！");
         builder.setTitle("请更新版本");
-        builder.setPositiveButton("关闭程式", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("下载更新", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //intent瀏覽器??
                 dialogInterface.dismiss();//dismiss為關閉dialog,Activity還會保留dialog的狀態
-                LogInActivity.this.finish();//關閉activity
+                Uri uri = Uri.parse(downloadUrl);
+                Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(it);
+                finish();//關閉activity
             }
         });
         builder.setNegativeButton("稍后更新", new DialogInterface.OnClickListener() {
