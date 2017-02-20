@@ -93,7 +93,7 @@ public class LogInActivity extends AppCompatActivity {
             if (jo.getInt("status") == 200) {
                 cookie = "PHPSESSID=" + jo.getString("PHPSESSID") + "; " + serverID + "; path=/";
                 int apkCode = jo.getInt("apkCode");
-                int versionCode = 2;//版本號
+                int versionCode = getResources().getInteger(R.integer.versionCode);//版本號
                 downloadUrl = jo.getString("apkUrl");
                 if (apkCode > versionCode) {
                     upDateDialog();
